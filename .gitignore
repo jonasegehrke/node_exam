@@ -3,5 +3,6 @@
 /public/build/
 
 /server/.env
+/server/prettyintra.db
 
 .DS_Store

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "createDb": "node ./database/createConnection.js"
+    "createdb": "node ./database/createSchemas.js"
   },
   "type": "module",
   "dependencies": {
