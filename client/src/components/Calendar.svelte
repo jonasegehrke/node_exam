@@ -3,7 +3,7 @@
     import moment from 'moment';
 
     
-
+    //change weekdays depending on week
     const week = {
         monday: moment().startOf('week').add('days', 1).format('YYYY-MM-DD'),
         tuesday: moment().startOf('week').add('days', 2).format('YYYY-MM-DD'),
@@ -11,7 +11,7 @@
         thursday: moment().startOf('week').add('days', 4).format('YYYY-MM-DD'),
         friday: moment().startOf('week').add('days', 5).format('YYYY-MM-DD'),
     }
-
+    
 
     
     console.log(week)
