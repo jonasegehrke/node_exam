@@ -6,12 +6,12 @@
     const response = await fetch("http://localhost:3000/api/students/");
     const data = await response.json();
 
+    console.log(data)
     students.set(data.data);
   }
 
   getAllStudents();
 
-  console.log($students)
 </script>
 <div class="container">
     {#each $students as student}
@@ -30,5 +30,10 @@
 </div>
 
 <style>
-
+.container{
+    overflow: overlay;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 </style>

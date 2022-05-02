@@ -6,15 +6,10 @@ const router = Router();
 
 async function comparePasswords(req, res, next){
 
-    const { password } = req.body;
     const { username } = req.body;
-
-    console.log("password: ", password);
-    console.log("username: ", username);
 
     const user = await db.get("SELECT * FROM student_user WHERE username = ?", username);
 
-    console.log(user)
 
     //check if any user is found
     if(user === undefined){

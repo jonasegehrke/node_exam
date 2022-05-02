@@ -6,9 +6,6 @@
   import moment from "moment";
   import { toasts } from "svelte-toasts";
 
-  console.log($isLoggedIn);
-  console.log($userId);
-
   //Get student data
   async function getStudentData() {
     const response = await fetch(
@@ -30,13 +27,10 @@
   onMount(() => {
     getStudentData();
     getPosts();
-    console.log($studentData);
-    console.log($posts);
   });
 
-  function handleFormOpen(){
-      const form = document.getElementById("create-post");
-      console.log(form)
+  function handleFormOpen() {
+    const form = document.getElementById("create-post");
 
     form.classList.toggle("hidden");
     form.classList.toggle("show");
@@ -49,7 +43,7 @@
     const studentName = $studentData.firstName + " " + $studentData.lastName;
     const classId = $studentData.classId;
 
-    if(title.value === "" || content.value === "") {
+    if (title.value === "" || content.value === "") {
       toasts.error("Udfyld venligst både titel og indhold");
       return;
     }
@@ -62,33 +56,32 @@
       classId: classId,
     };
 
-    
-    try{
-        await fetch("http://localhost:3000/api/posts", {
-            method: "POST",
-            body: JSON.stringify(post),
-            headers: { "Content-type": "application/json; charset=UTF-8" },
-        }).then((response) => response.json()).then((responseText) =>{
-            if(responseText.success){
-                toasts.success("Dit opslag er nu oprettet");
-                getPosts();
+    try {
+      await fetch("http://localhost:3000/api/posts", {
+        method: "POST",
+        body: JSON.stringify(post),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      })
+        .then((response) => response.json())
+        .then((responseText) => {
+          if (responseText.success) {
+            toasts.success("Dit opslag er nu oprettet");
+            getPosts();
 
-                title.value = "";
-                content.value = "";
-            }
-            else{
-                toasts.error("Der skete en fejl");
-            }
+            title.value = "";
+            content.value = "";
+          } else {
+            toasts.error("Der skete en fejl");
+          }
         });
-    }catch (e) {
-        toasts.error("Der skete en fejl");
+    } catch (e) {
+      toasts.error("Der skete en fejl");
     }
   }
 </script>
 
 <div class="container">
   <div class="posts">
-
     <button on:click={handleFormOpen} id="open-form-btn">Opret opslag</button>
     <div id="create-post" class="hidden">
       <input id="title-input" type="text" placeholder="Titel" />
@@ -126,6 +119,7 @@
       historie={$studentData.historie}
       matematik={$studentData.matematik}
       geografi={$studentData.geografi}
+      small={false}
     />
   </div>
 </div>
@@ -147,7 +141,6 @@
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     font-family: var(--primary-font);
     margin: 25px 0;
-    
   }
 
   #title-input {
@@ -178,11 +171,11 @@
     margin: 0.5rem;
   }
 
-  #create-post.hidden{
-      height: 0px;
-      margin: 0px;
-      padding: 0px;
-      visibility: hidden;
+  #create-post.hidden {
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+    visibility: hidden;
   }
 
   :global(#create-post.show) {
