@@ -1,11 +1,17 @@
 <script>
-  import { isLoggedIn, userId, studentData, posts } from "../../store/store";
+  import { userId, studentData, posts } from "../../store/store";
   import Post from "../../components/Post.svelte";
   import StudentCard from "../../components/StudentCard.svelte";
   import { onMount } from "svelte";
   import moment from "moment";
   import { toasts } from "svelte-toasts";
 
+  let mounted = false
+  onMount(async () => {
+    await getStudentData()
+    await getPosts()
+    mounted = true
+  });
   //Get student data
   async function getStudentData() {
     const response = await fetch(
@@ -23,11 +29,6 @@
     const data = await response.json();
     posts.set(data.data);
   }
-
-  onMount(() => {
-    getStudentData();
-    getPosts();
-  });
 
   function handleFormOpen() {
     const form = document.getElementById("create-post");
@@ -78,8 +79,10 @@
       toasts.error("Der skete en fejl");
     }
   }
+
 </script>
 
+{#if mounted}
 <div class="container">
   <div class="posts">
     <button on:click={handleFormOpen} id="open-form-btn">Opret opslag</button>
@@ -95,6 +98,7 @@
 
       <button on:click={handleSendPost} id="send-post-btn">Slå op</button>
     </div>
+    
     {#each $posts as post}
       <Post
         title={post.title}
@@ -121,9 +125,10 @@
       geografi={$studentData.geografi}
       small={false}
     />
+ 
   </div>
 </div>
-
+ {/if}
 <style>
   .container {
     overflow: overlay;
@@ -214,3 +219,5 @@
     cursor: pointer;
   }
 </style>
+
+

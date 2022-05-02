@@ -19,25 +19,17 @@ userId.subscribe((value) => {
 });
 
 
+
 const storedStudentData = localStorage.getItem("studentData");
-const setStudentData =
-  storedStudentData === null ? null : JSON.parse(storedStudentData);
-export const studentData = writable(setStudentData);
-studentData.subscribe((value) => {
-  localStorage.setItem("studentData", JSON.stringify(value));
-});
+const setStudentData = storedStudentData === null ? null : JSON.parse(storedStudentData); 
+  export const studentData = writable(setStudentData);
+   studentData.subscribe((value) => {
+    localStorage.setItem("studentData", JSON.stringify(value));
+  }); 
 
 
-const storedPosts = localStorage.getItem("posts");
-const setPosts = storedPosts === storedPosts ? JSON.parse(storedPosts) : [];
-export const posts = writable(setPosts);
-posts.subscribe((value) => {
-  localStorage.setItem("posts", JSON.stringify(value));
-});
+export const posts = writable([]);
 
-const storedStudents = localStorage.getItem("students");
-const setStudents = storedStudents === storedStudents ? JSON.parse(storedStudents) : [];
-export const students = writable(setStudents);
-students.subscribe((value) => {
-  localStorage.setItem("students", JSON.stringify(value));
-});
+
+
+export const students = writable([]);

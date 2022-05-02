@@ -1,5 +1,4 @@
 <script>
-  import { clickOutside } from "../components/clickOutside.js";
 
   export let firstName;
   export let lastName;

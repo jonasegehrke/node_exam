@@ -5,8 +5,6 @@
   async function getAllStudents() {
     const response = await fetch("http://localhost:3000/api/students/");
     const data = await response.json();
-
-    console.log(data)
     students.set(data.data);
   }
 

@@ -5,9 +5,11 @@
   import Login from "./pages/Login/Login.svelte";
   import Home from "./pages/Home/Home.svelte";
   import Students from "./pages/Students/Students.svelte";
+  import Absence from "./pages/Absence/Absence.svelte";
   import NavBar from './components/NavBar.svelte'
   import PrivateRoute from "./components/PrivateRoute.svelte";
   import Logout from "./components/Logout.svelte";
+import Schedule from "./pages/Schedule/Schedule.svelte";
 </script>
 
 <Router>
@@ -26,9 +28,18 @@
         <Students />
       </PrivateRoute>
 
+      <PrivateRoute path="/absence" let:location>
+        <Absence />
+      </PrivateRoute>
+
+      <PrivateRoute path="/schedule" let:location>
+        <Schedule />
+      </PrivateRoute>
+
       <Route path="/login">
         <Login />
       </Route>
+
       <Route path="/logout">
         <Logout />
       </Route>

@@ -15,7 +15,7 @@
       <Link to="/" class="svelte-link">Forside</Link>
     </li>
     <li class="nav-item">
-      <Link to="/logout" class="svelte-link">Skema</Link>
+      <Link to="/schedule" class="svelte-link">Skema</Link>
     </li>
     <li class="nav-item">
       <Link to="/logout" class="svelte-link">Karakterer</Link>
@@ -24,7 +24,7 @@
       <Link to="/students" class="svelte-link">Elever</Link>
     </li>
     <li class="nav-item">
-      <Link to="/logout" class="svelte-link">Fravær</Link>
+      <Link to="/absence" class="svelte-link">Fravær</Link>
     </li>
     <li class="nav-item">
       <Link to="/logout" class="svelte-link">Log ud</Link>
