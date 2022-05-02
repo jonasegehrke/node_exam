@@ -1,12 +1,13 @@
 <script>
-  import { Router, Route, Link } from "svelte-navigator";
-  import Login from "./pages/Login/Login.svelte";
-  import Home from "./pages/Home/Home.svelte";
-  import PrivateRoute from "./components/PrivateRoute.svelte";
-  import Logout from "./components/Logout.svelte";
+  import { Router, Route } from "svelte-navigator";
   import { ToastContainer, FlatToast } from "svelte-toasts";
   import { isLoggedIn } from "./store/store";
+  import Login from "./pages/Login/Login.svelte";
+  import Home from "./pages/Home/Home.svelte";
+  import Students from "./pages/Students/Students.svelte";
   import NavBar from './components/NavBar.svelte'
+  import PrivateRoute from "./components/PrivateRoute.svelte";
+  import Logout from "./components/Logout.svelte";
 </script>
 
 <Router>
@@ -19,6 +20,10 @@
     <div class="wrapper">
       <PrivateRoute path="/" let:location>
         <Home />
+      </PrivateRoute>
+
+      <PrivateRoute path="/students" let:location>
+        <Students />
       </PrivateRoute>
 
       <Route path="/login">

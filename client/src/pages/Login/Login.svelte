@@ -57,7 +57,7 @@
     </div>
 
     <div class="login-container">
-      <h2 class="form-heading">Login</h2>
+      <h2 class="form-heading">Log ind</h2>
       <input
         type="text"
         class="username"
@@ -66,7 +66,7 @@
         required
         on:keypress={onKeyPress}
       />
-
+      <!--Check if i can delete classnames on input-->
       <input
         type="password"
         class="password"
@@ -74,7 +74,7 @@
         placeholder="Adgangskode"
         on:keypress={onKeyPress}
       />
-      <button on:click={handleLogin} class="login-btn">Login</button>
+      <button on:click={handleLogin} class="login-btn">Log ind</button>
     </div>
   </div>
 </div>
@@ -158,7 +158,7 @@
   }
 
   .login-btn:hover {
-    background: var(--color-blue-main);
+    background: var(--color-blue-secondary);
     cursor: pointer;
   }
 </style>

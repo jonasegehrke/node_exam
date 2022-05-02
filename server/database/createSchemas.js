@@ -91,13 +91,13 @@ if (deleteMode) {
 
   //post
   db.run(
-    `INSERT INTO post(title, content, studentName, created, classId) VALUES ("lorem ipsum 3", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni tenetur voluptatem blanditiis architecto inventore vitae ab!", "Jonas Gehrke", "2022-12-30 12:50:00", 1);`
+    `INSERT INTO post(title, content, studentName, created, classId) VALUES ("lorem ipsum 2", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni tenetur voluptatem blanditiis architecto inventore vitae ab!", "Jonas Gehrke", "2022-05-01 12:50:00", 1);`
   );
   db.run(
-    `INSERT INTO post(title, content, studentName, created, classId) VALUES ("lorem ipsum 1", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni tenetur voluptatem blanditiis architecto inventore vitae ab!", "Jonas Gehrke", "2022-12-18 12:50:00", 1);`
+    `INSERT INTO post(title, content, studentName, created, classId) VALUES ("lorem ipsum 3", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni tenetur voluptatem blanditiis architecto inventore vitae ab!", "Jonas Gehrke", "2022-05-01 12:55:00", 1);`
   );
   db.run(
-    `INSERT INTO post(title, content, studentName, created, classId) VALUES ("lorem ipsum 2", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni tenetur voluptatem blanditiis architecto inventore vitae ab!", "Jonas Gehrke", "2022-12-30 12:40:00", 1);`
+    `INSERT INTO post(title, content, studentName, created, classId) VALUES ("lorem ipsum 1", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni tenetur voluptatem blanditiis architecto inventore vitae ab!", "Jonas Gehrke", "2022-05-01 12:40:00", 1);`
   );
 }
 

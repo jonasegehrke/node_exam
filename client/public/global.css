@@ -6,14 +6,29 @@
 	box-sizing: border-box;
 }
 
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@keyframes fadeOut {
+  0% {opacity:1;}
+  100% {opacity:0;}
+}
+
 
 
 :root {
+
+
 	--color-blue-main:#1877f2;
 	--color-blue-secondary:#0B5FCC;
+
+	--nav-color:#4d709c;
   
 	--primary-font: "Poppins", sans-serif;
-	--nav-height: 5vh;
+	--nav-font-color: #fff;
+	--nav-height: 6vh;
   }
   
 
@@ -25,4 +40,29 @@
   .container{
 	  position: absolute;
 	  top: var(--nav-height);
+	  height: calc(100vh - var(--nav-height));
+	  width: 100%;
+	  background: #f2f4f7;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
   }

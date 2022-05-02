@@ -6,13 +6,13 @@ const router = Router();
 
 
 router.get("/api/students", async (req, res) => {
-  const students = await db.all("SELECT * FROM students;");
+  const students = await db.all("SELECT * FROM student INNER JOIN class ON student.classId = class.classId INNER JOIN student_grade ON student.gradeId = student_grade.gradeId;");
   res.send({ data: students });
 });
 
 router.get("/api/students/:id", async (req, res) => {
   const { id } = req.params;
-  const student = await db.get("SELECT * FROM students WHERE id = ?", id);
+  const student = await db.get("SELECT * FROM student_user INNER JOIN student ON student_user.studentId = student.studentId INNER JOIN class ON student.classId = class.classId INNER JOIN student_grade ON student.gradeId = student_grade.gradeId WHERE userId = ?;", id);
 
   student ? res.send({ data: student }) : res.send({ error: "Student not found" });
 });
