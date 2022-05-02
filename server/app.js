@@ -41,6 +41,9 @@ app.use(studentRouter);
 import postRouter from "./routers/postRouter.js";
 app.use(postRouter);
 
+import lessonRouter from './routers/lessonRouter.js'
+app.use(lessonRouter);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
