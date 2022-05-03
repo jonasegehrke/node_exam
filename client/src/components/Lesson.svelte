@@ -1,6 +1,5 @@
 <script>
  export let subject;
- export let corner = false;
  let color;
 
  if(subject === "Dansk"){

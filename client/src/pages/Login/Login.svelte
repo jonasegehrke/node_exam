@@ -150,7 +150,7 @@
   .login-btn {
     outline: none;
     border: none;
-    background: #1877f2;
+    background: var(--color-blue-main);
     padding: 0.8rem 1rem;
     border-radius: 0.4rem;
     font-size: 1.1rem;

@@ -675,12 +675,6 @@ var app = (function () {
             }
         };
     }
-
-    const globals = (typeof window !== 'undefined'
-        ? window
-        : typeof globalThis !== 'undefined'
-            ? globalThis
-            : global);
     function outro_and_destroy_block(block, lookup) {
         transition_out(block, 1, 1, () => {
             lookup.delete(block.key);
@@ -5299,32 +5293,32 @@ var app = (function () {
     			t7 = space();
     			button = element("button");
     			button.textContent = "Log ind";
-    			attr_dev(h1, "class", "logo svelte-v1pdd9");
+    			attr_dev(h1, "class", "logo svelte-gig8nb");
     			add_location(h1, file$b, 54, 6, 1494);
-    			attr_dev(p, "class", "catchphrase svelte-v1pdd9");
+    			attr_dev(p, "class", "catchphrase svelte-gig8nb");
     			add_location(p, file$b, 55, 6, 1535);
-    			attr_dev(div0, "class", "heading-container svelte-v1pdd9");
+    			attr_dev(div0, "class", "heading-container svelte-gig8nb");
     			add_location(div0, file$b, 53, 4, 1455);
-    			attr_dev(h2, "class", "form-heading svelte-v1pdd9");
+    			attr_dev(h2, "class", "form-heading svelte-gig8nb");
     			add_location(h2, file$b, 59, 6, 1646);
     			attr_dev(input0, "type", "text");
-    			attr_dev(input0, "class", "username svelte-v1pdd9");
+    			attr_dev(input0, "class", "username svelte-gig8nb");
     			attr_dev(input0, "id", "username");
     			attr_dev(input0, "placeholder", "Brugernavn");
     			input0.required = true;
     			add_location(input0, file$b, 60, 6, 1691);
     			attr_dev(input1, "type", "password");
-    			attr_dev(input1, "class", "password svelte-v1pdd9");
+    			attr_dev(input1, "class", "password svelte-gig8nb");
     			attr_dev(input1, "id", "password");
     			attr_dev(input1, "placeholder", "Adgangskode");
     			add_location(input1, file$b, 69, 6, 1927);
-    			attr_dev(button, "class", "login-btn svelte-v1pdd9");
+    			attr_dev(button, "class", "login-btn svelte-gig8nb");
     			add_location(button, file$b, 76, 6, 2094);
-    			attr_dev(div1, "class", "login-container svelte-v1pdd9");
+    			attr_dev(div1, "class", "login-container svelte-gig8nb");
     			add_location(div1, file$b, 58, 4, 1609);
-    			attr_dev(div2, "class", "content svelte-v1pdd9");
+    			attr_dev(div2, "class", "content svelte-gig8nb");
     			add_location(div2, file$b, 52, 2, 1428);
-    			attr_dev(div3, "class", "welcome-container svelte-v1pdd9");
+    			attr_dev(div3, "class", "welcome-container svelte-gig8nb");
     			add_location(div3, file$b, 51, 0, 1393);
     		},
     		l: function claim(nodes) {
@@ -27262,11 +27256,11 @@ var app = (function () {
     			div = element("div");
     			p = element("p");
     			t = text(/*subject*/ ctx[0]);
-    			add_location(p, file$3, 25, 4, 531);
+    			add_location(p, file$3, 24, 4, 502);
     			attr_dev(div, "id", "subject-container");
     			attr_dev(div, "style", div_style_value = `background-color: ${/*color*/ ctx[1]};`);
     			attr_dev(div, "class", "subject-container svelte-5nt0vf");
-    			add_location(div, file$3, 24, 0, 433);
+    			add_location(div, file$3, 23, 0, 404);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -27305,7 +27299,6 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Lesson', slots, []);
     	let { subject } = $$props;
-    	let { corner = false } = $$props;
     	let color;
 
     	if (subject === "Dansk") {
@@ -27320,7 +27313,7 @@ var app = (function () {
     		color = "#F2E2D2";
     	}
 
-    	const writable_props = ['subject', 'corner'];
+    	const writable_props = ['subject'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Lesson> was created with unknown prop '${key}'`);
@@ -27328,14 +27321,12 @@ var app = (function () {
 
     	$$self.$$set = $$props => {
     		if ('subject' in $$props) $$invalidate(0, subject = $$props.subject);
-    		if ('corner' in $$props) $$invalidate(2, corner = $$props.corner);
     	};
 
-    	$$self.$capture_state = () => ({ subject, corner, color });
+    	$$self.$capture_state = () => ({ subject, color });
 
     	$$self.$inject_state = $$props => {
     		if ('subject' in $$props) $$invalidate(0, subject = $$props.subject);
-    		if ('corner' in $$props) $$invalidate(2, corner = $$props.corner);
     		if ('color' in $$props) $$invalidate(1, color = $$props.color);
     	};
 
@@ -27343,13 +27334,13 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [subject, color, corner];
+    	return [subject, color];
     }
 
     class Lesson extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { subject: 0, corner: 2 });
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { subject: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -27373,22 +27364,13 @@ var app = (function () {
     	set subject(value) {
     		throw new Error("<Lesson>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
-
-    	get corner() {
-    		throw new Error("<Lesson>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set corner(value) {
-    		throw new Error("<Lesson>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
     }
 
     /* src\components\Calendar.svelte generated by Svelte v3.47.0 */
-
-    const { console: console_1 } = globals;
     const file$2 = "src\\components\\Calendar.svelte";
 
     function create_fragment$2(ctx) {
+    	let div34;
     	let div32;
     	let div6;
     	let div0;
@@ -27438,132 +27420,55 @@ var app = (function () {
     	let div10;
     	let t29;
     	let div11;
-    	let lesson0;
     	let t30;
     	let div12;
-    	let lesson1;
     	let t31;
     	let div13;
     	let t32;
     	let div14;
     	let t33;
     	let div15;
-    	let lesson2;
     	let t34;
     	let div16;
-    	let lesson3;
     	let t35;
     	let div17;
-    	let lesson4;
     	let t36;
     	let div18;
-    	let lesson5;
     	let t37;
     	let div19;
-    	let lesson6;
     	let t38;
     	let div20;
-    	let lesson7;
     	let t39;
     	let div21;
     	let t40;
     	let div22;
     	let t41;
     	let div23;
-    	let lesson8;
     	let t42;
     	let div24;
-    	let lesson9;
     	let t43;
     	let div25;
-    	let lesson10;
     	let t44;
     	let div26;
-    	let lesson11;
     	let t45;
     	let div27;
     	let t46;
     	let div28;
     	let t47;
     	let div29;
-    	let lesson12;
     	let t48;
     	let div30;
-    	let lesson13;
-    	let current;
-
-    	lesson0 = new Lesson({
-    			props: { subject: "Dansk" },
-    			$$inline: true
-    		});
-
-    	lesson1 = new Lesson({
-    			props: { subject: "Dansk" },
-    			$$inline: true
-    		});
-
-    	lesson2 = new Lesson({
-    			props: { subject: "Matematik" },
-    			$$inline: true
-    		});
-
-    	lesson3 = new Lesson({
-    			props: { subject: "Matematik" },
-    			$$inline: true
-    		});
-
-    	lesson4 = new Lesson({
-    			props: { subject: "Dansk" },
-    			$$inline: true
-    		});
-
-    	lesson5 = new Lesson({
-    			props: { subject: "Dansk" },
-    			$$inline: true
-    		});
-
-    	lesson6 = new Lesson({
-    			props: { subject: "Geografi" },
-    			$$inline: true
-    		});
-
-    	lesson7 = new Lesson({
-    			props: { subject: "Geografi" },
-    			$$inline: true
-    		});
-
-    	lesson8 = new Lesson({
-    			props: { subject: "Historie" },
-    			$$inline: true
-    		});
-
-    	lesson9 = new Lesson({
-    			props: { subject: "Historie" },
-    			$$inline: true
-    		});
-
-    	lesson10 = new Lesson({
-    			props: { subject: "Engelsk" },
-    			$$inline: true
-    		});
-
-    	lesson11 = new Lesson({
-    			props: { subject: "Engelsk" },
-    			$$inline: true
-    		});
-
-    	lesson12 = new Lesson({
-    			props: { subject: "Engelsk" },
-    			$$inline: true
-    		});
-
-    	lesson13 = new Lesson({
-    			props: { subject: "Engelsk", corner: true },
-    			$$inline: true
-    		});
+    	let t49;
+    	let div33;
+    	let button0;
+    	let t51;
+    	let button1;
+    	let mounted;
+    	let dispose;
 
     	const block = {
     		c: function create() {
+    			div34 = element("div");
     			div32 = element("div");
     			div6 = element("div");
     			div0 = element("div");
@@ -27601,7 +27506,7 @@ var app = (function () {
     			t21 = space();
     			div31 = element("div");
     			div7 = element("div");
-    			div7.textContent = "8:30 - 10:00";
+    			div7.textContent = "08:30 - 10:00";
     			t23 = space();
     			div8 = element("div");
     			div8.textContent = "10:15 - 11:45";
@@ -27613,135 +27518,159 @@ var app = (function () {
     			div10.textContent = "14:15 - 15:45";
     			t29 = space();
     			div11 = element("div");
-    			create_component(lesson0.$$.fragment);
     			t30 = space();
     			div12 = element("div");
-    			create_component(lesson1.$$.fragment);
     			t31 = space();
     			div13 = element("div");
     			t32 = space();
     			div14 = element("div");
     			t33 = space();
     			div15 = element("div");
-    			create_component(lesson2.$$.fragment);
     			t34 = space();
     			div16 = element("div");
-    			create_component(lesson3.$$.fragment);
     			t35 = space();
     			div17 = element("div");
-    			create_component(lesson4.$$.fragment);
     			t36 = space();
     			div18 = element("div");
-    			create_component(lesson5.$$.fragment);
     			t37 = space();
     			div19 = element("div");
-    			create_component(lesson6.$$.fragment);
     			t38 = space();
     			div20 = element("div");
-    			create_component(lesson7.$$.fragment);
     			t39 = space();
     			div21 = element("div");
     			t40 = space();
     			div22 = element("div");
     			t41 = space();
     			div23 = element("div");
-    			create_component(lesson8.$$.fragment);
     			t42 = space();
     			div24 = element("div");
-    			create_component(lesson9.$$.fragment);
     			t43 = space();
     			div25 = element("div");
-    			create_component(lesson10.$$.fragment);
     			t44 = space();
     			div26 = element("div");
-    			create_component(lesson11.$$.fragment);
     			t45 = space();
     			div27 = element("div");
     			t46 = space();
     			div28 = element("div");
     			t47 = space();
     			div29 = element("div");
-    			create_component(lesson12.$$.fragment);
     			t48 = space();
     			div30 = element("div");
-    			create_component(lesson13.$$.fragment);
-    			attr_dev(div0, "class", "time-col top-left-corner svelte-118pj82");
-    			add_location(div0, file$2, 21, 4, 673);
-    			add_location(br0, file$2, 22, 16, 744);
-    			attr_dev(div1, "class", "svelte-118pj82");
-    			add_location(div1, file$2, 22, 4, 732);
-    			add_location(br1, file$2, 23, 17, 787);
-    			attr_dev(div2, "class", "svelte-118pj82");
-    			add_location(div2, file$2, 23, 4, 774);
-    			add_location(br2, file$2, 24, 16, 830);
-    			attr_dev(div3, "class", "svelte-118pj82");
-    			add_location(div3, file$2, 24, 4, 818);
-    			add_location(br3, file$2, 25, 17, 876);
-    			attr_dev(div4, "class", "svelte-118pj82");
-    			add_location(div4, file$2, 25, 4, 863);
-    			add_location(br4, file$2, 26, 41, 945);
-    			attr_dev(div5, "class", "top-right-corner svelte-118pj82");
-    			add_location(div5, file$2, 26, 4, 908);
-    			attr_dev(div6, "class", "cols svelte-118pj82");
-    			add_location(div6, file$2, 20, 2, 649);
-    			attr_dev(div7, "class", "time svelte-118pj82");
-    			add_location(div7, file$2, 31, 4, 1011);
-    			attr_dev(div8, "class", "time svelte-118pj82");
-    			add_location(div8, file$2, 32, 4, 1053);
-    			attr_dev(div9, "class", "time svelte-118pj82");
-    			add_location(div9, file$2, 33, 4, 1097);
-    			attr_dev(div10, "class", "time bottom-left-corner svelte-118pj82");
-    			add_location(div10, file$2, 34, 4, 1140);
-    			attr_dev(div11, "class", "row-item svelte-118pj82");
-    			add_location(div11, file$2, 36, 4, 1204);
-    			attr_dev(div12, "class", "row-item svelte-118pj82");
-    			add_location(div12, file$2, 37, 4, 1263);
-    			attr_dev(div13, "class", "row-item svelte-118pj82");
-    			add_location(div13, file$2, 38, 4, 1322);
-    			attr_dev(div14, "class", "row-item svelte-118pj82");
-    			add_location(div14, file$2, 39, 4, 1357);
-    			attr_dev(div15, "class", "row-item svelte-118pj82");
-    			add_location(div15, file$2, 41, 4, 1398);
-    			attr_dev(div16, "class", "row-item svelte-118pj82");
-    			add_location(div16, file$2, 42, 4, 1461);
-    			attr_dev(div17, "class", "row-item svelte-118pj82");
-    			add_location(div17, file$2, 43, 4, 1524);
-    			attr_dev(div18, "class", "row-item svelte-118pj82");
-    			add_location(div18, file$2, 44, 4, 1583);
-    			attr_dev(div19, "class", "row-item svelte-118pj82");
-    			add_location(div19, file$2, 46, 4, 1644);
-    			attr_dev(div20, "class", "row-item svelte-118pj82");
-    			add_location(div20, file$2, 47, 4, 1706);
-    			attr_dev(div21, "class", "row-item svelte-118pj82");
-    			add_location(div21, file$2, 48, 4, 1768);
-    			attr_dev(div22, "class", "row-item svelte-118pj82");
-    			add_location(div22, file$2, 49, 4, 1803);
-    			attr_dev(div23, "class", "row-item svelte-118pj82");
-    			add_location(div23, file$2, 51, 4, 1840);
-    			attr_dev(div24, "class", "row-item svelte-118pj82");
-    			add_location(div24, file$2, 52, 4, 1902);
-    			attr_dev(div25, "class", "row-item svelte-118pj82");
-    			add_location(div25, file$2, 53, 4, 1964);
-    			attr_dev(div26, "class", "row-item svelte-118pj82");
-    			add_location(div26, file$2, 54, 4, 2025);
-    			attr_dev(div27, "class", "row-item svelte-118pj82");
-    			add_location(div27, file$2, 56, 4, 2088);
-    			attr_dev(div28, "class", "row-item svelte-118pj82");
-    			add_location(div28, file$2, 57, 4, 2122);
-    			attr_dev(div29, "class", "row-item svelte-118pj82");
-    			add_location(div29, file$2, 58, 4, 2156);
-    			attr_dev(div30, "class", "row-item bottom-right-corner svelte-118pj82");
-    			add_location(div30, file$2, 59, 4, 2217);
-    			attr_dev(div31, "class", "rows svelte-118pj82");
-    			add_location(div31, file$2, 29, 2, 985);
-    			attr_dev(div32, "class", "calendar-container svelte-118pj82");
-    			add_location(div32, file$2, 19, 0, 613);
+    			t49 = space();
+    			div33 = element("div");
+    			button0 = element("button");
+    			button0.textContent = "←";
+    			t51 = space();
+    			button1 = element("button");
+    			button1.textContent = "→";
+    			attr_dev(div0, "class", "time-row top-left-corner svelte-1us6wt7");
+    			add_location(div0, file$2, 90, 6, 2958);
+    			add_location(br0, file$2, 91, 18, 3031);
+    			attr_dev(div1, "class", "svelte-1us6wt7");
+    			add_location(div1, file$2, 91, 6, 3019);
+    			add_location(br1, file$2, 92, 19, 3078);
+    			attr_dev(div2, "class", "svelte-1us6wt7");
+    			add_location(div2, file$2, 92, 6, 3065);
+    			add_location(br2, file$2, 93, 18, 3125);
+    			attr_dev(div3, "class", "svelte-1us6wt7");
+    			add_location(div3, file$2, 93, 6, 3113);
+    			add_location(br3, file$2, 94, 19, 3175);
+    			attr_dev(div4, "class", "svelte-1us6wt7");
+    			add_location(div4, file$2, 94, 6, 3162);
+    			add_location(br4, file$2, 95, 43, 3248);
+    			attr_dev(div5, "class", "top-right-corner svelte-1us6wt7");
+    			add_location(div5, file$2, 95, 6, 3211);
+    			attr_dev(div6, "class", "rows svelte-1us6wt7");
+    			add_location(div6, file$2, 89, 4, 2932);
+    			attr_dev(div7, "class", "time svelte-1us6wt7");
+    			add_location(div7, file$2, 99, 6, 3320);
+    			attr_dev(div8, "class", "time svelte-1us6wt7");
+    			add_location(div8, file$2, 100, 6, 3365);
+    			attr_dev(div9, "class", "time svelte-1us6wt7");
+    			add_location(div9, file$2, 101, 6, 3410);
+    			attr_dev(div10, "class", "time bottom-left-corner svelte-1us6wt7");
+    			add_location(div10, file$2, 102, 6, 3455);
+    			attr_dev(div11, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div11, "data-value", "1");
+    			add_location(div11, file$2, 104, 6, 3521);
+    			attr_dev(div12, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div12, "data-value", "3");
+    			add_location(div12, file$2, 105, 6, 3568);
+    			attr_dev(div13, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div13, "data-value", "4");
+    			add_location(div13, file$2, 106, 6, 3615);
+    			attr_dev(div14, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div14, "data-value", "2");
+    			add_location(div14, file$2, 107, 6, 3662);
+    			attr_dev(div15, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div15, "data-value", "1");
+    			add_location(div15, file$2, 109, 6, 3711);
+    			attr_dev(div16, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div16, "data-value", "2");
+    			add_location(div16, file$2, 110, 6, 3758);
+    			attr_dev(div17, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div17, "data-value", "3");
+    			add_location(div17, file$2, 111, 6, 3805);
+    			attr_dev(div18, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div18, "data-value", "4");
+    			add_location(div18, file$2, 112, 6, 3852);
+    			attr_dev(div19, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div19, "data-value", "1");
+    			add_location(div19, file$2, 114, 6, 3901);
+    			attr_dev(div20, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div20, "data-value", "2");
+    			add_location(div20, file$2, 115, 6, 3948);
+    			attr_dev(div21, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div21, "data-value", "3");
+    			add_location(div21, file$2, 116, 6, 3995);
+    			attr_dev(div22, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div22, "data-value", "4");
+    			add_location(div22, file$2, 117, 6, 4042);
+    			attr_dev(div23, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div23, "data-value", "1");
+    			add_location(div23, file$2, 119, 6, 4091);
+    			attr_dev(div24, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div24, "data-value", "2");
+    			add_location(div24, file$2, 120, 6, 4138);
+    			attr_dev(div25, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div25, "data-value", "3");
+    			add_location(div25, file$2, 121, 6, 4185);
+    			attr_dev(div26, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div26, "data-value", "4");
+    			add_location(div26, file$2, 122, 6, 4232);
+    			attr_dev(div27, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div27, "data-value", "1");
+    			add_location(div27, file$2, 124, 6, 4281);
+    			attr_dev(div28, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div28, "data-value", "2");
+    			add_location(div28, file$2, 125, 6, 4328);
+    			attr_dev(div29, "class", "col-item svelte-1us6wt7");
+    			attr_dev(div29, "data-value", "3");
+    			add_location(div29, file$2, 126, 6, 4375);
+    			attr_dev(div30, "class", "col-item bottom-right-corner svelte-1us6wt7");
+    			attr_dev(div30, "data-value", "4");
+    			add_location(div30, file$2, 127, 6, 4422);
+    			attr_dev(div31, "class", "cols svelte-1us6wt7");
+    			add_location(div31, file$2, 98, 4, 3294);
+    			attr_dev(div32, "class", "calendar svelte-1us6wt7");
+    			add_location(div32, file$2, 88, 2, 2904);
+    			attr_dev(button0, "id", "left-btn");
+    			attr_dev(button0, "class", "btn svelte-1us6wt7");
+    			add_location(button0, file$2, 131, 4, 4534);
+    			attr_dev(button1, "id", "right-btn");
+    			attr_dev(button1, "class", "btn svelte-1us6wt7");
+    			add_location(button1, file$2, 134, 4, 4632);
+    			attr_dev(div33, "class", "buttons");
+    			add_location(div33, file$2, 130, 2, 4507);
+    			attr_dev(div34, "class", "calendar-container svelte-1us6wt7");
+    			add_location(div34, file$2, 87, 0, 2868);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div32, anchor);
+    			insert_dev(target, div34, anchor);
+    			append_dev(div34, div32);
     			append_dev(div32, div6);
     			append_dev(div6, div0);
     			append_dev(div6, t1);
@@ -27785,112 +27714,72 @@ var app = (function () {
     			append_dev(div31, div10);
     			append_dev(div31, t29);
     			append_dev(div31, div11);
-    			mount_component(lesson0, div11, null);
     			append_dev(div31, t30);
     			append_dev(div31, div12);
-    			mount_component(lesson1, div12, null);
     			append_dev(div31, t31);
     			append_dev(div31, div13);
     			append_dev(div31, t32);
     			append_dev(div31, div14);
     			append_dev(div31, t33);
     			append_dev(div31, div15);
-    			mount_component(lesson2, div15, null);
     			append_dev(div31, t34);
     			append_dev(div31, div16);
-    			mount_component(lesson3, div16, null);
     			append_dev(div31, t35);
     			append_dev(div31, div17);
-    			mount_component(lesson4, div17, null);
     			append_dev(div31, t36);
     			append_dev(div31, div18);
-    			mount_component(lesson5, div18, null);
     			append_dev(div31, t37);
     			append_dev(div31, div19);
-    			mount_component(lesson6, div19, null);
     			append_dev(div31, t38);
     			append_dev(div31, div20);
-    			mount_component(lesson7, div20, null);
     			append_dev(div31, t39);
     			append_dev(div31, div21);
     			append_dev(div31, t40);
     			append_dev(div31, div22);
     			append_dev(div31, t41);
     			append_dev(div31, div23);
-    			mount_component(lesson8, div23, null);
     			append_dev(div31, t42);
     			append_dev(div31, div24);
-    			mount_component(lesson9, div24, null);
     			append_dev(div31, t43);
     			append_dev(div31, div25);
-    			mount_component(lesson10, div25, null);
     			append_dev(div31, t44);
     			append_dev(div31, div26);
-    			mount_component(lesson11, div26, null);
     			append_dev(div31, t45);
     			append_dev(div31, div27);
     			append_dev(div31, t46);
     			append_dev(div31, div28);
     			append_dev(div31, t47);
     			append_dev(div31, div29);
-    			mount_component(lesson12, div29, null);
     			append_dev(div31, t48);
     			append_dev(div31, div30);
-    			mount_component(lesson13, div30, null);
-    			current = true;
+    			append_dev(div34, t49);
+    			append_dev(div34, div33);
+    			append_dev(div33, button0);
+    			append_dev(div33, t51);
+    			append_dev(div33, button1);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button0, "click", /*handleCalendarBack*/ ctx[1], false, false, false),
+    					listen_dev(button1, "click", /*handleCalendarForward*/ ctx[2], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
     		},
-    		p: noop$1,
-    		i: function intro(local) {
-    			if (current) return;
-    			transition_in(lesson0.$$.fragment, local);
-    			transition_in(lesson1.$$.fragment, local);
-    			transition_in(lesson2.$$.fragment, local);
-    			transition_in(lesson3.$$.fragment, local);
-    			transition_in(lesson4.$$.fragment, local);
-    			transition_in(lesson5.$$.fragment, local);
-    			transition_in(lesson6.$$.fragment, local);
-    			transition_in(lesson7.$$.fragment, local);
-    			transition_in(lesson8.$$.fragment, local);
-    			transition_in(lesson9.$$.fragment, local);
-    			transition_in(lesson10.$$.fragment, local);
-    			transition_in(lesson11.$$.fragment, local);
-    			transition_in(lesson12.$$.fragment, local);
-    			transition_in(lesson13.$$.fragment, local);
-    			current = true;
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*week*/ 1 && t4_value !== (t4_value = /*week*/ ctx[0].monday + "")) set_data_dev(t4, t4_value);
+    			if (dirty & /*week*/ 1 && t8_value !== (t8_value = /*week*/ ctx[0].tuesday + "")) set_data_dev(t8, t8_value);
+    			if (dirty & /*week*/ 1 && t12_value !== (t12_value = /*week*/ ctx[0].wednesday + "")) set_data_dev(t12, t12_value);
+    			if (dirty & /*week*/ 1 && t16_value !== (t16_value = /*week*/ ctx[0].thursday + "")) set_data_dev(t16, t16_value);
+    			if (dirty & /*week*/ 1 && t20_value !== (t20_value = /*week*/ ctx[0].friday + "")) set_data_dev(t20, t20_value);
     		},
-    		o: function outro(local) {
-    			transition_out(lesson0.$$.fragment, local);
-    			transition_out(lesson1.$$.fragment, local);
-    			transition_out(lesson2.$$.fragment, local);
-    			transition_out(lesson3.$$.fragment, local);
-    			transition_out(lesson4.$$.fragment, local);
-    			transition_out(lesson5.$$.fragment, local);
-    			transition_out(lesson6.$$.fragment, local);
-    			transition_out(lesson7.$$.fragment, local);
-    			transition_out(lesson8.$$.fragment, local);
-    			transition_out(lesson9.$$.fragment, local);
-    			transition_out(lesson10.$$.fragment, local);
-    			transition_out(lesson11.$$.fragment, local);
-    			transition_out(lesson12.$$.fragment, local);
-    			transition_out(lesson13.$$.fragment, local);
-    			current = false;
-    		},
+    		i: noop$1,
+    		o: noop$1,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div32);
-    			destroy_component(lesson0);
-    			destroy_component(lesson1);
-    			destroy_component(lesson2);
-    			destroy_component(lesson3);
-    			destroy_component(lesson4);
-    			destroy_component(lesson5);
-    			destroy_component(lesson6);
-    			destroy_component(lesson7);
-    			destroy_component(lesson8);
-    			destroy_component(lesson9);
-    			destroy_component(lesson10);
-    			destroy_component(lesson11);
-    			destroy_component(lesson12);
-    			destroy_component(lesson13);
+    			if (detaching) detach_dev(div34);
+    			mounted = false;
+    			run_all(dispose);
     		}
     	};
 
@@ -27906,26 +27795,121 @@ var app = (function () {
     }
 
     function instance$2($$self, $$props, $$invalidate) {
+    	let $studentData;
+    	validate_store(studentData, 'studentData');
+    	component_subscribe($$self, studentData, $$value => $$invalidate(3, $studentData = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Calendar', slots, []);
 
-    	const week = {
-    		monday: moment().startOf('week').add('days', 1).format('YYYY-MM-DD'),
-    		tuesday: moment().startOf('week').add('days', 2).format('YYYY-MM-DD'),
-    		wednesday: moment().startOf('week').add('days', 3).format('YYYY-MM-DD'),
-    		thursday: moment().startOf('week').add('days', 4).format('YYYY-MM-DD'),
-    		friday: moment().startOf('week').add('days', 5).format('YYYY-MM-DD')
+    	let week = {
+    		monday: moment().startOf("week").add("days", 1).format("YYYY-MM-DD"),
+    		tuesday: moment().startOf("week").add("days", 2).format("YYYY-MM-DD"),
+    		wednesday: moment().startOf("week").add("days", 3).format("YYYY-MM-DD"),
+    		thursday: moment().startOf("week").add("days", 4).format("YYYY-MM-DD"),
+    		friday: moment().startOf("week").add("days", 5).format("YYYY-MM-DD")
     	};
 
-    	console.log(week);
+    	async function getLessons() {
+    		const resp = await fetch(`http://localhost:3000/api/lessons/${$studentData.classId}/${week.monday}/${week.friday}`);
+    		const respData = await resp.json();
+    		return respData.data;
+    	}
+
+    	onMount(async () => {
+    		const lessons = await getLessons();
+    		updateCalendar(lessons);
+    	});
+
+    	async function handleCalendarBack() {
+    		$$invalidate(0, week = {
+    			monday: moment(week.monday).subtract(7, "days").format("YYYY-MM-DD"),
+    			tuesday: moment(week.tuesday).subtract(7, "days").format("YYYY-MM-DD"),
+    			wednesday: moment(week.wednesday).subtract(7, "days").format("YYYY-MM-DD"),
+    			thursday: moment(week.thursday).subtract(7, "days").format("YYYY-MM-DD"),
+    			friday: moment(week.friday).subtract(7, "days").format("YYYY-MM-DD")
+    		});
+
+    		//get lessons for each day
+    		const lessons = await getLessons();
+
+    		//update the calendar on the page
+    		updateCalendar(lessons);
+    	}
+
+    	async function handleCalendarForward() {
+    		$$invalidate(0, week = {
+    			monday: moment(week.monday).add(7, "days").format("YYYY-MM-DD"),
+    			tuesday: moment(week.tuesday).add(7, "days").format("YYYY-MM-DD"),
+    			wednesday: moment(week.wednesday).add(7, "days").format("YYYY-MM-DD"),
+    			thursday: moment(week.thursday).add(7, "days").format("YYYY-MM-DD"),
+    			friday: moment(week.friday).add(7, "days").format("YYYY-MM-DD")
+    		});
+
+    		//get lessons for each day
+    		const lessons = await getLessons();
+
+    		//update the calendar on the page
+    		updateCalendar(lessons);
+    	}
+
+    	function updateCalendar(lessons) {
+    		const cols = document.querySelectorAll(".col-item");
+
+    		//clear the calendar
+    		cols.forEach(col => {
+    			col.innerHTML = "";
+    		});
+
+    		let currentColDay = 0;
+
+    		lessons.forEach((lesson, i) => {
+    			const day = moment(lesson.lessonDate).day();
+
+    			cols.forEach((col, j) => {
+    				if (j % 4 === 0) ++currentColDay;
+
+    				if (currentColDay === day) {
+    					if (Number(col.dataset.value) === lesson.lessonNumber) {
+    						new Lesson({
+    								target: col,
+    								props: { subject: lesson.lessonSubject }
+    							});
+    					}
+    				}
+    			});
+
+    			currentColDay = 0;
+    		});
+    	}
+
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
-    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1.warn(`<Calendar> was created with unknown prop '${key}'`);
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Calendar> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ Lesson, moment, week });
-    	return [week];
+    	$$self.$capture_state = () => ({
+    		studentData,
+    		Lesson,
+    		moment,
+    		onMount,
+    		week,
+    		getLessons,
+    		handleCalendarBack,
+    		handleCalendarForward,
+    		updateCalendar,
+    		$studentData
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('week' in $$props) $$invalidate(0, week = $$props.week);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [week, handleCalendarBack, handleCalendarForward];
     }
 
     class Calendar extends SvelteComponentDev {
