@@ -1,8 +1,8 @@
 /client/node_modules/
-/prettyintra_server/node_modules/
+/server/node_modules/
 /public/build/
 
-/prettyintra_server/.env
-/prettyintra_server/prettyintra.db
+/server/.env
+/server/prettyintra.db
 
 .DS_Store
