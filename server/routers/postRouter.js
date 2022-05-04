@@ -6,7 +6,6 @@ const router = Router();
 router.get("/api/posts/:id", async (req, res) => {
     const { id } = req.params;
     const posts = await db.all("SELECT * FROM post WHERE classId = ? ORDER BY created DESC;", id);
-  
     posts ? res.send({ data: posts }) : res.send({ error: "No posts were found" });
   });
 

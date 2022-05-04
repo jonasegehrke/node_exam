@@ -15,7 +15,7 @@
 
   async function getLessons() {
     const resp = await fetch(
-      `http://localhost:3000/api/lessons/${$studentData.classId}/${week.monday}/${week.friday}`
+      `MYURL/api/lessons/${$studentData.classId}/${week.monday}/${week.friday}`
     );
     const respData = await resp.json();
     return respData.data;

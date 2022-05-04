@@ -12133,7 +12133,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (96:0) {#if mounted}
+    // (97:0) {#if mounted}
     function create_if_block$3(ctx) {
     	let div3;
     	let div1;
@@ -12209,31 +12209,31 @@ var app = (function () {
     			create_component(studentcard.$$.fragment);
     			attr_dev(button0, "id", "open-form-btn");
     			attr_dev(button0, "class", "svelte-1nf0uii");
-    			add_location(button0, file$8, 98, 4, 2789);
+    			add_location(button0, file$8, 99, 4, 2795);
     			attr_dev(input, "id", "title-input");
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", "Titel");
     			attr_dev(input, "class", "svelte-1nf0uii");
-    			add_location(input, file$8, 100, 6, 2914);
+    			add_location(input, file$8, 101, 6, 2920);
     			attr_dev(textarea, "type", "text");
     			attr_dev(textarea, "id", "content-input");
     			attr_dev(textarea, "cols", "40");
     			attr_dev(textarea, "rows", "8");
     			attr_dev(textarea, "placeholder", "Besked");
     			attr_dev(textarea, "class", "svelte-1nf0uii");
-    			add_location(textarea, file$8, 101, 6, 2980);
+    			add_location(textarea, file$8, 102, 6, 2986);
     			attr_dev(button1, "id", "send-post-btn");
     			attr_dev(button1, "class", "svelte-1nf0uii");
-    			add_location(button1, file$8, 109, 6, 3125);
+    			add_location(button1, file$8, 110, 6, 3131);
     			attr_dev(div0, "id", "create-post");
     			attr_dev(div0, "class", "hidden svelte-1nf0uii");
-    			add_location(div0, file$8, 99, 4, 2869);
+    			add_location(div0, file$8, 100, 4, 2875);
     			attr_dev(div1, "class", "posts");
-    			add_location(div1, file$8, 97, 2, 2764);
+    			add_location(div1, file$8, 98, 2, 2770);
     			attr_dev(div2, "class", "student-info");
-    			add_location(div2, file$8, 121, 2, 3419);
+    			add_location(div2, file$8, 122, 2, 3425);
     			attr_dev(div3, "class", "container svelte-1nf0uii");
-    			add_location(div3, file$8, 96, 0, 2737);
+    			add_location(div3, file$8, 97, 0, 2743);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div3, anchor);
@@ -12343,14 +12343,14 @@ var app = (function () {
     		block,
     		id: create_if_block$3.name,
     		type: "if",
-    		source: "(96:0) {#if mounted}",
+    		source: "(97:0) {#if mounted}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (113:4) {#each $posts as post}
+    // (114:4) {#each $posts as post}
     function create_each_block$1(ctx) {
     	let post;
     	let current;
@@ -12399,7 +12399,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(113:4) {#each $posts as post}",
+    		source: "(114:4) {#each $posts as post}",
     		ctx
     	});
 

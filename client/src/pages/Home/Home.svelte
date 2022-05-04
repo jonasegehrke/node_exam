@@ -17,6 +17,7 @@
     }
     */
 
+    
   let mounted = false
   onMount(async () => {
     await getStudentData()
@@ -26,7 +27,7 @@
   //Get student data
   async function getStudentData() {
     const response = await fetch(
-      "http://localhost:3000/api/students/" + $userId
+      "MYURL/api/students/" + $userId
     );
     const data = await response.json();
     studentData.set(data.data);
@@ -35,7 +36,7 @@
   //Get posts for the students class
   async function getPosts() {
     const response = await fetch(
-      "http://localhost:3000/api/posts/" + $studentData.classId
+      "MYURL/api/posts/" + $studentData.classId
     );
     const data = await response.json();
     posts.set(data.data);
@@ -69,7 +70,7 @@
     };
 
     try {
-      await fetch("http://localhost:3000/api/posts", {
+      await fetch("MYURL/api/posts", {
         method: "POST",
         body: JSON.stringify(post),
         headers: { "Content-type": "application/json; charset=UTF-8" },
