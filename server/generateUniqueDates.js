@@ -4,19 +4,24 @@ import moment from 'moment';
 
 const dates = []
 
+let startDate = "2022-05-01";
 
+let i  = 0;
+while(dates.length < 300){
+    //const date = faker.date.between('2022-05-01', '2023-02-05');
 
-while(dates.length < 200){
-    const date = faker.date.between('2022-05-01', '2023-02-05');
+    i++;
+    const date = moment(startDate).add(i, "days").format("YYYY-MM-DD");
+
 
     if(moment(date).day() === 0 || moment(date).day() === 6){
         continue
     }
-
-    const date2 = moment(date).format('YYYY-MM-DD')
-    if(!dates.includes(date2)){
-        dates.push(date2)
+    if(!dates.includes(date)){
+        dates.push(date)
     }
+
+
 
 }
 
