@@ -28413,9 +28413,9 @@ var app = (function () {
     			t6 = space();
     			create_component(toastcontainer.$$.fragment);
     			attr_dev(div, "class", "wrapper svelte-1r97ayh");
-    			add_location(div, file, 21, 4, 700);
+    			add_location(div, file, 21, 4, 679);
     			attr_dev(main, "class", "svelte-1r97ayh");
-    			add_location(main, file, 20, 2, 688);
+    			add_location(main, file, 20, 2, 668);
     		},
     		m: function mount(target, anchor) {
     			if (if_block) if_block.m(target, anchor);

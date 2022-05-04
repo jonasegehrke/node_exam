@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "start": "node ./database/createSchemas.js && node app.js",
     "createdb": "node ./database/createSchemas.js"
   },
   "type": "module",
