@@ -3,6 +3,7 @@
   import Lesson from "./Lesson.svelte";
   import moment from "moment";
   import { onMount } from "svelte";
+  
 
   let week = {
     monday: moment().startOf("week").add("days", 1).format("YYYY-MM-DD"),
@@ -23,6 +24,7 @@
   onMount(async () => {
     const lessons = await getLessons();
     updateCalendar(lessons);
+
   });
 
   async function handleCalendarBack() {
@@ -56,6 +58,7 @@
   }
 
   function updateCalendar(lessons) {
+    console.log(lessons)
     const cols = document.querySelectorAll(".col-item");
     //clear the calendar
     cols.forEach((col) => {
@@ -103,9 +106,9 @@
       <div class="time bottom-left-corner">14:15 - 15:45</div>
 
       <div class="col-item" data-value="1" />
+      <div class="col-item" data-value="2" />
       <div class="col-item" data-value="3" />
       <div class="col-item" data-value="4" />
-      <div class="col-item" data-value="2" />
 
       <div class="col-item" data-value="1" />
       <div class="col-item" data-value="2" />

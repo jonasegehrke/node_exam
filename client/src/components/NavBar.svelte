@@ -18,9 +18,6 @@
       <Link to="/schedule" class="svelte-link">Skema</Link>
     </li>
     <li class="nav-item">
-      <Link to="/logout" class="svelte-link">Karakterer</Link>
-    </li>
-    <li class="nav-item">
       <Link to="/students" class="svelte-link">Elever</Link>
     </li>
     <li class="nav-item">
