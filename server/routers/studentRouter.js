@@ -30,4 +30,19 @@ router.get("/api/students/user", checkLoginStatus, async (req, res) => {
     : res.send({ error: "Student not found" });
 });
 
+router.get('/api/students/:search', checkLoginStatus, async (req, res) => {
+
+  
+  const search = req.params.search;
+
+  const students = await db.all(
+    "SELECT * FROM student WHERE firstName LIKE ? OR lastName LIKE ?;",
+    `%${search}%`,
+    `%${search}%`
+  )
+
+  students ? res.send({ data: students }) : res.send({ error: "Students not found" });
+
+  });
+
 export default router;

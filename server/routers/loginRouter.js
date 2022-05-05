@@ -10,7 +10,6 @@ async function comparePasswords(req, res, next){
 
     const user = await db.get("SELECT * FROM student_user WHERE username = ?", username);
 
-
     //check if any user is found
     if(user === undefined){
         res.send({ message: "Brugernavnet er forkert", isLoggedIn: false });
@@ -36,8 +35,6 @@ router.post('/api/auth', comparePasswords, (req, res) => {
         return
     }
     res.send({ isLoggedIn: true, userId: req.session.userId });
-    req.session.test = true
-    console.log(req.session)
 })
 
 router.post('/api/auth/logout', (req, res) => {

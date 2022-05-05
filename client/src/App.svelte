@@ -6,17 +6,14 @@
   import Home from "./pages/Home/Home.svelte";
   import Students from "./pages/Students/Students.svelte";
   import Absence from "./pages/Absence/Absence.svelte";
-  import NavBar from './components/NavBar.svelte'
+  import NavBar from "./components/NavBar.svelte";
   import PrivateRoute from "./components/PrivateRoute.svelte";
   import Logout from "./components/Logout.svelte";
-import Schedule from "./pages/Schedule/Schedule.svelte";
-
-
-
+  import Schedule from "./pages/Schedule/Schedule.svelte";
+  import ChatBar from "./components/ChatBar.svelte";
 </script>
 
 <Router>
-
   {#if $isLoggedIn}
     <NavBar />
   {/if}
@@ -47,7 +44,11 @@ import Schedule from "./pages/Schedule/Schedule.svelte";
         <Logout />
       </Route>
 
-      <ToastContainer placement="bottom-right" let:data>
+      {#if $isLoggedIn}
+        <ChatBar />
+      {/if}
+
+      <ToastContainer placement="bottom-left" let:data>
         <FlatToast {data} />
       </ToastContainer>
     </div>
@@ -55,10 +56,10 @@ import Schedule from "./pages/Schedule/Schedule.svelte";
 </Router>
 
 <style>
-	main{
-		height: 100%;
-	}
-	.wrapper{
-		height: 100%;
-	}
+  main {
+    height: 100%;
+  }
+  .wrapper {
+    height: 100%;
+  }
 </style>

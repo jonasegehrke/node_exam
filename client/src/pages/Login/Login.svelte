@@ -62,6 +62,7 @@
         class="username"
         id="username"
         placeholder="Brugernavn"
+        value="jonas"
         required
         on:keypress={onKeyPress}
       />
@@ -71,6 +72,7 @@
         class="password"
         id="password"
         placeholder="Adgangskode"
+        value="1234"
         on:keypress={onKeyPress}
       />
       <button on:click={handleLogin} class="login-btn">Log ind</button>
