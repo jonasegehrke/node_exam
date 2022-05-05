@@ -8,6 +8,8 @@ router.get("/api/posts/:id", async (req, res) => {
     res.status(403).send("Forbidden");
     return;
   }
+
+  console.log(req.session)
   const { id } = req.params;
   const posts = await db.all(
     "SELECT * FROM post WHERE classId = ? ORDER BY created DESC;",
@@ -23,6 +25,8 @@ router.post("/api/posts", async (req, res) => {
     res.status(403).send("Forbidden");
     return;
   }
+
+  console.log(req.session)
   const { title, content, created, studentName, classId } = req.body;
   const post = await db.run(
     "INSERT INTO post (title, content, created, studentName, classId) VALUES (?,?,?,?,?);",

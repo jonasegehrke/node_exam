@@ -30,11 +30,28 @@ async function comparePasswords(req, res, next){
 }
 
 router.post('/api/auth', comparePasswords, (req, res) => {
+    
     if(!req.session.isLoggedIn){
       res.send({ message: "Adgangskoden er forkert", isLoggedIn: false });
         return
     }
     res.send({ isLoggedIn: true, userId: req.session.userId });
+    req.session.test = true
+    console.log(req.session)
 })
+
+router.post('/api/auth/logout', (req, res) => {
+    req.session.destroy();
+    res.send({ message: "Du er nu logget ud", isLoggedIn: false });
+})
+
+router.post('/api/auth/status', (req, res) => {
+    if(!req.session.isLoggedIn){
+        res.send({ isLoggedIn: false });
+        return
+    }
+    res.send({ isLoggedIn: req.session.isLoggedIn });
+})
+
 
 export default router;

@@ -5,7 +5,6 @@ import session from "express-session";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
 
-
 const app = express();
 
 // I chose to use SQLite for this project, as i want to deploy it. We have not yet learned how to connect to a mySQL database hosted on Heroku/AWS/azure.
@@ -13,7 +12,12 @@ dotenv.config();
 
 app.use(helmet());
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:8080",
+    credentials: true,
+  })
+);
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -41,8 +45,13 @@ app.use(studentRouter);
 import postRouter from "./routers/postRouter.js";
 app.use(postRouter);
 
-import lessonRouter from './routers/lessonRouter.js'
+import lessonRouter from "./routers/lessonRouter.js";
 app.use(lessonRouter);
+
+app.get("/test", (req, res) => {
+  console.log(req.session);
+  res.send("Hello World");
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

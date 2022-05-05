@@ -5226,21 +5226,15 @@ var app = (function () {
 
     const responseData = writable(null);
 
+
+    //This is kept for now, but it is not optimal. The localStorage can be manipulated from the client side.
+    //However, the backend still uses session to check if the user is logged in, so the site is non-functional without an actual session cookie.
     const storedLoggedIn = localStorage.getItem("loggedIn");
     const loggedIn = storedLoggedIn === "true" ? true : false;
     const isLoggedIn = writable(loggedIn);
     isLoggedIn.subscribe((value) => {
       localStorage.setItem("loggedIn", value);
     });
-
-    const storedUserId = localStorage.getItem("userId");
-    const setUserId = storedUserId === null ? null : Number(storedUserId);
-    const userId = writable(setUserId);
-    userId.subscribe((value) => {
-      localStorage.setItem("userId", value);
-    });
-
-
 
     const storedStudentData = localStorage.getItem("studentData");
     const setStudentData = storedStudentData === null ? null : JSON.parse(storedStudentData); 
@@ -5300,32 +5294,32 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Log ind";
     			attr_dev(h1, "class", "logo svelte-gig8nb");
-    			add_location(h1, file$b, 54, 6, 1494);
+    			add_location(h1, file$b, 53, 6, 1461);
     			attr_dev(p, "class", "catchphrase svelte-gig8nb");
-    			add_location(p, file$b, 55, 6, 1535);
+    			add_location(p, file$b, 54, 6, 1502);
     			attr_dev(div0, "class", "heading-container svelte-gig8nb");
-    			add_location(div0, file$b, 53, 4, 1455);
+    			add_location(div0, file$b, 52, 4, 1422);
     			attr_dev(h2, "class", "form-heading svelte-gig8nb");
-    			add_location(h2, file$b, 59, 6, 1646);
+    			add_location(h2, file$b, 58, 6, 1613);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "class", "username svelte-gig8nb");
     			attr_dev(input0, "id", "username");
     			attr_dev(input0, "placeholder", "Brugernavn");
     			input0.required = true;
-    			add_location(input0, file$b, 60, 6, 1691);
+    			add_location(input0, file$b, 59, 6, 1658);
     			attr_dev(input1, "type", "password");
     			attr_dev(input1, "class", "password svelte-gig8nb");
     			attr_dev(input1, "id", "password");
     			attr_dev(input1, "placeholder", "Adgangskode");
-    			add_location(input1, file$b, 69, 6, 1927);
+    			add_location(input1, file$b, 68, 6, 1894);
     			attr_dev(button, "class", "login-btn svelte-gig8nb");
-    			add_location(button, file$b, 76, 6, 2094);
+    			add_location(button, file$b, 75, 6, 2061);
     			attr_dev(div1, "class", "login-container svelte-gig8nb");
-    			add_location(div1, file$b, 58, 4, 1609);
+    			add_location(div1, file$b, 57, 4, 1576);
     			attr_dev(div2, "class", "content svelte-gig8nb");
-    			add_location(div2, file$b, 52, 2, 1428);
+    			add_location(div2, file$b, 51, 2, 1395);
     			attr_dev(div3, "class", "welcome-container svelte-gig8nb");
-    			add_location(div3, file$b, 51, 0, 1393);
+    			add_location(div3, file$b, 50, 0, 1360);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5396,7 +5390,6 @@ var app = (function () {
     	async function handleLogin() {
     		const username = document.getElementById("username").value;
     		const password = document.getElementById("password").value;
-    		const url = `http://localhost:3000/api/auth`;
 
     		if (username === "" || password === "") {
     			toasts.error("Udfyld venligst både brugernavn og password");
@@ -5405,15 +5398,15 @@ var app = (function () {
 
     		const data = { username, password };
 
-    		await fetch(url, {
+    		await fetch("http://localhost:3000/api/auth", {
     			method: "POST",
     			body: JSON.stringify(data),
     			headers: {
     				"Content-type": "application/json; charset=UTF-8"
-    			}
+    			},
+    			credentials: "include"
     		}).then(response => response.json()).then(data => {
     			isLoggedIn.set(data.isLoggedIn);
-    			userId.set(data.userId);
     			responseData.set(data);
     		});
 
@@ -5443,7 +5436,6 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		isLoggedIn,
-    		userId,
     		responseData,
     		useNavigate,
     		useLocation,
@@ -12129,11 +12121,11 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[7] = list[i];
+    	child_ctx[6] = list[i];
     	return child_ctx;
     }
 
-    // (97:0) {#if mounted}
+    // (102:0) {#if mounted}
     function create_if_block$3(ctx) {
     	let div3;
     	let div1;
@@ -12209,31 +12201,31 @@ var app = (function () {
     			create_component(studentcard.$$.fragment);
     			attr_dev(button0, "id", "open-form-btn");
     			attr_dev(button0, "class", "svelte-1nf0uii");
-    			add_location(button0, file$8, 99, 4, 2795);
+    			add_location(button0, file$8, 104, 4, 2904);
     			attr_dev(input, "id", "title-input");
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", "Titel");
     			attr_dev(input, "class", "svelte-1nf0uii");
-    			add_location(input, file$8, 101, 6, 2920);
+    			add_location(input, file$8, 106, 6, 3029);
     			attr_dev(textarea, "type", "text");
     			attr_dev(textarea, "id", "content-input");
     			attr_dev(textarea, "cols", "40");
     			attr_dev(textarea, "rows", "8");
     			attr_dev(textarea, "placeholder", "Besked");
     			attr_dev(textarea, "class", "svelte-1nf0uii");
-    			add_location(textarea, file$8, 102, 6, 2986);
+    			add_location(textarea, file$8, 107, 6, 3095);
     			attr_dev(button1, "id", "send-post-btn");
     			attr_dev(button1, "class", "svelte-1nf0uii");
-    			add_location(button1, file$8, 110, 6, 3131);
+    			add_location(button1, file$8, 115, 6, 3240);
     			attr_dev(div0, "id", "create-post");
     			attr_dev(div0, "class", "hidden svelte-1nf0uii");
-    			add_location(div0, file$8, 100, 4, 2875);
+    			add_location(div0, file$8, 105, 4, 2984);
     			attr_dev(div1, "class", "posts");
-    			add_location(div1, file$8, 98, 2, 2770);
+    			add_location(div1, file$8, 103, 2, 2879);
     			attr_dev(div2, "class", "student-info");
-    			add_location(div2, file$8, 122, 2, 3425);
+    			add_location(div2, file$8, 127, 2, 3534);
     			attr_dev(div3, "class", "container svelte-1nf0uii");
-    			add_location(div3, file$8, 97, 0, 2743);
+    			add_location(div3, file$8, 102, 0, 2852);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div3, anchor);
@@ -12343,24 +12335,24 @@ var app = (function () {
     		block,
     		id: create_if_block$3.name,
     		type: "if",
-    		source: "(97:0) {#if mounted}",
+    		source: "(102:0) {#if mounted}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (114:4) {#each $posts as post}
+    // (119:4) {#each $posts as post}
     function create_each_block$1(ctx) {
     	let post;
     	let current;
 
     	post = new Post({
     			props: {
-    				title: /*post*/ ctx[7].title,
-    				content: /*post*/ ctx[7].content,
-    				creator: /*post*/ ctx[7].studentName,
-    				timestamp: /*post*/ ctx[7].created
+    				title: /*post*/ ctx[6].title,
+    				content: /*post*/ ctx[6].content,
+    				creator: /*post*/ ctx[6].studentName,
+    				timestamp: /*post*/ ctx[6].created
     			},
     			$$inline: true
     		});
@@ -12375,10 +12367,10 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const post_changes = {};
-    			if (dirty & /*$posts*/ 4) post_changes.title = /*post*/ ctx[7].title;
-    			if (dirty & /*$posts*/ 4) post_changes.content = /*post*/ ctx[7].content;
-    			if (dirty & /*$posts*/ 4) post_changes.creator = /*post*/ ctx[7].studentName;
-    			if (dirty & /*$posts*/ 4) post_changes.timestamp = /*post*/ ctx[7].created;
+    			if (dirty & /*$posts*/ 4) post_changes.title = /*post*/ ctx[6].title;
+    			if (dirty & /*$posts*/ 4) post_changes.content = /*post*/ ctx[6].content;
+    			if (dirty & /*$posts*/ 4) post_changes.creator = /*post*/ ctx[6].studentName;
+    			if (dirty & /*$posts*/ 4) post_changes.timestamp = /*post*/ ctx[6].created;
     			post.$set(post_changes);
     		},
     		i: function intro(local) {
@@ -12399,7 +12391,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(114:4) {#each $posts as post}",
+    		source: "(119:4) {#each $posts as post}",
     		ctx
     	});
 
@@ -12482,12 +12474,9 @@ var app = (function () {
 
     function instance$b($$self, $$props, $$invalidate) {
     	let $studentData;
-    	let $userId;
     	let $posts;
     	validate_store(studentData, 'studentData');
     	component_subscribe($$self, studentData, $$value => $$invalidate(1, $studentData = $$value));
-    	validate_store(userId, 'userId');
-    	component_subscribe($$self, userId, $$value => $$invalidate(4, $userId = $$value));
     	validate_store(posts, 'posts');
     	component_subscribe($$self, posts, $$value => $$invalidate(2, $posts = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
@@ -12502,14 +12491,14 @@ var app = (function () {
 
     	//Get student data
     	async function getStudentData() {
-    		const response = await fetch("http://localhost:3000/api/students/" + $userId);
+    		const response = await fetch("http://localhost:3000/api/students/user", { credentials: "include" });
     		const data = await response.json();
     		studentData.set(data.data);
     	}
 
     	//Get posts for the students class
     	async function getPosts() {
-    		const response = await fetch("http://localhost:3000/api/posts/" + $studentData.classId);
+    		const response = await fetch("http://localhost:3000/api/posts/" + $studentData.classId, { credentials: "include" });
     		const data = await response.json();
     		posts.set(data.data);
     	}
@@ -12540,7 +12529,8 @@ var app = (function () {
     				body: JSON.stringify(post),
     				headers: {
     					"Content-type": "application/json; charset=UTF-8"
-    				}
+    				},
+    				credentials: "include"
     			}).then(response => response.json()).then(responseText => {
     				if (responseText.success) {
     					toasts.success("Dit opslag er nu oprettet");
@@ -12563,7 +12553,6 @@ var app = (function () {
     	});
 
     	$$self.$capture_state = () => ({
-    		userId,
     		studentData,
     		posts,
     		Post,
@@ -12577,7 +12566,6 @@ var app = (function () {
     		handleFormOpen,
     		handleSendPost,
     		$studentData,
-    		$userId,
     		$posts
     	});
 
@@ -12615,7 +12603,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (15:4) {#each $students as student}
+    // (18:4) {#each $students as student}
     function create_each_block(ctx) {
     	let studentcard;
     	let current;
@@ -12672,7 +12660,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(15:4) {#each $students as student}",
+    		source: "(18:4) {#each $students as student}",
     		ctx
     	});
 
@@ -12703,7 +12691,7 @@ var app = (function () {
     			}
 
     			attr_dev(div, "class", "container svelte-1o9ecgv");
-    			add_location(div, file$7, 13, 0, 350);
+    			add_location(div, file$7, 16, 0, 397);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12789,7 +12777,7 @@ var app = (function () {
     	validate_slots('Students', slots, []);
 
     	async function getAllStudents() {
-    		const response = await fetch("http://localhost:3000/api/students/");
+    		const response = await fetch("http://localhost:3000/api/students/", { credentials: "include" });
     		const data = await response.json();
     		students.set(data.data);
     	}
@@ -27000,7 +26988,7 @@ var app = (function () {
 
     /* src\components\Logout.svelte generated by Svelte v3.47.0 */
 
-    // (20:2) {#if $isLoggedIn}
+    // (32:2) {#if $isLoggedIn}
     function create_if_block$1(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[4].default;
@@ -27051,7 +27039,7 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(20:2) {#if $isLoggedIn}",
+    		source: "(32:2) {#if $isLoggedIn}",
     		ctx
     	});
 
@@ -27137,6 +27125,11 @@ var app = (function () {
     	const location = useLocation();
     	validate_store(location, 'location');
     	component_subscribe($$self, location, value => $$invalidate(2, $location = value));
+
+    	onMount(async () => {
+    		await fetch("http://localhost:3000/api/auth/logout", { method: "POST", credentials: "include" });
+    	});
+
     	isLoggedIn.set(false);
     	const writable_props = [];
 
@@ -27153,6 +27146,7 @@ var app = (function () {
     		useLocation,
     		isLoggedIn,
     		toasts,
+    		onMount,
     		navigate,
     		location,
     		$location,
@@ -27514,106 +27508,106 @@ var app = (function () {
     			button1 = element("button");
     			button1.textContent = "→";
     			attr_dev(div0, "class", "time-row top-left-corner svelte-1us6wt7");
-    			add_location(div0, file$2, 93, 6, 2990);
-    			add_location(br0, file$2, 94, 18, 3063);
+    			add_location(div0, file$2, 93, 6, 3019);
+    			add_location(br0, file$2, 94, 18, 3092);
     			attr_dev(div1, "class", "svelte-1us6wt7");
-    			add_location(div1, file$2, 94, 6, 3051);
-    			add_location(br1, file$2, 95, 19, 3110);
+    			add_location(div1, file$2, 94, 6, 3080);
+    			add_location(br1, file$2, 95, 19, 3139);
     			attr_dev(div2, "class", "svelte-1us6wt7");
-    			add_location(div2, file$2, 95, 6, 3097);
-    			add_location(br2, file$2, 96, 18, 3157);
+    			add_location(div2, file$2, 95, 6, 3126);
+    			add_location(br2, file$2, 96, 18, 3186);
     			attr_dev(div3, "class", "svelte-1us6wt7");
-    			add_location(div3, file$2, 96, 6, 3145);
-    			add_location(br3, file$2, 97, 19, 3207);
+    			add_location(div3, file$2, 96, 6, 3174);
+    			add_location(br3, file$2, 97, 19, 3236);
     			attr_dev(div4, "class", "svelte-1us6wt7");
-    			add_location(div4, file$2, 97, 6, 3194);
-    			add_location(br4, file$2, 98, 43, 3280);
+    			add_location(div4, file$2, 97, 6, 3223);
+    			add_location(br4, file$2, 98, 43, 3309);
     			attr_dev(div5, "class", "top-right-corner svelte-1us6wt7");
-    			add_location(div5, file$2, 98, 6, 3243);
+    			add_location(div5, file$2, 98, 6, 3272);
     			attr_dev(div6, "class", "rows svelte-1us6wt7");
-    			add_location(div6, file$2, 92, 4, 2964);
+    			add_location(div6, file$2, 92, 4, 2993);
     			attr_dev(div7, "class", "time svelte-1us6wt7");
-    			add_location(div7, file$2, 102, 6, 3352);
+    			add_location(div7, file$2, 102, 6, 3381);
     			attr_dev(div8, "class", "time svelte-1us6wt7");
-    			add_location(div8, file$2, 103, 6, 3397);
+    			add_location(div8, file$2, 103, 6, 3426);
     			attr_dev(div9, "class", "time svelte-1us6wt7");
-    			add_location(div9, file$2, 104, 6, 3442);
+    			add_location(div9, file$2, 104, 6, 3471);
     			attr_dev(div10, "class", "time bottom-left-corner svelte-1us6wt7");
-    			add_location(div10, file$2, 105, 6, 3487);
+    			add_location(div10, file$2, 105, 6, 3516);
     			attr_dev(div11, "class", "col-item svelte-1us6wt7");
     			attr_dev(div11, "data-value", "1");
-    			add_location(div11, file$2, 107, 6, 3553);
+    			add_location(div11, file$2, 107, 6, 3582);
     			attr_dev(div12, "class", "col-item svelte-1us6wt7");
     			attr_dev(div12, "data-value", "2");
-    			add_location(div12, file$2, 108, 6, 3600);
+    			add_location(div12, file$2, 108, 6, 3629);
     			attr_dev(div13, "class", "col-item svelte-1us6wt7");
     			attr_dev(div13, "data-value", "3");
-    			add_location(div13, file$2, 109, 6, 3647);
+    			add_location(div13, file$2, 109, 6, 3676);
     			attr_dev(div14, "class", "col-item svelte-1us6wt7");
     			attr_dev(div14, "data-value", "4");
-    			add_location(div14, file$2, 110, 6, 3694);
+    			add_location(div14, file$2, 110, 6, 3723);
     			attr_dev(div15, "class", "col-item svelte-1us6wt7");
     			attr_dev(div15, "data-value", "1");
-    			add_location(div15, file$2, 112, 6, 3743);
+    			add_location(div15, file$2, 112, 6, 3772);
     			attr_dev(div16, "class", "col-item svelte-1us6wt7");
     			attr_dev(div16, "data-value", "2");
-    			add_location(div16, file$2, 113, 6, 3790);
+    			add_location(div16, file$2, 113, 6, 3819);
     			attr_dev(div17, "class", "col-item svelte-1us6wt7");
     			attr_dev(div17, "data-value", "3");
-    			add_location(div17, file$2, 114, 6, 3837);
+    			add_location(div17, file$2, 114, 6, 3866);
     			attr_dev(div18, "class", "col-item svelte-1us6wt7");
     			attr_dev(div18, "data-value", "4");
-    			add_location(div18, file$2, 115, 6, 3884);
+    			add_location(div18, file$2, 115, 6, 3913);
     			attr_dev(div19, "class", "col-item svelte-1us6wt7");
     			attr_dev(div19, "data-value", "1");
-    			add_location(div19, file$2, 117, 6, 3933);
+    			add_location(div19, file$2, 117, 6, 3962);
     			attr_dev(div20, "class", "col-item svelte-1us6wt7");
     			attr_dev(div20, "data-value", "2");
-    			add_location(div20, file$2, 118, 6, 3980);
+    			add_location(div20, file$2, 118, 6, 4009);
     			attr_dev(div21, "class", "col-item svelte-1us6wt7");
     			attr_dev(div21, "data-value", "3");
-    			add_location(div21, file$2, 119, 6, 4027);
+    			add_location(div21, file$2, 119, 6, 4056);
     			attr_dev(div22, "class", "col-item svelte-1us6wt7");
     			attr_dev(div22, "data-value", "4");
-    			add_location(div22, file$2, 120, 6, 4074);
+    			add_location(div22, file$2, 120, 6, 4103);
     			attr_dev(div23, "class", "col-item svelte-1us6wt7");
     			attr_dev(div23, "data-value", "1");
-    			add_location(div23, file$2, 122, 6, 4123);
+    			add_location(div23, file$2, 122, 6, 4152);
     			attr_dev(div24, "class", "col-item svelte-1us6wt7");
     			attr_dev(div24, "data-value", "2");
-    			add_location(div24, file$2, 123, 6, 4170);
+    			add_location(div24, file$2, 123, 6, 4199);
     			attr_dev(div25, "class", "col-item svelte-1us6wt7");
     			attr_dev(div25, "data-value", "3");
-    			add_location(div25, file$2, 124, 6, 4217);
+    			add_location(div25, file$2, 124, 6, 4246);
     			attr_dev(div26, "class", "col-item svelte-1us6wt7");
     			attr_dev(div26, "data-value", "4");
-    			add_location(div26, file$2, 125, 6, 4264);
+    			add_location(div26, file$2, 125, 6, 4293);
     			attr_dev(div27, "class", "col-item svelte-1us6wt7");
     			attr_dev(div27, "data-value", "1");
-    			add_location(div27, file$2, 127, 6, 4313);
+    			add_location(div27, file$2, 127, 6, 4342);
     			attr_dev(div28, "class", "col-item svelte-1us6wt7");
     			attr_dev(div28, "data-value", "2");
-    			add_location(div28, file$2, 128, 6, 4360);
+    			add_location(div28, file$2, 128, 6, 4389);
     			attr_dev(div29, "class", "col-item svelte-1us6wt7");
     			attr_dev(div29, "data-value", "3");
-    			add_location(div29, file$2, 129, 6, 4407);
+    			add_location(div29, file$2, 129, 6, 4436);
     			attr_dev(div30, "class", "col-item bottom-right-corner svelte-1us6wt7");
     			attr_dev(div30, "data-value", "4");
-    			add_location(div30, file$2, 130, 6, 4454);
+    			add_location(div30, file$2, 130, 6, 4483);
     			attr_dev(div31, "class", "cols svelte-1us6wt7");
-    			add_location(div31, file$2, 101, 4, 3326);
+    			add_location(div31, file$2, 101, 4, 3355);
     			attr_dev(div32, "class", "calendar svelte-1us6wt7");
-    			add_location(div32, file$2, 91, 2, 2936);
+    			add_location(div32, file$2, 91, 2, 2965);
     			attr_dev(button0, "id", "left-btn");
     			attr_dev(button0, "class", "btn svelte-1us6wt7");
-    			add_location(button0, file$2, 134, 4, 4566);
+    			add_location(button0, file$2, 134, 4, 4595);
     			attr_dev(button1, "id", "right-btn");
     			attr_dev(button1, "class", "btn svelte-1us6wt7");
-    			add_location(button1, file$2, 137, 4, 4664);
+    			add_location(button1, file$2, 137, 4, 4693);
     			attr_dev(div33, "class", "buttons");
-    			add_location(div33, file$2, 133, 2, 4539);
+    			add_location(div33, file$2, 133, 2, 4568);
     			attr_dev(div34, "class", "calendar-container svelte-1us6wt7");
-    			add_location(div34, file$2, 90, 0, 2900);
+    			add_location(div34, file$2, 90, 0, 2929);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -27760,7 +27754,7 @@ var app = (function () {
     	};
 
     	async function getLessons() {
-    		const resp = await fetch(`http://localhost:3000/api/lessons/${$studentData.classId}/${week.monday}/${week.friday}`);
+    		const resp = await fetch(`http://localhost:3000/api/lessons/${$studentData.classId}/${week.monday}/${week.friday}`, { credentials: "include" });
     		const respData = await resp.json();
     		return respData.data;
     	}
@@ -27958,7 +27952,7 @@ var app = (function () {
     /* src\App.svelte generated by Svelte v3.47.0 */
     const file = "src\\App.svelte";
 
-    // (17:2) {#if $isLoggedIn}
+    // (20:2) {#if $isLoggedIn}
     function create_if_block(ctx) {
     	let navbar;
     	let current;
@@ -27990,14 +27984,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(17:2) {#if $isLoggedIn}",
+    		source: "(20:2) {#if $isLoggedIn}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:6) <PrivateRoute path="/" let:location>
+    // (26:6) <PrivateRoute path="/" let:location>
     function create_default_slot_7(ctx) {
     	let home;
     	let current;
@@ -28029,14 +28023,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(23:6) <PrivateRoute path=\\\"/\\\" let:location>",
+    		source: "(26:6) <PrivateRoute path=\\\"/\\\" let:location>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (27:6) <PrivateRoute path="/students" let:location>
+    // (30:6) <PrivateRoute path="/students" let:location>
     function create_default_slot_6(ctx) {
     	let students;
     	let current;
@@ -28068,14 +28062,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(27:6) <PrivateRoute path=\\\"/students\\\" let:location>",
+    		source: "(30:6) <PrivateRoute path=\\\"/students\\\" let:location>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (31:6) <PrivateRoute path="/absence" let:location>
+    // (34:6) <PrivateRoute path="/absence" let:location>
     function create_default_slot_5(ctx) {
     	let absence;
     	let current;
@@ -28107,14 +28101,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(31:6) <PrivateRoute path=\\\"/absence\\\" let:location>",
+    		source: "(34:6) <PrivateRoute path=\\\"/absence\\\" let:location>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (35:6) <PrivateRoute path="/schedule" let:location>
+    // (38:6) <PrivateRoute path="/schedule" let:location>
     function create_default_slot_4(ctx) {
     	let schedule;
     	let current;
@@ -28146,14 +28140,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(35:6) <PrivateRoute path=\\\"/schedule\\\" let:location>",
+    		source: "(38:6) <PrivateRoute path=\\\"/schedule\\\" let:location>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (39:6) <Route path="/login">
+    // (42:6) <Route path="/login">
     function create_default_slot_3(ctx) {
     	let login;
     	let current;
@@ -28185,14 +28179,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(39:6) <Route path=\\\"/login\\\">",
+    		source: "(42:6) <Route path=\\\"/login\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (43:6) <Route path="/logout">
+    // (46:6) <Route path="/logout">
     function create_default_slot_2(ctx) {
     	let logout;
     	let current;
@@ -28224,14 +28218,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(43:6) <Route path=\\\"/logout\\\">",
+    		source: "(46:6) <Route path=\\\"/logout\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (47:6) <ToastContainer placement="bottom-right" let:data>
+    // (50:6) <ToastContainer placement="bottom-right" let:data>
     function create_default_slot_1(ctx) {
     	let flattoast;
     	let current;
@@ -28272,14 +28266,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(47:6) <ToastContainer placement=\\\"bottom-right\\\" let:data>",
+    		source: "(50:6) <ToastContainer placement=\\\"bottom-right\\\" let:data>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (15:0) <Router>
+    // (18:0) <Router>
     function create_default_slot(ctx) {
     	let t0;
     	let main;
@@ -28413,9 +28407,9 @@ var app = (function () {
     			t6 = space();
     			create_component(toastcontainer.$$.fragment);
     			attr_dev(div, "class", "wrapper svelte-1r97ayh");
-    			add_location(div, file, 21, 4, 679);
+    			add_location(div, file, 24, 4, 682);
     			attr_dev(main, "class", "svelte-1r97ayh");
-    			add_location(main, file, 20, 2, 668);
+    			add_location(main, file, 23, 2, 671);
     		},
     		m: function mount(target, anchor) {
     			if (if_block) if_block.m(target, anchor);
@@ -28550,7 +28544,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(15:0) <Router>",
+    		source: "(18:0) <Router>",
     		ctx
     	});
 

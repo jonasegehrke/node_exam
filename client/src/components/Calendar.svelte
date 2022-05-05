@@ -14,9 +14,9 @@
   };
 
   async function getLessons() {
-    const resp = await fetch(
-      `MYURL/api/lessons/${$studentData.classId}/${week.monday}/${week.friday}`
-    );
+    const resp = await fetch(`MYURL/api/lessons/${$studentData.classId}/${week.monday}/${week.friday}`, {
+      credentials: "include",
+      });
     const respData = await resp.json();
     return respData.data;
   }

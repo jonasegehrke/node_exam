@@ -1,5 +1,5 @@
 <script>
-  import { isLoggedIn, userId, responseData } from "../../store/store";
+  import { isLoggedIn, responseData } from "../../store/store";
   import { useNavigate, useLocation } from "svelte-navigator";
   import { toasts } from "svelte-toasts";
 
@@ -10,7 +10,6 @@
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    const url = `MYURL/api/auth`;
 
     if (username === "" || password === "") {
       toasts.error("Udfyld venligst både brugernavn og password");
@@ -19,15 +18,15 @@
 
     const data = { username: username, password: password };
 
-    await fetch(url, {
+    await fetch("MYURL/api/auth", {
       method: "POST",
       body: JSON.stringify(data),
       headers: { "Content-type": "application/json; charset=UTF-8" },
+      credentials: "include",
     })
       .then((response) => response.json())
       .then((data) => {
         isLoggedIn.set(data.isLoggedIn);
-        userId.set(data.userId);
         responseData.set(data);
       });
 

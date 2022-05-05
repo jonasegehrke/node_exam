@@ -10,6 +10,9 @@
   import PrivateRoute from "./components/PrivateRoute.svelte";
   import Logout from "./components/Logout.svelte";
 import Schedule from "./pages/Schedule/Schedule.svelte";
+
+
+
 </script>
 
 <Router>

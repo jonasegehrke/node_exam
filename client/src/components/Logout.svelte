@@ -2,11 +2,22 @@
     import { useNavigate, useLocation } from "svelte-navigator";
     import { isLoggedIn } from '../store/store';
     import { toasts } from "svelte-toasts";
-  
-    const navigate = useNavigate();
+    import { onMount } from 'svelte'
+
+const navigate = useNavigate();
     const location = useLocation();
-  
-    isLoggedIn.set(false);
+
+
+    onMount(async () => {
+    await fetch("MYURL/api/auth/logout",
+        {
+            method: "POST",
+            credentials: "include",
+        }
+    );
+  });
+
+ isLoggedIn.set(false);
   
     $: if ($isLoggedIn === false) {
       toasts.info("Du er nu logget ud");
@@ -14,7 +25,8 @@
         state: { from: $location.pathname },
         replace: true,
       });
-    }
+    } 
+
   </script>
   
   {#if $isLoggedIn}

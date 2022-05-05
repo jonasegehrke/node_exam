@@ -1,5 +1,5 @@
 <script>
-  import { userId, studentData, posts } from "../../store/store";
+  import { studentData, posts } from "../../store/store";
   import Post from "../../components/Post.svelte";
   import StudentCard from "../../components/StudentCard.svelte";
   import { onMount } from "svelte";
@@ -27,7 +27,9 @@
   //Get student data
   async function getStudentData() {
     const response = await fetch(
-      "MYURL/api/students/" + $userId
+      "MYURL/api/students/user", {
+        credentials: "include",
+      }
     );
     const data = await response.json();
     studentData.set(data.data);
@@ -36,7 +38,9 @@
   //Get posts for the students class
   async function getPosts() {
     const response = await fetch(
-      "MYURL/api/posts/" + $studentData.classId
+      "MYURL/api/posts/" + $studentData.classId, {
+        credentials: "include",
+      }
     );
     const data = await response.json();
     posts.set(data.data);
@@ -74,6 +78,7 @@
         method: "POST",
         body: JSON.stringify(post),
         headers: { "Content-type": "application/json; charset=UTF-8" },
+        credentials: "include",
       })
         .then((response) => response.json())
         .then((responseText) => {

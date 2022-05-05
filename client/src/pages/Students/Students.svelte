@@ -3,7 +3,10 @@
   import StudentCard from "../../components/StudentCard.svelte";
 
   async function getAllStudents() {
-    const response = await fetch("MYURL/api/students/");
+    const response = await fetch("MYURL/api/students/", {
+      credentials: "include",
+    });
+    
     const data = await response.json();
     students.set(data.data);
   }

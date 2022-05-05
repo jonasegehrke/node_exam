@@ -8,6 +8,9 @@ router.get("/api/lessons/:id/:startDate/:endDate", async (req, res) => {
     res.status(403).send("Forbidden");
     return;
   }
+
+  console.log(req.session)
+
   const { id } = req.params;
   const { startDate, endDate } = req.params;
   const lessons = await db.all(
