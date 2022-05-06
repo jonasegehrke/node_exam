@@ -6,18 +6,7 @@
   import moment from "moment";
   import { toasts } from "svelte-toasts";
 
-  /*
-  const resp = await fetch('https://api.ipify.org/?format=json');
-    const respData = await resp.json();
 
-    if(respData.ip === "94.18.243.162"){
-      console.log("You are now checked in!");
-    }else{
-      console.log("We cant check you in from your current ip address");
-    }
-    */
-
-    
   let mounted = false
   onMount(async () => {
     await getStudentData()
@@ -45,6 +34,7 @@
     const data = await response.json();
     posts.set(data.data);
   }
+
 
   function handleFormOpen() {
     const form = document.getElementById("create-post");

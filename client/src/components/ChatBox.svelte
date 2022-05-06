@@ -3,6 +3,26 @@
   import SearchSelect from "./SearchSelect.svelte";
   import { studentData } from "../store/store";
   import moment from "moment";
+  import { io } from "socket.io-client";
+
+  const socket = io("MYURL");
+
+
+
+  socket.on("connect", () => {
+    console.log("connected with: " + socket.id);
+  });
+
+  setTimeout(() => {
+
+    const user = {
+    userId: $studentData.studentId,
+  };
+  socket.emit("update-client-socket-ids", user);
+    
+  }, 1000);
+  
+
 
   let currentRecieverId = null;
 
@@ -42,6 +62,33 @@
     //open chatroom
   }
 
+  socket.on("receive-message", (message) => {
+
+    console.log(message); 
+    console.log(currentRecieverId)
+    if(message.senderId === currentRecieverId){
+      receiveMessage(message);
+    }else{
+      //this should make a notification on the chaticon and let the user know who sent a message
+      //createNotification(message);
+    }
+    
+  });
+
+  function receiveMessage(message) {
+    const chat = document.getElementById("chat");
+
+    new ChatMessage({
+      target: chat,
+      props: {
+        senderIsYou: false,
+        message: message.message,
+      },
+    });
+
+    chat.scrollTop = chat.scrollHeight;
+  }
+
   async function handleSendMessage() {
     //post
     if (currentRecieverId === null) return;
@@ -51,11 +98,21 @@
 
     if (message.length === 0) return;
 
+    //Socket send
+    const socketMessage = {
+      message: message,
+      senderId: $studentData.studentId,
+      receiverId: currentRecieverId,
+    }
+
+    socket.emit("send-message", socketMessage);
+
+    //database send
     const data = {
       sender: $studentData.studentId,
       reciever: currentRecieverId,
       message: message,
-      messageSent: moment().format("YYYY-MM-DD HH:mm:ss")
+      messageSent: moment().format("YYYY-MM-DD HH:mm:ss"),
     };
 
     console.log(data);

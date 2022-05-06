@@ -4,6 +4,8 @@ import cors from "cors";
 import session from "express-session";
 import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
+import { Server } from 'socket.io';
+import { createServer } from 'http';
 
 const app = express();
 
@@ -26,6 +28,46 @@ const sessionMiddleware = session({
   cookie: { secure: false },
 });
 app.use(sessionMiddleware);
+
+const httpServer = createServer(app);
+
+const io = new Server(httpServer, {
+  cors: {
+    origin: "http://localhost:8080",
+  },
+});
+
+const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);
+io.use(wrap(sessionMiddleware));
+
+const clientSocketIds = [];
+
+io.on("connection", (socket) => {
+  socket.on("update-client-socket-ids", (user) => {
+    user.socketId = socket.id;
+    clientSocketIds.push(user);
+    console.log(clientSocketIds)
+  });
+
+  socket.on("send-message", (message) => {
+      console.log("receiverId >>>" , message.receiverId)
+    if (message.receiverId) {
+      const receiver = clientSocketIds.find(
+        (user) => user.userId === message.receiverId
+      );
+      console.log("receiver >>>" , receiver)
+      if (receiver) {
+        socket.to(receiver.socketId).emit("receive-message", message);
+      }
+    }
+  });
+
+    socket.on("disconnect", () => {
+        console.log(socket.id)
+        clientSocketIds.splice(user => user.socketId === socket.id, 1);
+    });
+});
+
 
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -57,6 +99,6 @@ app.get("/test", (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+httpServer.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

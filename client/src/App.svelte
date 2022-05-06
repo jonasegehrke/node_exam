@@ -11,18 +11,18 @@
   import Logout from "./components/Logout.svelte";
   import Schedule from "./pages/Schedule/Schedule.svelte";
   import ChatBar from "./components/ChatBar.svelte";
-  import { onMount } from 'svelte'
+ 
+  import { onMount } from "svelte";
 
-  /* onMount( async () => {
-    const resp = await fetch('MYURL/api/auth/status', {
-      method: 'POST',
-      credentials: 'include',
+  onMount(async () => {
+    /* const resp = await fetch("MYURL/api/auth/status", {
+      method: "POST",
+      credentials: "include",
     });
     const respData = await resp.json();
-    isLoggedIn.set(respData.isloggedIn);
-
-  }); */
-
+    isLoggedIn.set(respData.isloggedIn); */
+  });
+  
 </script>
 
 <Router>

@@ -24,6 +24,7 @@ const setStudentData = storedStudentData === null ? null : JSON.parse(storedStud
 
 export const posts = writable([]);
 
-
-
 export const students = writable([]);
+
+
+export const storedSocket = writable(null);
