@@ -12,6 +12,7 @@ if (deleteMode) {
   await db.exec(`DROP TABLE IF EXISTS class_membership;`);
   await db.exec(`DROP TABLE IF EXISTS post;`);
   await db.exec(`DROP TABLE IF EXISTS lesson;`);
+  await db.exec(`DROP TABLE IF EXISTS message;`);
 }
 
 // Create the tables
@@ -45,6 +46,10 @@ await db.exec(
 
 await db.exec(
   "CREATE TABLE lesson(lessonId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, lessonSubject TEXT, lessonDate Date, lessonNumber INT, classId INT, FOREIGN KEY (classId) REFERENCES class (classId) );"
+)
+
+await db.exec(
+  "CREATE TABLE message(messageId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, message TEXT, sender INT, reciever INT, messageSent DATETIME );"
 )
 
 //seed
@@ -111,15 +116,14 @@ if (deleteMode) {
 
   );
   }
-  
-
-  
-  
-  
 
   //student_user
   await db.run(
     `INSERT INTO student_user(username, email, pass, studentId) VALUES ("jonas", "jonas@mail.com", "$2a$12$RxG.U9bHcPWmsd/UnB0ZleEialN2QcjUoIpXYPz2sfav.NLo5UkNe", 1);`
+  );
+
+  await db.run(
+    `INSERT INTO student_user(username, email, pass, studentId) VALUES ("test", "test@mail.com", "$2a$12$RxG.U9bHcPWmsd/UnB0ZleEialN2QcjUoIpXYPz2sfav.NLo5UkNe", 2);`
   );
 
   //teacher
@@ -186,6 +190,12 @@ if (deleteMode) {
   await seedLessons(2);
   await seedLessons(3);
 }
+
+// message 
+await db.run ("INSERT INTO message (message, sender, reciever, messageSent) VALUES ('Wanna get a coffee?', 1, 2, '2022-05-02 12:52:00');")
+await db.run ("INSERT INTO message (message, sender, reciever, messageSent) VALUES ('sorry i am at work :-(', 2, 1, '2022-05-02 12:53:00');")
+await db.run ("INSERT INTO message (message, sender, reciever, messageSent) VALUES ('Wonderful day is it not?', 1, 2, '2022-05-02 12:50:00');")
+await db.run ("INSERT INTO message (message, sender, reciever, messageSent) VALUES ('Yes it is', 2, 1, '2022-05-02 12:51:00');")
 
 db.close();
 

@@ -48,6 +48,9 @@ app.use(postRouter);
 import lessonRouter from "./routers/lessonRouter.js";
 app.use(lessonRouter);
 
+import chatRouter from './routers/chatRouter.js';
+app.use(chatRouter);
+
 app.get("/test", (req, res) => {
   console.log(req.session);
   res.send("Hello World");

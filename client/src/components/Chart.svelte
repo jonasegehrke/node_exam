@@ -64,11 +64,11 @@
   const data = {
   labels: [
     'Fravær',
-    'Samlede antal Lektioner'
+    'Resterende lektioner'
   ],
   datasets: [{
     label: 'Fraværs procent',
-    data: [$studentData.absenceLessons, $studentData.totalLessons],
+    data: [$studentData.absenceLessons, $studentData.totalLessons - $studentData.absenceLessons],
     backgroundColor: [
       'rgb(255, 99, 132)',
       'rgb(54, 162, 235)'

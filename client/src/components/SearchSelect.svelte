@@ -1,4 +1,21 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
+
+  let recieverId = null;
+
+  function onSelect(){
+    dispatch('onSelect',{
+      recieverId: recieverId,
+    });
+  }
+
+  export let label;
+
+
+  
+
   async function getSearchResults() {
     const search = document.getElementById("search").value;
     const resp = await fetch("MYURL/api/students/" + search, {
@@ -15,15 +32,20 @@
       option.classList.add("search-result");
       option.addEventListener("click", () => {
         console.log(option.value);
-        document.getElementById("search").value =
-          student.firstName + " " + student.lastName;
+        document.getElementById("search").value = "";
         document.getElementById("datalist").innerHTML = "";
+        document.getElementById("label").innerHTML =
+          student.firstName + " " + student.lastName;
+        recieverId = option.value;
+        onSelect();
+        
       });
       document.getElementById("datalist").appendChild(option);
     });
   }
 </script>
 
+<h4 id="label">{label}</h4>
 <input
   type="text"
   id="search"
@@ -59,5 +81,11 @@
 
   #search:focus {
     border: 1.8px solid var(--color-blue-main);
+  }
+
+  #label{
+    font-family: var(--primary-font);
+    color: #000000;
+    margin-bottom: 5px;
   }
 </style>
