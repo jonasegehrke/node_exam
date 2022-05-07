@@ -28185,16 +28185,16 @@ var app = (function () {
     			div = element("div");
     			attr_dev(h4, "id", "label");
     			attr_dev(h4, "class", "svelte-16c5c81");
-    			add_location(h4, file$3, 47, 0, 1320);
+    			add_location(h4, file$3, 47, 0, 1335);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "id", "search");
     			attr_dev(input, "placeholder", "Modtager");
     			attr_dev(input, "autocomplete", "off");
     			attr_dev(input, "class", "svelte-16c5c81");
-    			add_location(input, file$3, 48, 0, 1349);
+    			add_location(input, file$3, 48, 0, 1364);
     			attr_dev(div, "id", "datalist");
     			attr_dev(div, "class", "svelte-16c5c81");
-    			add_location(div, file$3, 55, 0, 1470);
+    			add_location(div, file$3, 55, 0, 1485);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -28267,7 +28267,7 @@ var app = (function () {
     				console.log(option.value);
     				document.getElementById("search").value = "";
     				document.getElementById("datalist").innerHTML = "";
-    				document.getElementById("label").innerHTML = student.firstName + " " + student.lastName;
+    				document.getElementById("label").innerHTML = "Chat med: " + student.firstName + " " + student.lastName;
     				recieverId = option.value;
     				onSelect();
     			});

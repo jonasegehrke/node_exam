@@ -63,8 +63,10 @@ io.on("connection", (socket) => {
   });
 
     socket.on("disconnect", () => {
-        console.log(socket.id)
-        clientSocketIds.splice(user => user.socketId === socket.id, 1);
+        console.log("discconnecting: ", socket.id)
+        const index = clientSocketIds.findIndex((user) => user.socketId === socket.id);
+        clientSocketIds.splice(index, 1);
+
     });
 });
 

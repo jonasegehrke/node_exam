@@ -35,7 +35,7 @@
         document.getElementById("search").value = "";
         document.getElementById("datalist").innerHTML = "";
         document.getElementById("label").innerHTML =
-          student.firstName + " " + student.lastName;
+          "Chat med: " + student.firstName + " " + student.lastName;
         recieverId = option.value;
         onSelect();
         
