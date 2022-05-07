@@ -28,6 +28,7 @@
       .then((data) => {
         isLoggedIn.set(data.isLoggedIn);
         responseData.set(data);
+        console.log(data)
       });
 
     if ($isLoggedIn) {

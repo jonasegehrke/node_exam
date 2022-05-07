@@ -15,12 +15,13 @@
   import { onMount } from "svelte";
 
   onMount(async () => {
-    /* const resp = await fetch("MYURL/api/auth/status", {
+    const resp = await fetch("MYURL/api/auth/status", {
       method: "POST",
       credentials: "include",
     });
     const respData = await resp.json();
-    isLoggedIn.set(respData.isloggedIn); */
+    isLoggedIn.set(respData.isloggedIn);
+    
   });
   
 </script>

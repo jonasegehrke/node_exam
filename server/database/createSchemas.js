@@ -9,6 +9,7 @@ if (deleteMode) {
   await db.exec(`DROP TABLE IF EXISTS student;`);
   await db.exec(`DROP TABLE IF EXISTS student_user;`);
   await db.exec(`DROP TABLE IF EXISTS teacher;`);
+  await db.exec(`DROP TABLE IF EXISTS teacher_user;`);
   await db.exec(`DROP TABLE IF EXISTS class_membership;`);
   await db.exec(`DROP TABLE IF EXISTS post;`);
   await db.exec(`DROP TABLE IF EXISTS lesson;`);
@@ -34,6 +35,10 @@ await db.exec(
 
 await db.exec(
   "CREATE TABLE teacher(teacherId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, firstName TEXT, lastName TEXT, phone TEXT, email TEXT);"
+);
+
+await db.exec(
+  "CREATE TABLE teacher_user(userId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, username TEXT, email TEXT, pass TEXT, teacherId INT, FOREIGN KEY (teacherId) REFERENCES teacher(teacherId));"
 );
 
 await db.exec(
@@ -128,13 +133,18 @@ if (deleteMode) {
 
   //teacher
   await db.run(
-    `INSERT INTO teacher(firstName, lastName, phone, email) VALUES ("Hans", "Hansen", "45 45 45 45", "hans@mail.com");`
+    `INSERT INTO teacher(firstName, lastName, phone, email) VALUES ("Anders", "Latif", "45 45 45 45", "anders@mail.com");`
   );
   await db.run(
     `INSERT INTO teacher(firstName, lastName, phone, email) VALUES ("Jens", "Jensen", "45 45 45 45", "jens@mail.com");`
   );
   await db.run(
     `INSERT INTO teacher(firstName, lastName, phone, email) VALUES ("Anders", "Andersen", "45 45 45 45", "anders@mail.com");`
+  );
+
+  //teacher_user
+  await db.run(
+    `INSERT INTO teacher_user(username, email, pass, teacherId) VALUES ("anders", "anders@mail.com", "$2a$12$RxG.U9bHcPWmsd/UnB0ZleEialN2QcjUoIpXYPz2sfav.NLo5UkNe", 1);`
   );
 
   //class_membership
