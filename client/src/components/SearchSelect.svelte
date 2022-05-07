@@ -31,7 +31,6 @@
       option.innerHTML = student.firstName + " " + student.lastName;
       option.classList.add("search-result");
       option.addEventListener("click", () => {
-        console.log(option.value);
         document.getElementById("search").value = "";
         document.getElementById("datalist").innerHTML = "";
         document.getElementById("label").innerHTML =

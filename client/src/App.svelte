@@ -1,7 +1,7 @@
 <script>
   import { Router, Route } from "svelte-navigator";
   import { ToastContainer, FlatToast } from "svelte-toasts";
-  import { isLoggedIn } from "./store/store";
+  import { isAdmin, isLoggedIn } from "./store/store";
   import Login from "./pages/Login/Login.svelte";
   import Home from "./pages/Home/Home.svelte";
   import Students from "./pages/Students/Students.svelte";
@@ -12,18 +12,6 @@
   import Schedule from "./pages/Schedule/Schedule.svelte";
   import ChatBar from "./components/ChatBar.svelte";
  
-  import { onMount } from "svelte";
-
-  onMount(async () => {
-    const resp = await fetch("MYURL/api/auth/status", {
-      method: "POST",
-      credentials: "include",
-    });
-    const respData = await resp.json();
-    isLoggedIn.set(respData.isloggedIn);
-    
-  });
-  
 </script>
 
 <Router>
@@ -49,10 +37,11 @@
         <Schedule />
       </PrivateRoute>
 
+  
       <Route path="/login">
         <Login />
       </Route>
-
+   
       <Route path="/logout">
         <Logout />
       </Route>

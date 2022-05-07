@@ -58,7 +58,6 @@
   }
 
   function updateCalendar(lessons) {
-    console.log(lessons)
     const cols = document.querySelectorAll(".col-item");
     //clear the calendar
     cols.forEach((col) => {

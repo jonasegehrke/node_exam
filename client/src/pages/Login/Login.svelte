@@ -1,5 +1,5 @@
 <script>
-  import { isLoggedIn, responseData } from "../../store/store";
+  import { isLoggedIn, responseData, isAdmin } from "../../store/store";
   import { useNavigate, useLocation } from "svelte-navigator";
   import { toasts } from "svelte-toasts";
 
@@ -27,8 +27,8 @@
       .then((response) => response.json())
       .then((data) => {
         isLoggedIn.set(data.isLoggedIn);
+        isAdmin.set(data.isAdmin);
         responseData.set(data);
-        console.log(data)
       });
 
     if ($isLoggedIn) {

@@ -13,6 +13,9 @@
     await getPosts()
     mounted = true
   });
+  //Get login status
+ 
+
   //Get student data
   async function getStudentData() {
     const response = await fetch(

@@ -31,7 +31,6 @@ async function comparePasswords(req, res, next) {
     String(req.body.password),
     String(user.pass)
   );
-  console.log("isSame >>> ", isSame);
   if (isSame) {
     req.session.isLoggedIn = true;
     req.session.userId = user.userId;
@@ -57,7 +56,7 @@ router.post("/api/auth/logout", (req, res) => {
   res.send({ message: "Du er nu logget ud", isLoggedIn: false });
 });
 
-router.post("/api/auth/status", (req, res) => {
+router.post("/api/login/status", (req, res) => {
   if (!req.session.isLoggedIn) {
     res.send({ isLoggedIn: false });
     return;

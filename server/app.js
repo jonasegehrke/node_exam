@@ -46,16 +46,13 @@ io.on("connection", (socket) => {
   socket.on("update-client-socket-ids", (user) => {
     user.socketId = socket.id;
     clientSocketIds.push(user);
-    console.log(clientSocketIds)
   });
 
   socket.on("send-message", (message) => {
-      console.log("receiverId >>>" , message.receiverId)
     if (message.receiverId) {
       const receiver = clientSocketIds.find(
         (user) => user.userId === message.receiverId
       );
-      console.log("receiver >>>" , receiver)
       if (receiver) {
         socket.to(receiver.socketId).emit("receive-message", message);
       }
@@ -63,7 +60,6 @@ io.on("connection", (socket) => {
   });
 
     socket.on("disconnect", () => {
-        console.log("discconnecting: ", socket.id)
         const index = clientSocketIds.findIndex((user) => user.socketId === socket.id);
         clientSocketIds.splice(index, 1);
 
@@ -73,12 +69,13 @@ io.on("connection", (socket) => {
 
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  max: 3, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 
 app.use("/api/auth", authLimiter);
+
 
 import loginRouter from "./routers/loginRouter.js";
 app.use(loginRouter);
@@ -96,7 +93,6 @@ import chatRouter from './routers/chatRouter.js';
 app.use(chatRouter);
 
 app.get("/test", (req, res) => {
-  console.log(req.session);
   res.send("Hello World");
 });
 

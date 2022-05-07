@@ -10,7 +10,6 @@
 
 
   socket.on("connect", () => {
-    console.log("connected with: " + socket.id);
   });
 
   setTimeout(() => {
@@ -39,8 +38,6 @@
 
     const respData = await resp.json();
 
-    console.log(respData);
-
     //clear previous chat
     document.getElementById("chat").innerHTML = "";
 
@@ -63,9 +60,6 @@
   }
 
   socket.on("receive-message", (message) => {
-
-    console.log(message); 
-    console.log(currentRecieverId)
     if(message.senderId === currentRecieverId){
       receiveMessage(message);
     }else{
@@ -114,8 +108,6 @@
       message: message,
       messageSent: moment().format("YYYY-MM-DD HH:mm:ss"),
     };
-
-    console.log(data);
 
     await fetch("MYURL/api/chat", {
       method: "POST",
