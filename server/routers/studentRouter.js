@@ -25,6 +25,8 @@ router.get("/api/students/user", checkLoginStatus, async (req, res) => {
     id
   );
 
+  delete student.pass;
+
   student
     ? res.send({ data: student })
     : res.send({ error: "Student not found" });

@@ -10,11 +10,13 @@ if (deleteMode) {
   await db.exec(`DROP TABLE IF EXISTS student_user;`);
   await db.exec(`DROP TABLE IF EXISTS teacher;`);
   await db.exec(`DROP TABLE IF EXISTS teacher_user;`);
-  await db.exec(`DROP TABLE IF EXISTS class_membership;`);
+  await db.exec(`DROP TABLE IF EXISTS teacher_classes;`);
   await db.exec(`DROP TABLE IF EXISTS post;`);
   await db.exec(`DROP TABLE IF EXISTS lesson;`);
   await db.exec(`DROP TABLE IF EXISTS message;`);
 }
+
+
 
 // Create the tables
 await db.exec(
@@ -38,11 +40,11 @@ await db.exec(
 );
 
 await db.exec(
-  "CREATE TABLE teacher_user(userId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, username TEXT, email TEXT, pass TEXT, teacherId INT, FOREIGN KEY (teacherId) REFERENCES teacher(teacherId));"
+  "CREATE TABLE teacher_classes(teacherId INT, classId INT, FOREIGN KEY (classId) REFERENCES class (classID));"
 );
 
 await db.exec(
-  "CREATE TABLE class_membership(classId INTEGER NOT NULL, teacherId INTEGER NOT NULL, FOREIGN KEY (classId) REFERENCES class(classId), FOREIGN KEY (teacherId) REFERENCES teacher(teacherId));"
+  "CREATE TABLE teacher_user(userId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, username TEXT, email TEXT, pass TEXT, teacherId INT, FOREIGN KEY (teacherId) REFERENCES teacher(teacherId));"
 );
 
 await db.exec(
@@ -147,11 +149,11 @@ if (deleteMode) {
     `INSERT INTO teacher_user(username, email, pass, teacherId) VALUES ("anders", "anders@mail.com", "$2a$12$RxG.U9bHcPWmsd/UnB0ZleEialN2QcjUoIpXYPz2sfav.NLo5UkNe", 1);`
   );
 
-  //class_membership
-  await db.run(`INSERT INTO class_membership(teacherId, classId) VALUES (1,1);`);
-  await db.run(`INSERT INTO class_membership(teacherId, classId) VALUES (1,2);`);
-  await db.run(`INSERT INTO class_membership(teacherId, classId) VALUES (2,3);`);
-  await db.run(`INSERT INTO class_membership(teacherId, classId) VALUES (3,2);`);
+  //teacher_classes
+  await db.run(`INSERT INTO teacher_classes(teacherId, classId) VALUES (1,1);`);
+  await db.run(`INSERT INTO teacher_classes(teacherId, classId) VALUES (1,2);`);
+  await db.run(`INSERT INTO teacher_classes(teacherId, classId) VALUES (2,3);`);
+  await db.run(`INSERT INTO teacher_classes(teacherId, classId) VALUES (3,2);`);
 
   //post
   await db.run(

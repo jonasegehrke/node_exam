@@ -1,7 +1,7 @@
 <script>
   import ChatMessage from "./ChatMessage.svelte";
   import SearchSelect from "./SearchSelect.svelte";
-  import { studentData } from "../store/store";
+  import { userData } from "../store/store";
   import moment from "moment";
   import { io } from "socket.io-client";
 
@@ -15,7 +15,7 @@
   setTimeout(() => {
 
     const user = {
-    userId: $studentData.studentId,
+    userId: $userData.studentId,
   };
   socket.emit("update-client-socket-ids", user);
     
@@ -30,7 +30,7 @@
     currentRecieverId = event.detail.recieverId;
 
     const resp = await fetch(
-      "MYURL/api/chat/" + $studentData.studentId + "/" + currentRecieverId,
+      "MYURL/api/chat/" + $userData.studentId + "/" + currentRecieverId,
       {
         credentials: "include",
       }
@@ -45,7 +45,7 @@
     respData.forEach((message) => {
       let isYou = false;
 
-      if (message.sender === $studentData.studentId) isYou = true;
+      if (message.sender === $userData.studentId) isYou = true;
 
       new ChatMessage({
         target: document.getElementById("chat"),
@@ -95,7 +95,7 @@
     //Socket send
     const socketMessage = {
       message: message,
-      senderId: $studentData.studentId,
+      senderId: $userData.studentId,
       receiverId: currentRecieverId,
     }
 
@@ -103,7 +103,7 @@
 
     //database send
     const data = {
-      sender: $studentData.studentId,
+      sender: $userData.studentId,
       reciever: currentRecieverId,
       message: message,
       messageSent: moment().format("YYYY-MM-DD HH:mm:ss"),

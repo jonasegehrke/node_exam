@@ -51,7 +51,7 @@ router.post("/api/auth", comparePasswords, (req, res) => {
   res.send({ isLoggedIn: true, userId: req.session.userId, isAdmin: req.session.isAdmin });
 });
 
-router.post("/api/auth/logout", (req, res) => {
+router.post("/api/logout", (req, res) => {
   req.session.destroy();
   res.send({ message: "Du er nu logget ud", isLoggedIn: false });
 });

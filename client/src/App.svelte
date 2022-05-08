@@ -1,7 +1,7 @@
 <script>
   import { Router, Route } from "svelte-navigator";
   import { ToastContainer, FlatToast } from "svelte-toasts";
-  import { isAdmin, isLoggedIn } from "./store/store";
+  import { isLoggedIn, isAdmin } from "./store/store";
   import Login from "./pages/Login/Login.svelte";
   import Home from "./pages/Home/Home.svelte";
   import Students from "./pages/Students/Students.svelte";
@@ -21,7 +21,7 @@
 
   <main>
     <div class="wrapper">
-      <PrivateRoute path="/" let:location>
+      <PrivateRoute path="/" let:location >
         <Home />
       </PrivateRoute>
 
@@ -29,9 +29,11 @@
         <Students />
       </PrivateRoute>
 
+      {#if !$isAdmin}
       <PrivateRoute path="/absence" let:location>
         <Absence />
       </PrivateRoute>
+      {/if}
 
       <PrivateRoute path="/schedule" let:location>
         <Schedule />

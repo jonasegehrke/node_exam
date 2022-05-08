@@ -2,7 +2,7 @@
   import ChatBox from "./ChatBox.svelte";
   import { fly } from "svelte/transition";
 
-  let chatOpen = true;
+  let chatOpen = false;
   function handleOpenCloseChat() {
     chatOpen = !chatOpen;
   }

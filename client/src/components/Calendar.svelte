@@ -1,5 +1,5 @@
 <script>
-  import { studentData } from "../store/store";
+  import { userData, currentClass } from "../store/store";
   import Lesson from "./Lesson.svelte";
   import moment from "moment";
   import { onMount } from "svelte";
@@ -14,7 +14,7 @@
   };
 
   async function getLessons() {
-    const resp = await fetch(`MYURL/api/lessons/${$studentData.classId}/${week.monday}/${week.friday}`, {
+    const resp = await fetch(`MYURL/api/lessons/${$currentClass.classId}/${week.monday}/${week.friday}`, {
       credentials: "include",
       });
     const respData = await resp.json();

@@ -9,7 +9,7 @@ const navigate = useNavigate();
 
 
     onMount(async () => {
-    await fetch("MYURL/api/auth/logout",
+    await fetch("MYURL/api/logout",
         {
             method: "POST",
             credentials: "include",

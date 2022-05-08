@@ -1,43 +1,67 @@
 <script>
-  import { studentData, posts } from "../../store/store";
+  import {
+    userData,
+    posts,
+    isAdmin,
+    classes,
+    currentClass,
+  } from "../../store/store";
   import Post from "../../components/Post.svelte";
   import StudentCard from "../../components/StudentCard.svelte";
+  import TeacherCard from "../../components/TeacherCard.svelte";
   import { onMount } from "svelte";
   import moment from "moment";
   import { toasts } from "svelte-toasts";
 
-
-  let mounted = false
+  let mounted = false;
   onMount(async () => {
-    await getStudentData()
-    await getPosts()
-    mounted = true
+    if ($isAdmin) {
+      await getTeacherData();
+    } else {
+      await getStudentData();
+    }
+    await getPosts();
+    mounted = true;
   });
-  //Get login status
- 
 
+  //Get teacher data
+  async function getTeacherData() {
+    const resp = await fetch("MYURL/api/teacher/user", {
+      credentials: "include",
+    });
+    const respData = await resp.json();
+    userData.set(respData.teacherData);
+    classes.set(respData.classes);
+
+    if ($currentClass === null) {
+      currentClass.set(respData.classes[0]);
+    }
+  }
   //Get student data
   async function getStudentData() {
-    const response = await fetch(
-      "MYURL/api/students/user", {
-        credentials: "include",
-      }
-    );
+    const response = await fetch("MYURL/api/students/user", {
+      credentials: "include",
+    });
     const data = await response.json();
-    studentData.set(data.data);
+    userData.set(data.data);
+
+    const classRoom = {
+      className: data.data.className,
+      classId: data.data.classId,
+    };
+    currentClass.set(classRoom);
+
   }
 
   //Get posts for the students class
   async function getPosts() {
-    const response = await fetch(
-      "MYURL/api/posts/" + $studentData.classId, {
-        credentials: "include",
-      }
-    );
+    const response = await fetch("MYURL/api/posts/" + $currentClass.classId, {
+      credentials: "include",
+    });
     const data = await response.json();
     posts.set(data.data);
-  }
 
+  }
 
   function handleFormOpen() {
     const form = document.getElementById("create-post");
@@ -50,8 +74,8 @@
     const title = document.getElementById("title-input");
     const content = document.getElementById("content-input");
     const created = moment().format("YYYY-MM-DD HH:mm:ss");
-    const studentName = $studentData.firstName + " " + $studentData.lastName;
-    const classId = $studentData.classId;
+    const studentName = $userData.firstName + " " + $userData.lastName;
+    const classId = $currentClass.classId;
 
     if (title.value === "" || content.value === "") {
       toasts.error("Udfyld venligst både titel og indhold");
@@ -89,61 +113,84 @@
       toasts.error("Der skete en fejl");
     }
   }
-
 </script>
 
 {#if mounted}
-<div class="container">
-  <div class="posts">
-    <button on:click={handleFormOpen} id="open-form-btn">Opret opslag</button>
-    <div id="create-post" class="hidden">
-      <input id="title-input" type="text" placeholder="Titel" />
-      <textarea
-        type="text"
-        id="content-input"
-        cols="40"
-        rows="8"
-        placeholder="Besked"
-      />
+  <div class="container">
+    <div class="posts">
+      <div class="header-container">
+        <button on:click={handleFormOpen} id="open-form-btn"
+          >Opret opslag</button
+        >
+        <h1>{$currentClass.className}'s opslagstavle</h1>
+      </div>
+      <div id="create-post" class="hidden">
+        <input id="title-input" type="text" placeholder="Titel" />
+        <textarea
+          type="text"
+          id="content-input"
+          cols="40"
+          rows="8"
+          placeholder="Besked"
+        />
 
-      <button on:click={handleSendPost} id="send-post-btn">Slå op</button>
+        <button on:click={handleSendPost} id="send-post-btn">Slå op</button>
+      </div>
+
+      {#each $posts as post}
+        <Post
+          title={post.title}
+          content={post.content}
+          creator={post.studentName}
+          timestamp={post.created}
+        />
+      {/each}
     </div>
-    
-    {#each $posts as post}
-      <Post
-        title={post.title}
-        content={post.content}
-        creator={post.studentName}
-        timestamp={post.created}
-      />
-    {/each}
+    <div class="student-info">
+      {#if $isAdmin}
+        <TeacherCard
+          firstName={$userData.firstName}
+          lastName={$userData.lastName}
+          email={$userData.email}
+          phone={$userData.phone}
+        />
+      {:else}
+        <StudentCard
+          firstName={$userData.firstName}
+          lastName={$userData.lastName}
+          studentNumber={$userData.studentNumber}
+          className={$userData.className}
+          email={$userData.email}
+          phone={$userData.phone}
+          address={$userData.address}
+          showGrades={true}
+          dansk={$userData.dansk}
+          engelsk={$userData.engelsk}
+          historie={$userData.historie}
+          matematik={$userData.matematik}
+          geografi={$userData.geografi}
+          small={false}
+        />
+      {/if}
+    </div>
   </div>
-  <div class="student-info">
-    <StudentCard
-      firstName={$studentData.firstName}
-      lastName={$studentData.lastName}
-      studentNumber={$studentData.studentNumber}
-      className={$studentData.className}
-      email={$studentData.email}
-      phone={$studentData.phone}
-      address={$studentData.address}
-      showGrades={true}
-      dansk={$studentData.dansk}
-      engelsk={$studentData.engelsk}
-      historie={$studentData.historie}
-      matematik={$studentData.matematik}
-      geografi={$studentData.geografi}
-      small={false}
-    />
- 
-  </div>
-</div>
- {/if}
+{/if}
+
 <style>
   .container {
     overflow: overlay;
     display: flex;
     justify-content: space-evenly;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .header-container h1 {
+    display: flex;
+    align-items: flex-end;
+    font-family: var(--primary-font);
   }
 
   #create-post {
@@ -229,5 +276,3 @@
     cursor: pointer;
   }
 </style>
-
-

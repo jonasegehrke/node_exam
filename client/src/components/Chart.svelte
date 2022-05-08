@@ -56,7 +56,7 @@
     SubTitle
   );
   import { onMount } from "svelte";
-  import { studentData } from '../store/store';
+  import { userData } from '../store/store';
   
 
   let ctx;
@@ -68,7 +68,7 @@
   ],
   datasets: [{
     label: 'Fraværs procent',
-    data: [$studentData.absenceLessons, $studentData.totalLessons - $studentData.absenceLessons],
+    data: [$userData.absenceLessons, $userData.totalLessons - $userData.absenceLessons],
     backgroundColor: [
       'rgb(255, 99, 132)',
       'rgb(54, 162, 235)'
