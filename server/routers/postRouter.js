@@ -33,5 +33,13 @@ router.post("/api/posts", checkLoginStatus, async (req, res) => {
     : res.send({ error: "Something went wrong" });
 });
 
+router.delete("/api/posts/:id", checkLoginStatus, async (req, res) => {
+  const { id } = req.params;
+  console.log(id)
+
+  const post = await db.run('DELETE FROM post WHERE postId = ?;', id);
+
+  post.changes > 0 ? res.send({ success: true }) : res.send({ error: "Something went wrong" });
+});
 
 export default router;

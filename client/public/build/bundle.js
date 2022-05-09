@@ -1994,7 +1994,7 @@ var app = (function () {
     const file$l = "node_modules\\svelte-navigator\\src\\Router.svelte";
 
     // (195:0) {#if isTopLevelRouter && manageFocus && a11yConfig.announcements}
-    function create_if_block$c(ctx) {
+    function create_if_block$d(ctx) {
     	let div;
     	let t;
 
@@ -2022,7 +2022,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$c.name,
+    		id: create_if_block$d.name,
     		type: "if",
     		source: "(195:0) {#if isTopLevelRouter && manageFocus && a11yConfig.announcements}",
     		ctx
@@ -2039,7 +2039,7 @@ var app = (function () {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[20].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[19], null);
-    	let if_block = /*isTopLevelRouter*/ ctx[2] && /*manageFocus*/ ctx[4] && /*a11yConfig*/ ctx[1].announcements && create_if_block$c(ctx);
+    	let if_block = /*isTopLevelRouter*/ ctx[2] && /*manageFocus*/ ctx[4] && /*a11yConfig*/ ctx[1].announcements && create_if_block$d(ctx);
 
     	const block = {
     		c: function create() {
@@ -2707,7 +2707,7 @@ var app = (function () {
     });
 
     // (97:0) {#if isActive}
-    function create_if_block$b(ctx) {
+    function create_if_block$c(ctx) {
     	let router;
     	let current;
 
@@ -2754,7 +2754,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$b.name,
+    		id: create_if_block$c.name,
     		type: "if",
     		source: "(97:0) {#if isActive}",
     		ctx
@@ -3012,7 +3012,7 @@ var app = (function () {
     	let t1;
     	let div1;
     	let current;
-    	let if_block = /*isActive*/ ctx[2] && create_if_block$b(ctx);
+    	let if_block = /*isActive*/ ctx[2] && create_if_block$c(ctx);
 
     	const block = {
     		c: function create() {
@@ -3050,7 +3050,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$b(ctx);
+    					if_block = create_if_block$c(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(t1.parentNode, t1);
@@ -3864,7 +3864,7 @@ var app = (function () {
     }
 
     // (105:10) {#if toast.component}
-    function create_if_block$a(ctx) {
+    function create_if_block$b(ctx) {
     	let switch_instance;
     	let switch_instance_anchor;
     	let current;
@@ -3939,7 +3939,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$a.name,
+    		id: create_if_block$b.name,
     		type: "if",
     		source: "(105:10) {#if toast.component}",
     		ctx
@@ -3959,7 +3959,7 @@ var app = (function () {
     	let rect;
     	let stop_animation = noop$1;
     	let current;
-    	const if_block_creators = [create_if_block$a, create_else_block$4];
+    	const if_block_creators = [create_if_block$b, create_else_block$4];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -4866,7 +4866,7 @@ var app = (function () {
     }
 
     // (142:2) {#if data.showProgress}
-    function create_if_block$9(ctx) {
+    function create_if_block$a(ctx) {
     	let progress_1;
 
     	const block = {
@@ -4896,7 +4896,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$9.name,
+    		id: create_if_block$a.name,
     		type: "if",
     		source: "(142:2) {#if data.showProgress}",
     		ctx
@@ -4931,7 +4931,7 @@ var app = (function () {
     	const close_icon_slot_template = /*#slots*/ ctx[7]["close-icon"];
     	const close_icon_slot = create_slot(close_icon_slot_template, ctx, /*$$scope*/ ctx[6], get_close_icon_slot_context);
     	const close_icon_slot_or_fallback = close_icon_slot || fallback_block(ctx);
-    	let if_block1 = /*data*/ ctx[1].showProgress && create_if_block$9(ctx);
+    	let if_block1 = /*data*/ ctx[1].showProgress && create_if_block$a(ctx);
 
     	const block = {
     		c: function create() {
@@ -5079,7 +5079,7 @@ var app = (function () {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
-    					if_block1 = create_if_block$9(ctx);
+    					if_block1 = create_if_block$a(ctx);
     					if_block1.c();
     					if_block1.m(div2, null);
     				}
@@ -5303,7 +5303,7 @@ var app = (function () {
     			attr_dev(input0, "class", "username svelte-gig8nb");
     			attr_dev(input0, "id", "username");
     			attr_dev(input0, "placeholder", "Brugernavn");
-    			input0.value = "jonas";
+    			input0.value = "anders";
     			input0.required = true;
     			add_location(input0, file$g, 60, 6, 1703);
     			attr_dev(input1, "type", "password");
@@ -5311,9 +5311,9 @@ var app = (function () {
     			attr_dev(input1, "id", "password");
     			attr_dev(input1, "placeholder", "Adgangskode");
     			input1.value = "1234";
-    			add_location(input1, file$g, 70, 6, 1962);
+    			add_location(input1, file$g, 70, 6, 1963);
     			attr_dev(button, "class", "login-btn svelte-gig8nb");
-    			add_location(button, file$g, 78, 6, 2151);
+    			add_location(button, file$g, 78, 6, 2152);
     			attr_dev(div1, "class", "login-container svelte-gig8nb");
     			add_location(div1, file$g, 58, 4, 1621);
     			attr_dev(div2, "class", "content svelte-gig8nb");
@@ -5469,8 +5469,90 @@ var app = (function () {
     }
 
     /* src\components\Post.svelte generated by Svelte v3.47.0 */
-
     const file$f = "src\\components\\Post.svelte";
+
+    // (42:2) {#if $isAdmin || $userData.firstName + " " + $userData.lastName === creator}
+    function create_if_block$9(ctx) {
+    	let button;
+    	let svg;
+    	let defs;
+    	let style;
+    	let t0;
+    	let title_1;
+    	let t1;
+    	let path0;
+    	let path1;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			svg = svg_element("svg");
+    			defs = svg_element("defs");
+    			style = svg_element("style");
+    			t0 = text(".cls-1 {\r\n              fill: #2e79bd;\r\n            }\r\n            .cls-2 {\r\n              fill: #2d3e50;\r\n            }\r\n          ");
+    			title_1 = svg_element("title");
+    			t1 = text("x");
+    			path0 = svg_element("path");
+    			path1 = svg_element("path");
+    			add_location(style, file$f, 49, 11, 1418);
+    			add_location(defs, file$f, 48, 9, 1400);
+    			add_location(title_1, file$f, 57, 9, 1596);
+    			attr_dev(path0, "class", "");
+    			attr_dev(path0, "d", "M17.66229,21.88486,63.3847,30.82574l45.72241,8.94088a1.559,1.559,0,0,0,1.82788-1.22994A10.15176,10.15176,0,0,0,102.9192,26.6239l-15.172-2.96684.79656-4.07352A11.10952,11.10952,0,0,0,79.7827,6.56318L57.33412,2.17343A11.1096,11.1096,0,0,0,44.31375,10.9345L43.51718,15.008l-15.172-2.96685A10.15176,10.15176,0,0,0,16.43235,20.057a1.559,1.559,0,0,0,1.22994,1.82788ZM60.0674,9.82374,74.369,12.62036a8.2641,8.2641,0,0,1,6.5245,9.69647h0l-15.2613-2.9843L50.37093,16.34825h0A8.2641,8.2641,0,0,1,60.0674,9.82374Z");
+    			attr_dev(path0, "id", "id_101");
+    			attr_dev(path0, "fill", "#4d709c");
+    			add_location(path0, file$f, 57, 25, 1612);
+    			attr_dev(path1, "class", "");
+    			attr_dev(path1, "d", "M110.58839,47.36161H17.41161a1.559,1.559,0,0,0-1.55785,1.55785v5.90918c0,.85949,16.14275,61.05238,16.14275,61.05238a11.08149,11.08149,0,0,0,11.03938,10.153H84.96412A11.08149,11.08149,0,0,0,96.0035,115.881s16.14275-60.19289,16.14275-61.05238V48.91946A1.559,1.559,0,0,0,110.58839,47.36161Zm-61.934,64.2194a2.60793,2.60793,0,0,1-3.19666-1.84821c-4.44239-16.61345-8.95983-33.53068-11.91535-44.72956a2.61069,2.61069,0,1,1,5.04851-1.33243c2.95407,11.19159,7.47077,28.10409,11.911,44.71353A2.61043,2.61043,0,0,1,48.65435,111.581Zm17.95316-2.52243a2.61095,2.61095,0,0,1-5.22189,0V64.337a2.61095,2.61095,0,0,1,5.22189,0ZM94.45735,65.00325C91.3685,76.70879,86.46715,95.05644,82.542,109.73317a2.61073,2.61073,0,1,1-5.04414-1.34918c3.9237-14.67272,8.8236-33.01491,11.911-44.71316a2.61069,2.61069,0,1,1,5.04851,1.33243Z");
+    			attr_dev(path1, "id", "id_102");
+    			attr_dev(path1, "fill", "#4d709c");
+    			add_location(path1, file$f, 62, 10, 2216);
+    			attr_dev(svg, "id", "trash-icon");
+    			attr_dev(svg, "data-name", "Layer 1");
+    			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg, "viewBox", "0 0 128 128");
+    			attr_dev(svg, "class", "svelte-16xxuyd");
+    			add_location(svg, file$f, 43, 7, 1256);
+    			attr_dev(button, "id", "delete-post-btn");
+    			attr_dev(button, "class", "svelte-16xxuyd");
+    			add_location(button, file$f, 42, 4, 1191);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, svg);
+    			append_dev(svg, defs);
+    			append_dev(defs, style);
+    			append_dev(style, t0);
+    			append_dev(svg, title_1);
+    			append_dev(title_1, t1);
+    			append_dev(svg, path0);
+    			append_dev(svg, path1);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*handleDeletePost*/ ctx[6], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$9.name,
+    		type: "if",
+    		source: "(42:2) {#if $isAdmin || $userData.firstName + \\\" \\\" + $userData.lastName === creator}",
+    		ctx
+    	});
+
+    	return block;
+    }
 
     function create_fragment$i(ctx) {
     	let div;
@@ -5485,6 +5567,8 @@ var app = (function () {
     	let t5;
     	let p1;
     	let t6;
+    	let t7;
+    	let if_block = (/*$isAdmin*/ ctx[4] || /*$userData*/ ctx[5].firstName + " " + /*$userData*/ ctx[5].lastName === /*creator*/ ctx[2]) && create_if_block$9(ctx);
 
     	const block = {
     		c: function create() {
@@ -5500,20 +5584,22 @@ var app = (function () {
     			t5 = space();
     			p1 = element("p");
     			t6 = text(/*timestamp*/ ctx[3]);
+    			t7 = space();
+    			if (if_block) if_block.c();
     			attr_dev(h3, "id", "title");
-    			attr_dev(h3, "class", "svelte-6kads1");
-    			add_location(h3, file$f, 8, 2, 147);
+    			attr_dev(h3, "class", "svelte-16xxuyd");
+    			add_location(h3, file$f, 36, 2, 971);
     			attr_dev(h4, "id", "creator");
-    			attr_dev(h4, "class", "svelte-6kads1");
-    			add_location(h4, file$f, 9, 2, 178);
+    			attr_dev(h4, "class", "svelte-16xxuyd");
+    			add_location(h4, file$f, 37, 2, 1002);
     			attr_dev(p0, "id", "content");
-    			attr_dev(p0, "class", "svelte-6kads1");
-    			add_location(p0, file$f, 10, 2, 213);
+    			attr_dev(p0, "class", "svelte-16xxuyd");
+    			add_location(p0, file$f, 39, 2, 1039);
     			attr_dev(p1, "id", "timestamp");
-    			attr_dev(p1, "class", "svelte-6kads1");
-    			add_location(p1, file$f, 11, 2, 246);
-    			attr_dev(div, "class", "post-container svelte-6kads1");
-    			add_location(div, file$f, 7, 0, 115);
+    			attr_dev(p1, "class", "svelte-16xxuyd");
+    			add_location(p1, file$f, 40, 2, 1072);
+    			attr_dev(div, "class", "post-container svelte-16xxuyd");
+    			add_location(div, file$f, 35, 0, 939);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5531,17 +5617,33 @@ var app = (function () {
     			append_dev(div, t5);
     			append_dev(div, p1);
     			append_dev(p1, t6);
+    			append_dev(div, t7);
+    			if (if_block) if_block.m(div, null);
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*title*/ 1) set_data_dev(t0, /*title*/ ctx[0]);
     			if (dirty & /*creator*/ 4) set_data_dev(t2, /*creator*/ ctx[2]);
     			if (dirty & /*content*/ 2) set_data_dev(t4, /*content*/ ctx[1]);
     			if (dirty & /*timestamp*/ 8) set_data_dev(t6, /*timestamp*/ ctx[3]);
+
+    			if (/*$isAdmin*/ ctx[4] || /*$userData*/ ctx[5].firstName + " " + /*$userData*/ ctx[5].lastName === /*creator*/ ctx[2]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$9(ctx);
+    					if_block.c();
+    					if_block.m(div, null);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
     		},
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
+    			if (if_block) if_block.d();
     		}
     	};
 
@@ -5557,13 +5659,41 @@ var app = (function () {
     }
 
     function instance$i($$self, $$props, $$invalidate) {
+    	let $currentClass;
+    	let $isAdmin;
+    	let $userData;
+    	validate_store(currentClass, 'currentClass');
+    	component_subscribe($$self, currentClass, $$value => $$invalidate(8, $currentClass = $$value));
+    	validate_store(isAdmin, 'isAdmin');
+    	component_subscribe($$self, isAdmin, $$value => $$invalidate(4, $isAdmin = $$value));
+    	validate_store(userData, 'userData');
+    	component_subscribe($$self, userData, $$value => $$invalidate(5, $userData = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Post', slots, []);
     	let { title } = $$props;
     	let { content } = $$props;
     	let { creator } = $$props;
     	let { timestamp } = $$props;
-    	const writable_props = ['title', 'content', 'creator', 'timestamp'];
+    	let { postId } = $$props;
+
+    	async function getPosts() {
+    		const response = await fetch("http://localhost:3000/api/posts/" + $currentClass.classId, { credentials: "include" });
+    		const data = await response.json();
+    		posts.set(data.data);
+    	}
+
+    	async function handleDeletePost() {
+    		await fetch("http://localhost:3000/api/posts/" + postId, { method: "DELETE", credentials: "include" }).then(response => response.json()).then(responseData => {
+    			if (responseData.success) {
+    				toasts.success("Opslag slettet");
+    				getPosts();
+    			} else {
+    				toasts.error("En fejl opstod");
+    			}
+    		});
+    	}
+
+    	const writable_props = ['title', 'content', 'creator', 'timestamp', 'postId'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Post> was created with unknown prop '${key}'`);
@@ -5574,22 +5704,49 @@ var app = (function () {
     		if ('content' in $$props) $$invalidate(1, content = $$props.content);
     		if ('creator' in $$props) $$invalidate(2, creator = $$props.creator);
     		if ('timestamp' in $$props) $$invalidate(3, timestamp = $$props.timestamp);
+    		if ('postId' in $$props) $$invalidate(7, postId = $$props.postId);
     	};
 
-    	$$self.$capture_state = () => ({ title, content, creator, timestamp });
+    	$$self.$capture_state = () => ({
+    		isAdmin,
+    		userData,
+    		posts,
+    		currentClass,
+    		toasts,
+    		title,
+    		content,
+    		creator,
+    		timestamp,
+    		postId,
+    		getPosts,
+    		handleDeletePost,
+    		$currentClass,
+    		$isAdmin,
+    		$userData
+    	});
 
     	$$self.$inject_state = $$props => {
     		if ('title' in $$props) $$invalidate(0, title = $$props.title);
     		if ('content' in $$props) $$invalidate(1, content = $$props.content);
     		if ('creator' in $$props) $$invalidate(2, creator = $$props.creator);
     		if ('timestamp' in $$props) $$invalidate(3, timestamp = $$props.timestamp);
+    		if ('postId' in $$props) $$invalidate(7, postId = $$props.postId);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [title, content, creator, timestamp];
+    	return [
+    		title,
+    		content,
+    		creator,
+    		timestamp,
+    		$isAdmin,
+    		$userData,
+    		handleDeletePost,
+    		postId
+    	];
     }
 
     class Post extends SvelteComponentDev {
@@ -5600,7 +5757,8 @@ var app = (function () {
     			title: 0,
     			content: 1,
     			creator: 2,
-    			timestamp: 3
+    			timestamp: 3,
+    			postId: 7
     		});
 
     		dispatch_dev("SvelteRegisterComponent", {
@@ -5627,6 +5785,10 @@ var app = (function () {
 
     		if (/*timestamp*/ ctx[3] === undefined && !('timestamp' in props)) {
     			console.warn("<Post> was created without expected prop 'timestamp'");
+    		}
+
+    		if (/*postId*/ ctx[7] === undefined && !('postId' in props)) {
+    			console.warn("<Post> was created without expected prop 'postId'");
     		}
     	}
 
@@ -5659,6 +5821,14 @@ var app = (function () {
     	}
 
     	set timestamp(value) {
+    		throw new Error("<Post>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get postId() {
+    		throw new Error("<Post>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set postId(value) {
     		throw new Error("<Post>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -12442,7 +12612,7 @@ var app = (function () {
     			attr_dev(div2, "class", "posts");
     			add_location(div2, file$c, 119, 4, 3263);
     			attr_dev(div3, "class", "student-info");
-    			add_location(div3, file$c, 148, 4, 4093);
+    			add_location(div3, file$c, 149, 4, 4125);
     			attr_dev(div4, "class", "container svelte-cwnwjg");
     			add_location(div4, file$c, 118, 2, 3234);
     		},
@@ -12589,7 +12759,8 @@ var app = (function () {
     				title: /*post*/ ctx[9].title,
     				content: /*post*/ ctx[9].content,
     				creator: /*post*/ ctx[9].studentName,
-    				timestamp: /*post*/ ctx[9].created
+    				timestamp: /*post*/ ctx[9].created,
+    				postId: /*post*/ ctx[9].postId
     			},
     			$$inline: true
     		});
@@ -12608,6 +12779,7 @@ var app = (function () {
     			if (dirty & /*$posts*/ 16) post_changes.content = /*post*/ ctx[9].content;
     			if (dirty & /*$posts*/ 16) post_changes.creator = /*post*/ ctx[9].studentName;
     			if (dirty & /*$posts*/ 16) post_changes.timestamp = /*post*/ ctx[9].created;
+    			if (dirty & /*$posts*/ 16) post_changes.postId = /*post*/ ctx[9].postId;
     			post.$set(post_changes);
     		},
     		i: function intro(local) {
@@ -12635,7 +12807,7 @@ var app = (function () {
     	return block;
     }
 
-    // (157:6) {:else}
+    // (158:6) {:else}
     function create_else_block$1(ctx) {
     	let studentcard;
     	let current;
@@ -12702,14 +12874,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(157:6) {:else}",
+    		source: "(158:6) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (150:6) {#if $isAdmin}
+    // (151:6) {#if $isAdmin}
     function create_if_block_1$2(ctx) {
     	let teachercard;
     	let current;
@@ -12758,7 +12930,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1$2.name,
     		type: "if",
-    		source: "(150:6) {#if $isAdmin}",
+    		source: "(151:6) {#if $isAdmin}",
     		ctx
     	});
 

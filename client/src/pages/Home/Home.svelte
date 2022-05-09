@@ -143,6 +143,7 @@
           content={post.content}
           creator={post.studentName}
           timestamp={post.created}
+          postId={post.postId}
         />
       {/each}
     </div>

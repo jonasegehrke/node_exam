@@ -63,7 +63,7 @@
         class="username"
         id="username"
         placeholder="Brugernavn"
-        value="jonas"
+        value="anders"
         required
         on:keypress={onKeyPress}
       />
