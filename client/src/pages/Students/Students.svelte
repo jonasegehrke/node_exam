@@ -58,7 +58,7 @@
       return;
     }
 
-    if(phone.value.replace(/\s/g, "").length !== 8){
+    if (phone.value.replace(/\s/g, "").length !== 8) {
       toasts.error("Telefonnummer er ikke gyldig");
       return;
     }
@@ -113,40 +113,66 @@
     <button on:click={handleFormOpen} id="open-new-student-form-btn"
       >Opret ny elev</button
     >
-  {/if}
-  <div id="create-new-student" class="hidden">
-    <p>Fornavn</p>
-    <input name="firstname" id="firstName-input" type="text" placeholder="Fornavn" />
-    <p>Efternavn</p>
-    <input id="lastName-input" type="text" placeholder="Efternavn" />
-    <p>Email</p>
-    <input id="email-input" type="text" placeholder="Email" />
-    <p>Telefon</p>
-    <input id="phone-input" type="tel" placeholder="12 34 56 78" />
-    <p>Adresse</p>
-    <input id="address-input" type="text" placeholder="Adresse" />
-    <p>Klasse</p>
-    <select name="className-select" id="className-select">
-      {#each allClasses as className}
-        <option value={className.classId}>{className.className}</option>
-      {/each}
-    </select>
 
-    <button on:click={handleCreateStudent} id="create-student-btn">Opret</button
-    >
-  </div>
+    <div id="create-new-student" class="hidden">
+      <p>Fornavn</p>
+      <input
+        name="firstname"
+        id="firstName-input"
+        type="text"
+        placeholder="Fornavn"
+      />
+      <p>Efternavn</p>
+      <input id="lastName-input" type="text" placeholder="Efternavn" />
+      <p>Email</p>
+      <input id="email-input" type="text" placeholder="Email" />
+      <p>Telefon</p>
+      <input id="phone-input" type="tel" placeholder="12 34 56 78" />
+      <p>Adresse</p>
+      <input id="address-input" type="text" placeholder="Adresse" />
+      <p>Klasse</p>
+      <select name="className-select" id="className-select">
+        {#each allClasses as className}
+          <option value={className.classId}>{className.className}</option>
+        {/each}
+      </select>
+
+      <button on:click={handleCreateStudent} id="create-student-btn"
+        >Opret</button
+      >
+    </div>
+  {/if}
   {#each $students as student}
-    <StudentCard
-      firstName={student.firstName}
-      lastName={student.lastName}
-      studentNumber={student.studentNumber}
-      className={student.className}
-      email={student.email}
-      phone={student.phone}
-      address={student.address}
-      showGrades={false}
-      small={true}
-    />
+    {#if $isAdmin}
+      <StudentCard
+        firstName={student.firstName}
+        lastName={student.lastName}
+        studentNumber={student.studentNumber}
+        className={student.className}
+        email={student.email}
+        phone={student.phone}
+        address={student.address}
+        showGrades={true}
+        dansk={student.dansk}
+        engelsk={student.engelsk}
+        historie={student.historie}
+        matematik={student.matematik}
+        geografi={student.geografi}
+        small={true}
+      />
+    {:else}
+      <StudentCard
+        firstName={student.firstName}
+        lastName={student.lastName}
+        studentNumber={student.studentNumber}
+        className={student.className}
+        email={student.email}
+        phone={student.phone}
+        address={student.address}
+        showGrades={false}
+        small={true}
+      />
+    {/if}
   {/each}
 </div>
 

@@ -1,8 +1,9 @@
 <script>
-  import { userData, currentClass } from "../store/store";
+  import { userData, currentClass, isAdmin } from "../store/store";
   import Lesson from "./Lesson.svelte";
   import moment from "moment";
   import { onMount } from "svelte";
+  import { toasts } from "svelte-toasts";
   
 
   let week = {
@@ -58,6 +59,7 @@
   }
 
   function updateCalendar(lessons) {
+    console.log(lessons)
     const cols = document.querySelectorAll(".col-item");
     //clear the calendar
     cols.forEach((col) => {
@@ -77,6 +79,7 @@
               target: col,
               props: {
                 subject: lesson.lessonSubject,
+                lessonId: lesson.lessonId,
               },
             });
           }
@@ -85,9 +88,76 @@
       currentColDay = 0;
     });
   }
+
+  function handleFormOpen() {
+    const form = document.getElementById("create-new-lesson");
+
+    form.classList.toggle("hidden");
+    form.classList.toggle("show");
+  }
+
+  async function handleCreateLesson(){
+    const lessonDate = document.getElementById("date-input"); 
+    const lessonNumber = document.getElementById("select-time");
+    const lessonSubject = document.getElementById("select-lesson");
+    
+  
+    if(lessonDate.value === "" || lessonNumber.value === "" || lessonSubject.value === ""){
+      toasts.error("Udfyld venligst alle felter");
+      return;
+    }
+
+    const lesson = {
+      lessonDate: lessonDate.value,
+      lessonNumber: lessonNumber.value,
+      lessonSubject: lessonSubject.value,
+      classId: $currentClass.classId,
+    }
+
+
+    await fetch("MYURL/api/lessons",{
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(lesson),
+    }).then(response => response.json()).then(data => {
+      if(data.success){
+        toasts.success("Opgaven er oprettet");
+      }});
+ 
+      const lessons = await getLessons();
+      updateCalendar(lessons);
+  }
+
 </script>
 
 <div class="calendar-container">
+  {#if $isAdmin}
+  <button on:click={handleFormOpen} id="open-new-lesson-form-btn">Opret lektion</button>
+  
+  <div id="create-new-lesson" class="hidden">
+    <input type="date" id="date-input">
+    <select name="select-time" id="select-time">
+      <option value="" disabled selected>Vælg et tidspunkt</option>
+      <option value="1">08:30-10:00</option>
+      <option value="2">10:15-11:45</option>
+      <option value="3">12:30-14:00</option>
+      <option value="4">14:15-15:45</option>
+    </select>
+    <select name="select-lesson" id="select-lesson">
+      <option value="" disabled selected>Vælg et fag</option>
+      <option value="Dansk">Dansk</option>
+      <option value="Engelsk">Engelsk</option>
+      <option value="Historie">Historie</option>
+      <option value="Matematik">Matematik</option>
+      <option value="Geografi">Geografi</option>
+    </select>
+    <button on:click={handleCreateLesson} id="create-lesson-btn">Opret</button>
+  </div>
+
+  {/if}
   <div class="calendar">
     <div class="rows">
       <div class="time-row top-left-corner">Tidspunkt</div>
@@ -141,11 +211,69 @@
 </div>
 
 <style>
+  #create-new-lesson.hidden {
+    height: 0px;
+    margin: 0px;
+    padding: 0px;
+    visibility: hidden;
+  }
+
+  :global(#create-new-lesson.show) {
+    animation: fadeIn 0.5s;
+    visibility: revert;
+  }
+
+  #open-new-lesson-form-btn,
+  #create-lesson-btn {
+    margin: 25px;
+    outline: none;
+    border: none;
+    background: #1877f2;
+    padding: 0.8rem 1rem;
+    border-radius: 0.4rem;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+
+  #open-new-lesson-form-btn:hover,
+  #create-lesson-btn:hover {
+    background: var(--color-blue-secondary);
+    cursor: pointer;
+  }
+
+  #create-new-lesson {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 2rem;
+    width: 500px;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    font-family: var(--primary-font);
+    margin: 25px 0;
+  }
+
+  input,
+  #select-lesson,
+  #select-time {
+    outline: none;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+  }
+
+  input:focus,
+  #select-lesson:focus,
+  #select-time:focus {
+    border: 1.8px solid var(--color-blue-main);
+  }
+
   .calendar-container {
     display: flex;
-
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding-top: 5%;
   }
 
   .btn {

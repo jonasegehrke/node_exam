@@ -1,19 +1,13 @@
 <script>
-import Calendar from "../../components/Calendar.svelte";
-
-
-
+  import Calendar from "../../components/Calendar.svelte";
 </script>
 
 <div class="container">
-    <Calendar />
+  <Calendar />
 </div>
 
 <style>
-    .container{
-        overflow: overlay;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
+  .container {
+    overflow: overlay;
+  }
 </style>
