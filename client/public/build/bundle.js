@@ -2000,7 +2000,7 @@ var app = (function () {
     const file$m = "node_modules\\svelte-navigator\\src\\Router.svelte";
 
     // (195:0) {#if isTopLevelRouter && manageFocus && a11yConfig.announcements}
-    function create_if_block$e(ctx) {
+    function create_if_block$f(ctx) {
     	let div;
     	let t;
 
@@ -2028,7 +2028,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$e.name,
+    		id: create_if_block$f.name,
     		type: "if",
     		source: "(195:0) {#if isTopLevelRouter && manageFocus && a11yConfig.announcements}",
     		ctx
@@ -2045,7 +2045,7 @@ var app = (function () {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[20].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[19], null);
-    	let if_block = /*isTopLevelRouter*/ ctx[2] && /*manageFocus*/ ctx[4] && /*a11yConfig*/ ctx[1].announcements && create_if_block$e(ctx);
+    	let if_block = /*isTopLevelRouter*/ ctx[2] && /*manageFocus*/ ctx[4] && /*a11yConfig*/ ctx[1].announcements && create_if_block$f(ctx);
 
     	const block = {
     		c: function create() {
@@ -2713,7 +2713,7 @@ var app = (function () {
     });
 
     // (97:0) {#if isActive}
-    function create_if_block$d(ctx) {
+    function create_if_block$e(ctx) {
     	let router;
     	let current;
 
@@ -2760,7 +2760,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$d.name,
+    		id: create_if_block$e.name,
     		type: "if",
     		source: "(97:0) {#if isActive}",
     		ctx
@@ -3018,7 +3018,7 @@ var app = (function () {
     	let t1;
     	let div1;
     	let current;
-    	let if_block = /*isActive*/ ctx[2] && create_if_block$d(ctx);
+    	let if_block = /*isActive*/ ctx[2] && create_if_block$e(ctx);
 
     	const block = {
     		c: function create() {
@@ -3056,7 +3056,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$d(ctx);
+    					if_block = create_if_block$e(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(t1.parentNode, t1);
@@ -3870,7 +3870,7 @@ var app = (function () {
     }
 
     // (105:10) {#if toast.component}
-    function create_if_block$c(ctx) {
+    function create_if_block$d(ctx) {
     	let switch_instance;
     	let switch_instance_anchor;
     	let current;
@@ -3945,7 +3945,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$c.name,
+    		id: create_if_block$d.name,
     		type: "if",
     		source: "(105:10) {#if toast.component}",
     		ctx
@@ -3965,7 +3965,7 @@ var app = (function () {
     	let rect;
     	let stop_animation = noop$1;
     	let current;
-    	const if_block_creators = [create_if_block$c, create_else_block$6];
+    	const if_block_creators = [create_if_block$d, create_else_block$6];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -4872,7 +4872,7 @@ var app = (function () {
     }
 
     // (142:2) {#if data.showProgress}
-    function create_if_block$b(ctx) {
+    function create_if_block$c(ctx) {
     	let progress_1;
 
     	const block = {
@@ -4902,7 +4902,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$b.name,
+    		id: create_if_block$c.name,
     		type: "if",
     		source: "(142:2) {#if data.showProgress}",
     		ctx
@@ -4937,7 +4937,7 @@ var app = (function () {
     	const close_icon_slot_template = /*#slots*/ ctx[7]["close-icon"];
     	const close_icon_slot = create_slot(close_icon_slot_template, ctx, /*$$scope*/ ctx[6], get_close_icon_slot_context);
     	const close_icon_slot_or_fallback = close_icon_slot || fallback_block(ctx);
-    	let if_block1 = /*data*/ ctx[1].showProgress && create_if_block$b(ctx);
+    	let if_block1 = /*data*/ ctx[1].showProgress && create_if_block$c(ctx);
 
     	const block = {
     		c: function create() {
@@ -5085,7 +5085,7 @@ var app = (function () {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
-    					if_block1 = create_if_block$b(ctx);
+    					if_block1 = create_if_block$c(ctx);
     					if_block1.c();
     					if_block1.m(div2, null);
     				}
@@ -5478,7 +5478,7 @@ var app = (function () {
     const file$g = "src\\components\\Post.svelte";
 
     // (42:2) {#if $isAdmin || $userData.firstName + " " + $userData.lastName === creator}
-    function create_if_block$a(ctx) {
+    function create_if_block$b(ctx) {
     	let button;
     	let svg;
     	let defs;
@@ -5551,7 +5551,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$a.name,
+    		id: create_if_block$b.name,
     		type: "if",
     		source: "(42:2) {#if $isAdmin || $userData.firstName + \\\" \\\" + $userData.lastName === creator}",
     		ctx
@@ -5574,7 +5574,7 @@ var app = (function () {
     	let p1;
     	let t6;
     	let t7;
-    	let if_block = (/*$isAdmin*/ ctx[4] || /*$userData*/ ctx[5].firstName + " " + /*$userData*/ ctx[5].lastName === /*creator*/ ctx[2]) && create_if_block$a(ctx);
+    	let if_block = (/*$isAdmin*/ ctx[4] || /*$userData*/ ctx[5].firstName + " " + /*$userData*/ ctx[5].lastName === /*creator*/ ctx[2]) && create_if_block$b(ctx);
 
     	const block = {
     		c: function create() {
@@ -5636,7 +5636,7 @@ var app = (function () {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
-    					if_block = create_if_block$a(ctx);
+    					if_block = create_if_block$b(ctx);
     					if_block.c();
     					if_block.m(div, null);
     				}
@@ -6011,7 +6011,7 @@ var app = (function () {
     }
 
     // (51:0) {#if small}
-    function create_if_block$9(ctx) {
+    function create_if_block$a(ctx) {
     	let div;
     	let p0;
     	let t0_value = /*firstName*/ ctx[6] + " " + /*lastName*/ ctx[7] + "";
@@ -6063,7 +6063,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$9.name,
+    		id: create_if_block$a.name,
     		type: "if",
     		source: "(51:0) {#if small}",
     		ctx
@@ -6199,7 +6199,7 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*small*/ ctx[5]) return create_if_block$9;
+    		if (/*small*/ ctx[5]) return create_if_block$a;
     		return create_else_block$4;
     	}
 
@@ -12514,7 +12514,7 @@ var app = (function () {
     }
 
     // (118:0) {#if mounted}
-    function create_if_block$8(ctx) {
+    function create_if_block$9(ctx) {
     	let div4;
     	let div2;
     	let div0;
@@ -12746,7 +12746,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$8.name,
+    		id: create_if_block$9.name,
     		type: "if",
     		source: "(118:0) {#if mounted}",
     		ctx
@@ -12946,7 +12946,7 @@ var app = (function () {
     function create_fragment$g(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*mounted*/ ctx[0] && create_if_block$8(ctx);
+    	let if_block = /*mounted*/ ctx[0] && create_if_block$9(ctx);
 
     	const block = {
     		c: function create() {
@@ -12970,7 +12970,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$8(ctx);
+    					if_block = create_if_block$9(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -13518,7 +13518,7 @@ var app = (function () {
     }
 
     // (146:4) {#if $isAdmin}
-    function create_if_block$7(ctx) {
+    function create_if_block$8(ctx) {
     	let studentcard;
     	let current;
 
@@ -13582,7 +13582,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$7.name,
+    		id: create_if_block$8.name,
     		type: "if",
     		source: "(146:4) {#if $isAdmin}",
     		ctx
@@ -13597,7 +13597,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block$7, create_else_block$2];
+    	const if_block_creators = [create_if_block$8, create_else_block$2];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -27232,15 +27232,15 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[8] = list[i];
+    	child_ctx[9] = list[i];
     	return child_ctx;
     }
 
-    // (83:6) {#each currentStudents as student}
+    // (88:6) {#each currentStudents as student}
     function create_each_block$1(ctx) {
     	let tr;
     	let td0;
-    	let t0_value = /*student*/ ctx[8].firstName + " " + /*student*/ ctx[8].lastName + "";
+    	let t0_value = /*student*/ ctx[9].firstName + " " + /*student*/ ctx[9].lastName + "";
     	let t0;
     	let t1;
     	let td1;
@@ -27258,16 +27258,16 @@ var app = (function () {
     			input = element("input");
     			t2 = space();
     			attr_dev(td0, "class", "svelte-1phaetx");
-    			add_location(td0, file$9, 84, 10, 2137);
+    			add_location(td0, file$9, 89, 10, 2435);
     			attr_dev(input, "type", "checkbox");
-    			input.value = input_value_value = /*student*/ ctx[8].studentId;
+    			input.value = input_value_value = /*student*/ ctx[9].studentId;
     			attr_dev(input, "class", "checkbox svelte-1phaetx");
-    			add_location(input, file$9, 85, 31, 2223);
+    			add_location(input, file$9, 90, 31, 2521);
     			attr_dev(td1, "id", "checkbox-td");
     			attr_dev(td1, "class", "svelte-1phaetx");
-    			add_location(td1, file$9, 85, 10, 2202);
+    			add_location(td1, file$9, 90, 10, 2500);
     			attr_dev(tr, "class", "svelte-1phaetx");
-    			add_location(tr, file$9, 83, 8, 2121);
+    			add_location(tr, file$9, 88, 8, 2419);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -27279,9 +27279,9 @@ var app = (function () {
     			append_dev(tr, t2);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*currentStudents*/ 1 && t0_value !== (t0_value = /*student*/ ctx[8].firstName + " " + /*student*/ ctx[8].lastName + "")) set_data_dev(t0, t0_value);
+    			if (dirty & /*currentStudents*/ 1 && t0_value !== (t0_value = /*student*/ ctx[9].firstName + " " + /*student*/ ctx[9].lastName + "")) set_data_dev(t0, t0_value);
 
-    			if (dirty & /*currentStudents*/ 1 && input_value_value !== (input_value_value = /*student*/ ctx[8].studentId)) {
+    			if (dirty & /*currentStudents*/ 1 && input_value_value !== (input_value_value = /*student*/ ctx[9].studentId)) {
     				prop_dev(input, "value", input_value_value);
     			}
     		},
@@ -27294,7 +27294,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(83:6) {#each currentStudents as student}",
+    		source: "(88:6) {#each currentStudents as student}",
     		ctx
     	});
 
@@ -27345,20 +27345,20 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Gem";
     			attr_dev(th0, "class", "svelte-1phaetx");
-    			add_location(th0, file$9, 77, 8, 1988);
+    			add_location(th0, file$9, 82, 8, 2286);
     			attr_dev(th1, "class", "svelte-1phaetx");
-    			add_location(th1, file$9, 78, 8, 2011);
+    			add_location(th1, file$9, 83, 8, 2309);
     			attr_dev(tr, "class", "svelte-1phaetx");
-    			add_location(tr, file$9, 76, 6, 1974);
-    			add_location(thead, file$9, 75, 4, 1959);
-    			add_location(tbody, file$9, 81, 4, 2062);
+    			add_location(tr, file$9, 81, 6, 2272);
+    			add_location(thead, file$9, 80, 4, 2257);
+    			add_location(tbody, file$9, 86, 4, 2360);
     			attr_dev(table, "class", "svelte-1phaetx");
-    			add_location(table, file$9, 74, 2, 1946);
+    			add_location(table, file$9, 79, 2, 2244);
     			attr_dev(button, "id", "add-absence-btn");
     			attr_dev(button, "class", "svelte-1phaetx");
-    			add_location(button, file$9, 91, 2, 2358);
+    			add_location(button, file$9, 96, 2, 2656);
     			attr_dev(div, "class", "container svelte-1phaetx");
-    			add_location(div, file$9, 73, 0, 1919);
+    			add_location(div, file$9, 78, 0, 2217);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -27382,7 +27382,7 @@ var app = (function () {
     			append_dev(div, button);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", addAbsence, false, false, false);
+    				dispose = listen_dev(button, "click", /*addAbsence*/ ctx[2], false, false, false);
     				mounted = true;
     			}
     		},
@@ -27432,39 +27432,21 @@ var app = (function () {
     	return block;
     }
 
-    async function addAbsence() {
-    	const allCheckboxes = document.querySelectorAll(".checkbox");
-    	const studentsWithAbsence = [];
-
-    	allCheckboxes.forEach(checkbox => {
-    		if (!checkbox.checked) {
-    			studentsWithAbsence.push(checkbox.value);
-    		}
-    	});
-
-    	console.log(studentsWithAbsence);
-
-    	studentsWithAbsence.forEach(async studentId => {
-    		console.log(studentId);
-    		await fetch("http://localhost:3000/api/students/" + studentId, { method: "PATCH", credentials: "include" });
-    	});
-    }
-
     function instance$c($$self, $$props, $$invalidate) {
     	let $currentClass;
     	let $location;
     	let $isAdmin;
     	validate_store(currentClass, 'currentClass');
-    	component_subscribe($$self, currentClass, $$value => $$invalidate(2, $currentClass = $$value));
+    	component_subscribe($$self, currentClass, $$value => $$invalidate(3, $currentClass = $$value));
     	validate_store(isAdmin, 'isAdmin');
-    	component_subscribe($$self, isAdmin, $$value => $$invalidate(4, $isAdmin = $$value));
+    	component_subscribe($$self, isAdmin, $$value => $$invalidate(5, $isAdmin = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Protocol', slots, []);
     	let currentStudents = [];
     	const navigate = useNavigate();
     	const location = useLocation();
     	validate_store(location, 'location');
-    	component_subscribe($$self, location, value => $$invalidate(3, $location = value));
+    	component_subscribe($$self, location, value => $$invalidate(4, $location = value));
 
     	//validate admin privileges
     	async function validateAdmin() {
@@ -27487,11 +27469,36 @@ var app = (function () {
     		$$invalidate(0, currentStudents = await getStudentsFromClass());
     	});
 
-    	//get students from class
     	async function getStudentsFromClass() {
     		const resp = await fetch("http://localhost:3000/api/students/class/" + $currentClass.classId, { credentials: "include" });
     		const respData = await resp.json();
     		return respData.data;
+    	}
+
+    	async function addAbsence() {
+    		const allCheckboxes = document.querySelectorAll(".checkbox");
+    		const studentsWithAbsence = [];
+
+    		allCheckboxes.forEach(checkbox => {
+    			if (!checkbox.checked) {
+    				studentsWithAbsence.push(checkbox.value);
+    			}
+    		});
+
+    		console.log(studentsWithAbsence);
+
+    		studentsWithAbsence.forEach(async studentId => {
+    			const currentStudent = currentStudents.find(student => student.studentId === Number(studentId));
+    			currentStudent.absenceLessons += 1;
+    			console.log(studentId);
+
+    			await fetch("http://localhost:3000/api/students/absence/" + studentId, {
+    				method: "PATCH",
+    				credentials: "include",
+    				headers: { "Content-Type": "application/json" },
+    				body: JSON.stringify(currentStudent)
+    			});
+    		});
     	}
 
     	const writable_props = [];
@@ -27528,7 +27535,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [currentStudents, location];
+    	return [currentStudents, location, addAbsence];
     }
 
     class Protocol extends SvelteComponentDev {
@@ -27924,7 +27931,7 @@ var app = (function () {
     }
 
     // (62:4) {#if !$isAdmin}
-    function create_if_block$6(ctx) {
+    function create_if_block$7(ctx) {
     	let li;
     	let link;
     	let current;
@@ -27968,7 +27975,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$6.name,
+    		id: create_if_block$7.name,
     		type: "if",
     		source: "(62:4) {#if !$isAdmin}",
     		ctx
@@ -28124,7 +28131,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	const if_block_creators = [create_if_block$6, create_else_block$1];
+    	const if_block_creators = [create_if_block$7, create_else_block$1];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -28384,7 +28391,7 @@ var app = (function () {
     /* src\components\PrivateRouteGuard.svelte generated by Svelte v3.47.0 */
 
     // (29:0) {#if $isLoggedIn}
-    function create_if_block$5(ctx) {
+    function create_if_block$6(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[3].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[2], null);
@@ -28432,7 +28439,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$5.name,
+    		id: create_if_block$6.name,
     		type: "if",
     		source: "(29:0) {#if $isLoggedIn}",
     		ctx
@@ -28444,7 +28451,7 @@ var app = (function () {
     function create_fragment$a(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*$isLoggedIn*/ ctx[0] && create_if_block$5(ctx);
+    	let if_block = /*$isLoggedIn*/ ctx[0] && create_if_block$6(ctx);
 
     	const block = {
     		c: function create() {
@@ -28468,7 +28475,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$5(ctx);
+    					if_block = create_if_block$6(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -28828,7 +28835,7 @@ var app = (function () {
     /* src\components\Logout.svelte generated by Svelte v3.47.0 */
 
     // (32:2) {#if $isLoggedIn}
-    function create_if_block$4(ctx) {
+    function create_if_block$5(ctx) {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[4].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
@@ -28876,7 +28883,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$4.name,
+    		id: create_if_block$5.name,
     		type: "if",
     		source: "(32:2) {#if $isLoggedIn}",
     		ctx
@@ -28888,7 +28895,7 @@ var app = (function () {
     function create_fragment$8(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*$isLoggedIn*/ ctx[0] && create_if_block$4(ctx);
+    	let if_block = /*$isLoggedIn*/ ctx[0] && create_if_block$5(ctx);
 
     	const block = {
     		c: function create() {
@@ -28912,7 +28919,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$4(ctx);
+    					if_block = create_if_block$5(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -29025,23 +29032,96 @@ var app = (function () {
     /* src\components\Lesson.svelte generated by Svelte v3.47.0 */
     const file$7 = "src\\components\\Lesson.svelte";
 
+    // (47:2) {#if $isAdmin}
+    function create_if_block$4(ctx) {
+    	let button;
+    	let svg;
+    	let defs;
+    	let style;
+    	let t0;
+    	let title;
+    	let t1;
+    	let path0;
+    	let path1;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			svg = svg_element("svg");
+    			defs = svg_element("defs");
+    			style = svg_element("style");
+    			t0 = text(".cls-1 {\r\n            fill: #2e79bd;\r\n          }\r\n          .cls-2 {\r\n            fill: #2d3e50;\r\n          }\r\n        ");
+    			title = svg_element("title");
+    			t1 = text("x");
+    			path0 = svg_element("path");
+    			path1 = svg_element("path");
+    			add_location(style, file$7, 54, 9, 1363);
+    			add_location(defs, file$7, 53, 7, 1347);
+    			add_location(title, file$7, 62, 7, 1525);
+    			attr_dev(path0, "class", "");
+    			attr_dev(path0, "d", "M17.66229,21.88486,63.3847,30.82574l45.72241,8.94088a1.559,1.559,0,0,0,1.82788-1.22994A10.15176,10.15176,0,0,0,102.9192,26.6239l-15.172-2.96684.79656-4.07352A11.10952,11.10952,0,0,0,79.7827,6.56318L57.33412,2.17343A11.1096,11.1096,0,0,0,44.31375,10.9345L43.51718,15.008l-15.172-2.96685A10.15176,10.15176,0,0,0,16.43235,20.057a1.559,1.559,0,0,0,1.22994,1.82788ZM60.0674,9.82374,74.369,12.62036a8.2641,8.2641,0,0,1,6.5245,9.69647h0l-15.2613-2.9843L50.37093,16.34825h0A8.2641,8.2641,0,0,1,60.0674,9.82374Z");
+    			attr_dev(path0, "id", "id_101");
+    			attr_dev(path0, "fill", "#4d709c");
+    			add_location(path0, file$7, 62, 23, 1541);
+    			attr_dev(path1, "class", "");
+    			attr_dev(path1, "d", "M110.58839,47.36161H17.41161a1.559,1.559,0,0,0-1.55785,1.55785v5.90918c0,.85949,16.14275,61.05238,16.14275,61.05238a11.08149,11.08149,0,0,0,11.03938,10.153H84.96412A11.08149,11.08149,0,0,0,96.0035,115.881s16.14275-60.19289,16.14275-61.05238V48.91946A1.559,1.559,0,0,0,110.58839,47.36161Zm-61.934,64.2194a2.60793,2.60793,0,0,1-3.19666-1.84821c-4.44239-16.61345-8.95983-33.53068-11.91535-44.72956a2.61069,2.61069,0,1,1,5.04851-1.33243c2.95407,11.19159,7.47077,28.10409,11.911,44.71353A2.61043,2.61043,0,0,1,48.65435,111.581Zm17.95316-2.52243a2.61095,2.61095,0,0,1-5.22189,0V64.337a2.61095,2.61095,0,0,1,5.22189,0ZM94.45735,65.00325C91.3685,76.70879,86.46715,95.05644,82.542,109.73317a2.61073,2.61073,0,1,1-5.04414-1.34918c3.9237-14.67272,8.8236-33.01491,11.911-44.71316a2.61069,2.61069,0,1,1,5.04851,1.33243Z");
+    			attr_dev(path1, "id", "id_102");
+    			attr_dev(path1, "fill", "#4d709c");
+    			add_location(path1, file$7, 67, 8, 2135);
+    			attr_dev(svg, "id", "trashicon");
+    			attr_dev(svg, "data-name", "Layer 1");
+    			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
+    			attr_dev(svg, "viewBox", "0 0 128 128");
+    			attr_dev(svg, "class", "svelte-1lqezl4");
+    			add_location(svg, file$7, 48, 5, 1214);
+    			attr_dev(button, "id", "delete-lesson-btn");
+    			attr_dev(button, "class", "svelte-1lqezl4");
+    			add_location(button, file$7, 47, 2, 1147);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+    			append_dev(button, svg);
+    			append_dev(svg, defs);
+    			append_dev(defs, style);
+    			append_dev(style, t0);
+    			append_dev(svg, title);
+    			append_dev(title, t1);
+    			append_dev(svg, path0);
+    			append_dev(svg, path1);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*handleDeleteLesson*/ ctx[4], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$4.name,
+    		type: "if",
+    		source: "(47:2) {#if $isAdmin}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$7(ctx) {
     	let div;
     	let p;
     	let t0;
     	let t1;
-    	let button;
-    	let svg;
-    	let defs;
-    	let style;
-    	let t2;
-    	let title;
-    	let t3;
-    	let path0;
-    	let path1;
     	let div_style_value;
-    	let mounted;
-    	let dispose;
+    	let if_block = /*$isAdmin*/ ctx[3] && create_if_block$4(ctx);
 
     	const block = {
     		c: function create() {
@@ -29049,42 +29129,12 @@ var app = (function () {
     			p = element("p");
     			t0 = text(/*subject*/ ctx[0]);
     			t1 = space();
-    			button = element("button");
-    			svg = svg_element("svg");
-    			defs = svg_element("defs");
-    			style = svg_element("style");
-    			t2 = text(".cls-1 {\r\n            fill: #2e79bd;\r\n          }\r\n          .cls-2 {\r\n            fill: #2d3e50;\r\n          }\r\n        ");
-    			title = svg_element("title");
-    			t3 = text("x");
-    			path0 = svg_element("path");
-    			path1 = svg_element("path");
-    			add_location(p, file$7, 44, 2, 1064);
-    			add_location(style, file$7, 52, 9, 1300);
-    			add_location(defs, file$7, 51, 7, 1284);
-    			add_location(title, file$7, 60, 7, 1462);
-    			attr_dev(path0, "class", "");
-    			attr_dev(path0, "d", "M17.66229,21.88486,63.3847,30.82574l45.72241,8.94088a1.559,1.559,0,0,0,1.82788-1.22994A10.15176,10.15176,0,0,0,102.9192,26.6239l-15.172-2.96684.79656-4.07352A11.10952,11.10952,0,0,0,79.7827,6.56318L57.33412,2.17343A11.1096,11.1096,0,0,0,44.31375,10.9345L43.51718,15.008l-15.172-2.96685A10.15176,10.15176,0,0,0,16.43235,20.057a1.559,1.559,0,0,0,1.22994,1.82788ZM60.0674,9.82374,74.369,12.62036a8.2641,8.2641,0,0,1,6.5245,9.69647h0l-15.2613-2.9843L50.37093,16.34825h0A8.2641,8.2641,0,0,1,60.0674,9.82374Z");
-    			attr_dev(path0, "id", "id_101");
-    			attr_dev(path0, "fill", "#4d709c");
-    			add_location(path0, file$7, 60, 23, 1478);
-    			attr_dev(path1, "class", "");
-    			attr_dev(path1, "d", "M110.58839,47.36161H17.41161a1.559,1.559,0,0,0-1.55785,1.55785v5.90918c0,.85949,16.14275,61.05238,16.14275,61.05238a11.08149,11.08149,0,0,0,11.03938,10.153H84.96412A11.08149,11.08149,0,0,0,96.0035,115.881s16.14275-60.19289,16.14275-61.05238V48.91946A1.559,1.559,0,0,0,110.58839,47.36161Zm-61.934,64.2194a2.60793,2.60793,0,0,1-3.19666-1.84821c-4.44239-16.61345-8.95983-33.53068-11.91535-44.72956a2.61069,2.61069,0,1,1,5.04851-1.33243c2.95407,11.19159,7.47077,28.10409,11.911,44.71353A2.61043,2.61043,0,0,1,48.65435,111.581Zm17.95316-2.52243a2.61095,2.61095,0,0,1-5.22189,0V64.337a2.61095,2.61095,0,0,1,5.22189,0ZM94.45735,65.00325C91.3685,76.70879,86.46715,95.05644,82.542,109.73317a2.61073,2.61073,0,1,1-5.04414-1.34918c3.9237-14.67272,8.8236-33.01491,11.911-44.71316a2.61069,2.61069,0,1,1,5.04851,1.33243Z");
-    			attr_dev(path1, "id", "id_102");
-    			attr_dev(path1, "fill", "#4d709c");
-    			add_location(path1, file$7, 65, 8, 2072);
-    			attr_dev(svg, "id", "trashicon");
-    			attr_dev(svg, "data-name", "Layer 1");
-    			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
-    			attr_dev(svg, "viewBox", "0 0 128 128");
-    			attr_dev(svg, "class", "svelte-1lqezl4");
-    			add_location(svg, file$7, 46, 5, 1151);
-    			attr_dev(button, "id", "delete-lesson-btn");
-    			attr_dev(button, "class", "svelte-1lqezl4");
-    			add_location(button, file$7, 45, 2, 1084);
+    			if (if_block) if_block.c();
+    			add_location(p, file$7, 45, 2, 1109);
     			attr_dev(div, "id", "subject-container");
     			attr_dev(div, "style", div_style_value = `background-color: ${/*color*/ ctx[1]};`);
     			attr_dev(div, "class", "subject-container svelte-1lqezl4");
-    			add_location(div, file$7, 38, 0, 930);
+    			add_location(div, file$7, 39, 0, 975);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -29094,24 +29144,24 @@ var app = (function () {
     			append_dev(div, p);
     			append_dev(p, t0);
     			append_dev(div, t1);
-    			append_dev(div, button);
-    			append_dev(button, svg);
-    			append_dev(svg, defs);
-    			append_dev(defs, style);
-    			append_dev(style, t2);
-    			append_dev(svg, title);
-    			append_dev(title, t3);
-    			append_dev(svg, path0);
-    			append_dev(svg, path1);
-    			/*div_binding*/ ctx[5](div);
-
-    			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*handleDeleteLesson*/ ctx[3], false, false, false);
-    				mounted = true;
-    			}
+    			if (if_block) if_block.m(div, null);
+    			/*div_binding*/ ctx[6](div);
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*subject*/ 1) set_data_dev(t0, /*subject*/ ctx[0]);
+
+    			if (/*$isAdmin*/ ctx[3]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$4(ctx);
+    					if_block.c();
+    					if_block.m(div, null);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
 
     			if (dirty & /*color*/ 2 && div_style_value !== (div_style_value = `background-color: ${/*color*/ ctx[1]};`)) {
     				attr_dev(div, "style", div_style_value);
@@ -29121,9 +29171,8 @@ var app = (function () {
     		o: noop$1,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
-    			/*div_binding*/ ctx[5](null);
-    			mounted = false;
-    			dispose();
+    			if (if_block) if_block.d();
+    			/*div_binding*/ ctx[6](null);
     		}
     	};
 
@@ -29139,6 +29188,9 @@ var app = (function () {
     }
 
     function instance$7($$self, $$props, $$invalidate) {
+    	let $isAdmin;
+    	validate_store(isAdmin, 'isAdmin');
+    	component_subscribe($$self, isAdmin, $$value => $$invalidate(3, $isAdmin = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Lesson', slots, []);
     	let { subject } = $$props;
@@ -29185,21 +29237,23 @@ var app = (function () {
 
     	$$self.$$set = $$props => {
     		if ('subject' in $$props) $$invalidate(0, subject = $$props.subject);
-    		if ('lessonId' in $$props) $$invalidate(4, lessonId = $$props.lessonId);
+    		if ('lessonId' in $$props) $$invalidate(5, lessonId = $$props.lessonId);
     	};
 
     	$$self.$capture_state = () => ({
+    		isAdmin,
     		toasts,
     		subject,
     		lessonId,
     		color,
     		thisSubject,
-    		handleDeleteLesson
+    		handleDeleteLesson,
+    		$isAdmin
     	});
 
     	$$self.$inject_state = $$props => {
     		if ('subject' in $$props) $$invalidate(0, subject = $$props.subject);
-    		if ('lessonId' in $$props) $$invalidate(4, lessonId = $$props.lessonId);
+    		if ('lessonId' in $$props) $$invalidate(5, lessonId = $$props.lessonId);
     		if ('color' in $$props) $$invalidate(1, color = $$props.color);
     		if ('thisSubject' in $$props) $$invalidate(2, thisSubject = $$props.thisSubject);
     	};
@@ -29208,13 +29262,21 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [subject, color, thisSubject, handleDeleteLesson, lessonId, div_binding];
+    	return [
+    		subject,
+    		color,
+    		thisSubject,
+    		$isAdmin,
+    		handleDeleteLesson,
+    		lessonId,
+    		div_binding
+    	];
     }
 
     class Lesson extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$7, create_fragment$7, safe_not_equal, { subject: 0, lessonId: 4 });
+    		init(this, options, instance$7, create_fragment$7, safe_not_equal, { subject: 0, lessonId: 5 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -29230,7 +29292,7 @@ var app = (function () {
     			console.warn("<Lesson> was created without expected prop 'subject'");
     		}
 
-    		if (/*lessonId*/ ctx[4] === undefined && !('lessonId' in props)) {
+    		if (/*lessonId*/ ctx[5] === undefined && !('lessonId' in props)) {
     			console.warn("<Lesson> was created without expected prop 'lessonId'");
     		}
     	}
@@ -29257,7 +29319,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file$6 = "src\\components\\Calendar.svelte";
 
-    // (137:2) {#if $isAdmin}
+    // (171:2) {#if $isAdmin}
     function create_if_block$3(ctx) {
     	let button0;
     	let t1;
@@ -29321,62 +29383,62 @@ var app = (function () {
     			button1.textContent = "Opret";
     			attr_dev(button0, "id", "open-new-lesson-form-btn");
     			attr_dev(button0, "class", "svelte-151cpp3");
-    			add_location(button0, file$6, 137, 2, 4328);
+    			add_location(button0, file$6, 171, 4, 5126);
     			attr_dev(input, "type", "date");
     			attr_dev(input, "id", "date-input");
     			attr_dev(input, "class", "svelte-151cpp3");
-    			add_location(input, file$6, 140, 4, 4471);
+    			add_location(input, file$6, 176, 6, 5285);
     			option0.__value = "";
     			option0.value = option0.__value;
     			option0.disabled = true;
     			option0.selected = true;
-    			add_location(option0, file$6, 142, 6, 4564);
+    			add_location(option0, file$6, 178, 8, 5384);
     			option1.__value = "1";
     			option1.value = option1.__value;
-    			add_location(option1, file$6, 143, 6, 4633);
+    			add_location(option1, file$6, 179, 8, 5455);
     			option2.__value = "2";
     			option2.value = option2.__value;
-    			add_location(option2, file$6, 144, 6, 4679);
+    			add_location(option2, file$6, 180, 8, 5503);
     			option3.__value = "3";
     			option3.value = option3.__value;
-    			add_location(option3, file$6, 145, 6, 4725);
+    			add_location(option3, file$6, 181, 8, 5551);
     			option4.__value = "4";
     			option4.value = option4.__value;
-    			add_location(option4, file$6, 146, 6, 4771);
+    			add_location(option4, file$6, 182, 8, 5599);
     			attr_dev(select0, "name", "select-time");
     			attr_dev(select0, "id", "select-time");
     			attr_dev(select0, "class", "svelte-151cpp3");
-    			add_location(select0, file$6, 141, 4, 4512);
+    			add_location(select0, file$6, 177, 6, 5330);
     			option5.__value = "";
     			option5.value = option5.__value;
     			option5.disabled = true;
     			option5.selected = true;
-    			add_location(option5, file$6, 149, 6, 4886);
+    			add_location(option5, file$6, 185, 8, 5720);
     			option6.__value = "Dansk";
     			option6.value = option6.__value;
-    			add_location(option6, file$6, 150, 6, 4949);
+    			add_location(option6, file$6, 186, 8, 5785);
     			option7.__value = "Engelsk";
     			option7.value = option7.__value;
-    			add_location(option7, file$6, 151, 6, 4993);
+    			add_location(option7, file$6, 187, 8, 5831);
     			option8.__value = "Historie";
     			option8.value = option8.__value;
-    			add_location(option8, file$6, 152, 6, 5041);
+    			add_location(option8, file$6, 188, 8, 5881);
     			option9.__value = "Matematik";
     			option9.value = option9.__value;
-    			add_location(option9, file$6, 153, 6, 5091);
+    			add_location(option9, file$6, 189, 8, 5933);
     			option10.__value = "Geografi";
     			option10.value = option10.__value;
-    			add_location(option10, file$6, 154, 6, 5143);
+    			add_location(option10, file$6, 190, 8, 5987);
     			attr_dev(select1, "name", "select-lesson");
     			attr_dev(select1, "id", "select-lesson");
     			attr_dev(select1, "class", "svelte-151cpp3");
-    			add_location(select1, file$6, 148, 4, 4830);
+    			add_location(select1, file$6, 184, 6, 5662);
     			attr_dev(button1, "id", "create-lesson-btn");
     			attr_dev(button1, "class", "svelte-151cpp3");
-    			add_location(button1, file$6, 156, 4, 5206);
+    			add_location(button1, file$6, 192, 6, 6054);
     			attr_dev(div, "id", "create-new-lesson");
     			attr_dev(div, "class", "hidden svelte-151cpp3");
-    			add_location(div, file$6, 139, 2, 4422);
+    			add_location(div, file$6, 175, 4, 5234);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button0, anchor);
@@ -29424,7 +29486,7 @@ var app = (function () {
     		block,
     		id: create_if_block$3.name,
     		type: "if",
-    		source: "(137:2) {#if $isAdmin}",
+    		source: "(171:2) {#if $isAdmin}",
     		ctx
     	});
 
@@ -29630,106 +29692,106 @@ var app = (function () {
     			button1 = element("button");
     			button1.textContent = "→";
     			attr_dev(div0, "class", "time-row top-left-corner svelte-151cpp3");
-    			add_location(div0, file$6, 162, 6, 5360);
-    			add_location(br0, file$6, 163, 18, 5433);
+    			add_location(div0, file$6, 198, 6, 6216);
+    			add_location(br0, file$6, 199, 18, 6289);
     			attr_dev(div1, "class", "svelte-151cpp3");
-    			add_location(div1, file$6, 163, 6, 5421);
-    			add_location(br1, file$6, 164, 19, 5480);
+    			add_location(div1, file$6, 199, 6, 6277);
+    			add_location(br1, file$6, 200, 19, 6336);
     			attr_dev(div2, "class", "svelte-151cpp3");
-    			add_location(div2, file$6, 164, 6, 5467);
-    			add_location(br2, file$6, 165, 18, 5527);
+    			add_location(div2, file$6, 200, 6, 6323);
+    			add_location(br2, file$6, 201, 18, 6383);
     			attr_dev(div3, "class", "svelte-151cpp3");
-    			add_location(div3, file$6, 165, 6, 5515);
-    			add_location(br3, file$6, 166, 19, 5577);
+    			add_location(div3, file$6, 201, 6, 6371);
+    			add_location(br3, file$6, 202, 19, 6433);
     			attr_dev(div4, "class", "svelte-151cpp3");
-    			add_location(div4, file$6, 166, 6, 5564);
-    			add_location(br4, file$6, 167, 43, 5650);
+    			add_location(div4, file$6, 202, 6, 6420);
+    			add_location(br4, file$6, 203, 43, 6506);
     			attr_dev(div5, "class", "top-right-corner svelte-151cpp3");
-    			add_location(div5, file$6, 167, 6, 5613);
+    			add_location(div5, file$6, 203, 6, 6469);
     			attr_dev(div6, "class", "rows svelte-151cpp3");
-    			add_location(div6, file$6, 161, 4, 5334);
+    			add_location(div6, file$6, 197, 4, 6190);
     			attr_dev(div7, "class", "time svelte-151cpp3");
-    			add_location(div7, file$6, 171, 6, 5722);
+    			add_location(div7, file$6, 207, 6, 6578);
     			attr_dev(div8, "class", "time svelte-151cpp3");
-    			add_location(div8, file$6, 172, 6, 5767);
+    			add_location(div8, file$6, 208, 6, 6623);
     			attr_dev(div9, "class", "time svelte-151cpp3");
-    			add_location(div9, file$6, 173, 6, 5812);
+    			add_location(div9, file$6, 209, 6, 6668);
     			attr_dev(div10, "class", "time bottom-left-corner svelte-151cpp3");
-    			add_location(div10, file$6, 174, 6, 5857);
+    			add_location(div10, file$6, 210, 6, 6713);
     			attr_dev(div11, "class", "col-item svelte-151cpp3");
     			attr_dev(div11, "data-value", "1");
-    			add_location(div11, file$6, 176, 6, 5923);
+    			add_location(div11, file$6, 212, 6, 6779);
     			attr_dev(div12, "class", "col-item svelte-151cpp3");
     			attr_dev(div12, "data-value", "2");
-    			add_location(div12, file$6, 177, 6, 5970);
+    			add_location(div12, file$6, 213, 6, 6826);
     			attr_dev(div13, "class", "col-item svelte-151cpp3");
     			attr_dev(div13, "data-value", "3");
-    			add_location(div13, file$6, 178, 6, 6017);
+    			add_location(div13, file$6, 214, 6, 6873);
     			attr_dev(div14, "class", "col-item svelte-151cpp3");
     			attr_dev(div14, "data-value", "4");
-    			add_location(div14, file$6, 179, 6, 6064);
+    			add_location(div14, file$6, 215, 6, 6920);
     			attr_dev(div15, "class", "col-item svelte-151cpp3");
     			attr_dev(div15, "data-value", "1");
-    			add_location(div15, file$6, 181, 6, 6113);
+    			add_location(div15, file$6, 217, 6, 6969);
     			attr_dev(div16, "class", "col-item svelte-151cpp3");
     			attr_dev(div16, "data-value", "2");
-    			add_location(div16, file$6, 182, 6, 6160);
+    			add_location(div16, file$6, 218, 6, 7016);
     			attr_dev(div17, "class", "col-item svelte-151cpp3");
     			attr_dev(div17, "data-value", "3");
-    			add_location(div17, file$6, 183, 6, 6207);
+    			add_location(div17, file$6, 219, 6, 7063);
     			attr_dev(div18, "class", "col-item svelte-151cpp3");
     			attr_dev(div18, "data-value", "4");
-    			add_location(div18, file$6, 184, 6, 6254);
+    			add_location(div18, file$6, 220, 6, 7110);
     			attr_dev(div19, "class", "col-item svelte-151cpp3");
     			attr_dev(div19, "data-value", "1");
-    			add_location(div19, file$6, 186, 6, 6303);
+    			add_location(div19, file$6, 222, 6, 7159);
     			attr_dev(div20, "class", "col-item svelte-151cpp3");
     			attr_dev(div20, "data-value", "2");
-    			add_location(div20, file$6, 187, 6, 6350);
+    			add_location(div20, file$6, 223, 6, 7206);
     			attr_dev(div21, "class", "col-item svelte-151cpp3");
     			attr_dev(div21, "data-value", "3");
-    			add_location(div21, file$6, 188, 6, 6397);
+    			add_location(div21, file$6, 224, 6, 7253);
     			attr_dev(div22, "class", "col-item svelte-151cpp3");
     			attr_dev(div22, "data-value", "4");
-    			add_location(div22, file$6, 189, 6, 6444);
+    			add_location(div22, file$6, 225, 6, 7300);
     			attr_dev(div23, "class", "col-item svelte-151cpp3");
     			attr_dev(div23, "data-value", "1");
-    			add_location(div23, file$6, 191, 6, 6493);
+    			add_location(div23, file$6, 227, 6, 7349);
     			attr_dev(div24, "class", "col-item svelte-151cpp3");
     			attr_dev(div24, "data-value", "2");
-    			add_location(div24, file$6, 192, 6, 6540);
+    			add_location(div24, file$6, 228, 6, 7396);
     			attr_dev(div25, "class", "col-item svelte-151cpp3");
     			attr_dev(div25, "data-value", "3");
-    			add_location(div25, file$6, 193, 6, 6587);
+    			add_location(div25, file$6, 229, 6, 7443);
     			attr_dev(div26, "class", "col-item svelte-151cpp3");
     			attr_dev(div26, "data-value", "4");
-    			add_location(div26, file$6, 194, 6, 6634);
+    			add_location(div26, file$6, 230, 6, 7490);
     			attr_dev(div27, "class", "col-item svelte-151cpp3");
     			attr_dev(div27, "data-value", "1");
-    			add_location(div27, file$6, 196, 6, 6683);
+    			add_location(div27, file$6, 232, 6, 7539);
     			attr_dev(div28, "class", "col-item svelte-151cpp3");
     			attr_dev(div28, "data-value", "2");
-    			add_location(div28, file$6, 197, 6, 6730);
+    			add_location(div28, file$6, 233, 6, 7586);
     			attr_dev(div29, "class", "col-item svelte-151cpp3");
     			attr_dev(div29, "data-value", "3");
-    			add_location(div29, file$6, 198, 6, 6777);
+    			add_location(div29, file$6, 234, 6, 7633);
     			attr_dev(div30, "class", "col-item bottom-right-corner svelte-151cpp3");
     			attr_dev(div30, "data-value", "4");
-    			add_location(div30, file$6, 199, 6, 6824);
+    			add_location(div30, file$6, 235, 6, 7680);
     			attr_dev(div31, "class", "cols svelte-151cpp3");
-    			add_location(div31, file$6, 170, 4, 5696);
+    			add_location(div31, file$6, 206, 4, 6552);
     			attr_dev(div32, "class", "calendar svelte-151cpp3");
-    			add_location(div32, file$6, 160, 2, 5306);
+    			add_location(div32, file$6, 196, 2, 6162);
     			attr_dev(button0, "id", "left-btn");
     			attr_dev(button0, "class", "btn svelte-151cpp3");
-    			add_location(button0, file$6, 203, 4, 6936);
+    			add_location(button0, file$6, 239, 4, 7792);
     			attr_dev(button1, "id", "right-btn");
     			attr_dev(button1, "class", "btn svelte-151cpp3");
-    			add_location(button1, file$6, 206, 4, 7034);
+    			add_location(button1, file$6, 242, 4, 7890);
     			attr_dev(div33, "class", "buttons");
-    			add_location(div33, file$6, 202, 2, 6909);
+    			add_location(div33, file$6, 238, 2, 7765);
     			attr_dev(div34, "class", "calendar-container svelte-151cpp3");
-    			add_location(div34, file$6, 135, 0, 4274);
+    			add_location(div34, file$6, 169, 0, 5070);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -30005,8 +30067,27 @@ var app = (function () {
     			}
     		});
 
+    		const students = await getStudentsFromClass();
+
+    		students.forEach(async student => {
+    			student.totalLessons += 1;
+
+    			await fetch("http://localhost:3000/api/students/lessons/" + student.studentId, {
+    				method: "PATCH",
+    				credentials: "include",
+    				headers: { "Content-Type": "application/json" },
+    				body: JSON.stringify(student)
+    			});
+    		});
+
     		const lessons = await getLessons();
     		updateCalendar(lessons);
+    	}
+
+    	async function getStudentsFromClass() {
+    		const resp = await fetch("http://localhost:3000/api/students/class/" + $currentClass.classId, { credentials: "include" });
+    		const respData = await resp.json();
+    		return respData.data;
     	}
 
     	const writable_props = [];
@@ -30030,6 +30111,7 @@ var app = (function () {
     		updateCalendar,
     		handleFormOpen,
     		handleCreateLesson,
+    		getStudentsFromClass,
     		$currentClass,
     		$isAdmin
     	});

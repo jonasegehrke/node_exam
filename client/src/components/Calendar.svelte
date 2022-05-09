@@ -4,7 +4,6 @@
   import moment from "moment";
   import { onMount } from "svelte";
   import { toasts } from "svelte-toasts";
-  
 
   let week = {
     monday: moment().startOf("week").add("days", 1).format("YYYY-MM-DD"),
@@ -15,9 +14,12 @@
   };
 
   async function getLessons() {
-    const resp = await fetch(`MYURL/api/lessons/${$currentClass.classId}/${week.monday}/${week.friday}`, {
-      credentials: "include",
-      });
+    const resp = await fetch(
+      `MYURL/api/lessons/${$currentClass.classId}/${week.monday}/${week.friday}`,
+      {
+        credentials: "include",
+      }
+    );
     const respData = await resp.json();
     return respData.data;
   }
@@ -25,14 +27,15 @@
   onMount(async () => {
     const lessons = await getLessons();
     updateCalendar(lessons);
-
   });
 
   async function handleCalendarBack() {
     week = {
       monday: moment(week.monday).subtract(7, "days").format("YYYY-MM-DD"),
       tuesday: moment(week.tuesday).subtract(7, "days").format("YYYY-MM-DD"),
-      wednesday: moment(week.wednesday).subtract(7, "days").format("YYYY-MM-DD"),
+      wednesday: moment(week.wednesday)
+        .subtract(7, "days")
+        .format("YYYY-MM-DD"),
       thursday: moment(week.thursday).subtract(7, "days").format("YYYY-MM-DD"),
       friday: moment(week.friday).subtract(7, "days").format("YYYY-MM-DD"),
     };
@@ -59,7 +62,7 @@
   }
 
   function updateCalendar(lessons) {
-    console.log(lessons)
+    console.log(lessons);
     const cols = document.querySelectorAll(".col-item");
     //clear the calendar
     cols.forEach((col) => {
@@ -96,13 +99,16 @@
     form.classList.toggle("show");
   }
 
-  async function handleCreateLesson(){
-    const lessonDate = document.getElementById("date-input"); 
+  async function handleCreateLesson() {
+    const lessonDate = document.getElementById("date-input");
     const lessonNumber = document.getElementById("select-time");
     const lessonSubject = document.getElementById("select-lesson");
-    
-  
-    if(lessonDate.value === "" || lessonNumber.value === "" || lessonSubject.value === ""){
+
+    if (
+      lessonDate.value === "" ||
+      lessonNumber.value === "" ||
+      lessonSubject.value === ""
+    ) {
       toasts.error("Udfyld venligst alle felter");
       return;
     }
@@ -112,51 +118,81 @@
       lessonNumber: lessonNumber.value,
       lessonSubject: lessonSubject.value,
       classId: $currentClass.classId,
-    }
+    };
 
-
-    await fetch("MYURL/api/lessons",{
+    await fetch("MYURL/api/lessons", {
       method: "POST",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(lesson),
-    }).then(response => response.json()).then(data => {
-      if(data.success){
-        toasts.success("Opgaven er oprettet");
-      }});
- 
-      const lessons = await getLessons();
-      updateCalendar(lessons);
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          toasts.success("Opgaven er oprettet");
+        }
+      });
+
+    const students = await getStudentsFromClass();
+
+    students.forEach(async (student) => {
+      student.totalLessons += 1;
+      await fetch("MYURL/api/students/lessons/" + student.studentId, {
+        method: "PATCH",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(student),
+      });
+    });
+
+    const lessons = await getLessons();
+    updateCalendar(lessons);
   }
 
+  async function getStudentsFromClass() {
+    const resp = await fetch(
+      "MYURL/api/students/class/" + $currentClass.classId,
+      {
+        credentials: "include",
+      }
+    );
+
+    const respData = await resp.json();
+
+    return respData.data;
+  }
 </script>
 
 <div class="calendar-container">
   {#if $isAdmin}
-  <button on:click={handleFormOpen} id="open-new-lesson-form-btn">Opret lektion</button>
-  
-  <div id="create-new-lesson" class="hidden">
-    <input type="date" id="date-input">
-    <select name="select-time" id="select-time">
-      <option value="" disabled selected>Vælg et tidspunkt</option>
-      <option value="1">08:30-10:00</option>
-      <option value="2">10:15-11:45</option>
-      <option value="3">12:30-14:00</option>
-      <option value="4">14:15-15:45</option>
-    </select>
-    <select name="select-lesson" id="select-lesson">
-      <option value="" disabled selected>Vælg et fag</option>
-      <option value="Dansk">Dansk</option>
-      <option value="Engelsk">Engelsk</option>
-      <option value="Historie">Historie</option>
-      <option value="Matematik">Matematik</option>
-      <option value="Geografi">Geografi</option>
-    </select>
-    <button on:click={handleCreateLesson} id="create-lesson-btn">Opret</button>
-  </div>
+    <button on:click={handleFormOpen} id="open-new-lesson-form-btn"
+      >Opret lektion</button
+    >
 
+    <div id="create-new-lesson" class="hidden">
+      <input type="date" id="date-input" />
+      <select name="select-time" id="select-time">
+        <option value="" disabled selected>Vælg et tidspunkt</option>
+        <option value="1">08:30-10:00</option>
+        <option value="2">10:15-11:45</option>
+        <option value="3">12:30-14:00</option>
+        <option value="4">14:15-15:45</option>
+      </select>
+      <select name="select-lesson" id="select-lesson">
+        <option value="" disabled selected>Vælg et fag</option>
+        <option value="Dansk">Dansk</option>
+        <option value="Engelsk">Engelsk</option>
+        <option value="Historie">Historie</option>
+        <option value="Matematik">Matematik</option>
+        <option value="Geografi">Geografi</option>
+      </select>
+      <button on:click={handleCreateLesson} id="create-lesson-btn">Opret</button
+      >
+    </div>
   {/if}
   <div class="calendar">
     <div class="rows">

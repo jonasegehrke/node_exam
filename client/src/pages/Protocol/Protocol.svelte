@@ -34,7 +34,6 @@
     currentStudents = await getStudentsFromClass();
   });
 
-  //get students from class
 
   async function getStudentsFromClass() {
     const resp = await fetch(
@@ -61,10 +60,16 @@
         console.log(studentsWithAbsence);
 
         studentsWithAbsence.forEach( async (studentId) => {
+            const currentStudent = currentStudents.find(student => student.studentId === Number(studentId));
+            currentStudent.absenceLessons += 1;
             console.log(studentId)
-            await fetch("MYURL/api/students/" + studentId, {
+            await fetch("MYURL/api/students/absence/" + studentId, {
                 method: "PATCH",
                 credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(currentStudent),
             });
         });
 

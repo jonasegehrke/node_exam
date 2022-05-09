@@ -1,4 +1,5 @@
 <script>
+  import { isAdmin } from '../store/store';
   import { toasts } from "svelte-toasts";
   export let subject;
   export let lessonId;
@@ -43,6 +44,7 @@
   bind:this={thisSubject}
 >
   <p>{subject}</p>
+  {#if $isAdmin}
   <button on:click={handleDeleteLesson} id="delete-lesson-btn"
     ><svg
       id="trashicon"
@@ -71,6 +73,7 @@
       /></svg
     ></button
   >
+  {/if}
 </div>
 
 <style>
