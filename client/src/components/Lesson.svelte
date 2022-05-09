@@ -4,6 +4,8 @@
   export let lessonId;
   let color;
 
+  let thisSubject;
+
   if (subject === "Dansk") {
     color = "#46B1C9";
   } else if (subject == "Engelsk") {
@@ -30,9 +32,7 @@
         }
       });
 
-    document
-      .getElementById("subject-container")
-      .parentNode.removeChild(document.getElementById("subject-container"));
+      thisSubject.style.display = "none";
   }
 </script>
 
@@ -40,6 +40,7 @@
   id="subject-container"
   style={`background-color: ${color};`}
   class="subject-container"
+  bind:this={thisSubject}
 >
   <p>{subject}</p>
   <button on:click={handleDeleteLesson} id="delete-lesson-btn"

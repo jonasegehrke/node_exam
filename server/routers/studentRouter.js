@@ -47,6 +47,30 @@ router.get("/api/students/:search", checkLoginStatus, async (req, res) => {
     : res.send({ error: "Students not found" });
 });
 
+router.get("/api/students/class/:id", checkLoginStatus, async (req, res) => {
+  const id = req.params.id;
+  
+  const students = await db.all(
+    "SELECT * FROM student WHERE classId = ?;",
+    id
+  )
+
+  students ? res.send({ data: students }) : res.send({ error: "Students not found" });
+});
+
+router.patch("/api/students/:id", checkLoginStatus, async (req, res) => {
+  const id = req.params.id;
+  const student = await db.get("SELECT * FROM student WHERE studentId = ?;", id);
+
+  const updatedStudent = await db.run(
+    "UPDATE student SET absenceLessons = ? where studentId = ?;",
+    student.absenceLessons + 1,
+    id
+  );
+
+  updatedStudent ? res.send({ data: updatedStudent }) : res.send({ error: "Student not found" });
+});
+
 router.post("/api/students", checkLoginStatus, async (req, res) => {
   const { firstName, lastName, email, phone, address, classId } = req.body;
 

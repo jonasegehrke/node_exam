@@ -63,6 +63,10 @@
       <li class="nav-item">
         <Link to="/absence" class="svelte-link">Fravær</Link>
       </li>
+      {:else}
+      <li class="nav-item">
+        <Link to="/protocol" class="svelte-link">Protokol</Link>
+      </li>
     {/if}
     <li class="nav-item">
       <Link to="/logout" class="svelte-link">Log ud</Link>

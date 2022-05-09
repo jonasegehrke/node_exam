@@ -6,6 +6,7 @@
   import Home from "./pages/Home/Home.svelte";
   import Students from "./pages/Students/Students.svelte";
   import Absence from "./pages/Absence/Absence.svelte";
+  import Protocol from "./pages/Protocol/Protocol.svelte";
   import NavBar from "./components/NavBar.svelte";
   import PrivateRoute from "./components/PrivateRoute.svelte";
   import Logout from "./components/Logout.svelte";
@@ -34,6 +35,10 @@
         <Absence />
       </PrivateRoute>
       {/if}
+
+      <PrivateRoute path="/protocol" let:location>
+        <Protocol />
+      </PrivateRoute>
 
       <PrivateRoute path="/schedule" let:location>
         <Schedule />
