@@ -33,4 +33,5 @@ router.post("/api/posts", checkLoginStatus, async (req, res) => {
     : res.send({ error: "Something went wrong" });
 });
 
+
 export default router;

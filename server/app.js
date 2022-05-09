@@ -86,6 +86,9 @@ app.use(studentRouter);
 import teacherRouter from './routers/teacherRouter.js';
 app.use(teacherRouter);
 
+import classRouter from './routers/classRouter.js';
+app.use(classRouter);
+
 import postRouter from "./routers/postRouter.js";
 app.use(postRouter);
 

@@ -1994,7 +1994,7 @@ var app = (function () {
     const file$l = "node_modules\\svelte-navigator\\src\\Router.svelte";
 
     // (195:0) {#if isTopLevelRouter && manageFocus && a11yConfig.announcements}
-    function create_if_block$b(ctx) {
+    function create_if_block$c(ctx) {
     	let div;
     	let t;
 
@@ -2022,7 +2022,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$b.name,
+    		id: create_if_block$c.name,
     		type: "if",
     		source: "(195:0) {#if isTopLevelRouter && manageFocus && a11yConfig.announcements}",
     		ctx
@@ -2039,7 +2039,7 @@ var app = (function () {
     	let current;
     	const default_slot_template = /*#slots*/ ctx[20].default;
     	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[19], null);
-    	let if_block = /*isTopLevelRouter*/ ctx[2] && /*manageFocus*/ ctx[4] && /*a11yConfig*/ ctx[1].announcements && create_if_block$b(ctx);
+    	let if_block = /*isTopLevelRouter*/ ctx[2] && /*manageFocus*/ ctx[4] && /*a11yConfig*/ ctx[1].announcements && create_if_block$c(ctx);
 
     	const block = {
     		c: function create() {
@@ -2707,7 +2707,7 @@ var app = (function () {
     });
 
     // (97:0) {#if isActive}
-    function create_if_block$a(ctx) {
+    function create_if_block$b(ctx) {
     	let router;
     	let current;
 
@@ -2754,7 +2754,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$a.name,
+    		id: create_if_block$b.name,
     		type: "if",
     		source: "(97:0) {#if isActive}",
     		ctx
@@ -3012,7 +3012,7 @@ var app = (function () {
     	let t1;
     	let div1;
     	let current;
-    	let if_block = /*isActive*/ ctx[2] && create_if_block$a(ctx);
+    	let if_block = /*isActive*/ ctx[2] && create_if_block$b(ctx);
 
     	const block = {
     		c: function create() {
@@ -3050,7 +3050,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$a(ctx);
+    					if_block = create_if_block$b(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(t1.parentNode, t1);
@@ -3796,7 +3796,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    function get_each_context_1(ctx, list, i) {
+    function get_each_context_1$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[14] = list[i];
     	return child_ctx;
@@ -3864,7 +3864,7 @@ var app = (function () {
     }
 
     // (105:10) {#if toast.component}
-    function create_if_block$9(ctx) {
+    function create_if_block$a(ctx) {
     	let switch_instance;
     	let switch_instance_anchor;
     	let current;
@@ -3939,7 +3939,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$9.name,
+    		id: create_if_block$a.name,
     		type: "if",
     		source: "(105:10) {#if toast.component}",
     		ctx
@@ -3949,7 +3949,7 @@ var app = (function () {
     }
 
     // (97:6) {#each $toasts         .filter((n) => n.placement === placement)         .reverse() as toast (toast.uid)}
-    function create_each_block_1(key_1, ctx) {
+    function create_each_block_1$1(key_1, ctx) {
     	let li;
     	let current_block_type_index;
     	let if_block;
@@ -3959,7 +3959,7 @@ var app = (function () {
     	let rect;
     	let stop_animation = noop$1;
     	let current;
-    	const if_block_creators = [create_if_block$9, create_else_block$4];
+    	const if_block_creators = [create_if_block$a, create_else_block$4];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -4059,7 +4059,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block_1.name,
+    		id: create_each_block_1$1.name,
     		type: "each",
     		source: "(97:6) {#each $toasts         .filter((n) => n.placement === placement)         .reverse() as toast (toast.uid)}",
     		ctx
@@ -4084,12 +4084,12 @@ var app = (function () {
     	let each_value_1 = /*$toasts*/ ctx[2].filter(func).reverse();
     	validate_each_argument(each_value_1);
     	const get_key = ctx => /*toast*/ ctx[14].uid;
-    	validate_each_keys(ctx, each_value_1, get_each_context_1, get_key);
+    	validate_each_keys(ctx, each_value_1, get_each_context_1$1, get_key);
 
     	for (let i = 0; i < each_value_1.length; i += 1) {
-    		let child_ctx = get_each_context_1(ctx, each_value_1, i);
+    		let child_ctx = get_each_context_1$1(ctx, each_value_1, i);
     		let key = get_key(child_ctx);
-    		each_1_lookup.set(key, each_blocks[i] = create_each_block_1(key, child_ctx));
+    		each_1_lookup.set(key, each_blocks[i] = create_each_block_1$1(key, child_ctx));
     	}
 
     	const block = {
@@ -4127,8 +4127,8 @@ var app = (function () {
     				validate_each_argument(each_value_1);
     				group_outros();
     				for (let i = 0; i < each_blocks.length; i += 1) each_blocks[i].r();
-    				validate_each_keys(ctx, each_value_1, get_each_context_1, get_key);
-    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_1, each_1_lookup, ul, fix_and_outro_and_destroy_block, create_each_block_1, null, get_each_context_1);
+    				validate_each_keys(ctx, each_value_1, get_each_context_1$1, get_key);
+    				each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx, each_value_1, each_1_lookup, ul, fix_and_outro_and_destroy_block, create_each_block_1$1, null, get_each_context_1$1);
     				for (let i = 0; i < each_blocks.length; i += 1) each_blocks[i].a();
     				check_outros();
     			}
@@ -4866,7 +4866,7 @@ var app = (function () {
     }
 
     // (142:2) {#if data.showProgress}
-    function create_if_block$8(ctx) {
+    function create_if_block$9(ctx) {
     	let progress_1;
 
     	const block = {
@@ -4896,7 +4896,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$8.name,
+    		id: create_if_block$9.name,
     		type: "if",
     		source: "(142:2) {#if data.showProgress}",
     		ctx
@@ -4931,7 +4931,7 @@ var app = (function () {
     	const close_icon_slot_template = /*#slots*/ ctx[7]["close-icon"];
     	const close_icon_slot = create_slot(close_icon_slot_template, ctx, /*$$scope*/ ctx[6], get_close_icon_slot_context);
     	const close_icon_slot_or_fallback = close_icon_slot || fallback_block(ctx);
-    	let if_block1 = /*data*/ ctx[1].showProgress && create_if_block$8(ctx);
+    	let if_block1 = /*data*/ ctx[1].showProgress && create_if_block$9(ctx);
 
     	const block = {
     		c: function create() {
@@ -5079,7 +5079,7 @@ var app = (function () {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     				} else {
-    					if_block1 = create_if_block$8(ctx);
+    					if_block1 = create_if_block$9(ctx);
     					if_block1.c();
     					if_block1.m(div2, null);
     				}
@@ -5835,7 +5835,7 @@ var app = (function () {
     }
 
     // (51:0) {#if small}
-    function create_if_block$7(ctx) {
+    function create_if_block$8(ctx) {
     	let div;
     	let p0;
     	let t0_value = /*firstName*/ ctx[6] + " " + /*lastName*/ ctx[7] + "";
@@ -5887,7 +5887,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$7.name,
+    		id: create_if_block$8.name,
     		type: "if",
     		source: "(51:0) {#if small}",
     		ctx
@@ -6023,7 +6023,7 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type(ctx, dirty) {
-    		if (/*small*/ ctx[5]) return create_if_block$7;
+    		if (/*small*/ ctx[5]) return create_if_block$8;
     		return create_else_block$2;
     	}
 
@@ -12338,7 +12338,7 @@ var app = (function () {
     }
 
     // (118:0) {#if mounted}
-    function create_if_block$6(ctx) {
+    function create_if_block$7(ctx) {
     	let div4;
     	let div2;
     	let div0;
@@ -12475,7 +12475,7 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(button0, "click", handleFormOpen, false, false, false),
+    					listen_dev(button0, "click", handleFormOpen$1, false, false, false),
     					listen_dev(button1, "click", /*handleSendPost*/ ctx[5], false, false, false)
     				];
 
@@ -12570,7 +12570,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$6.name,
+    		id: create_if_block$7.name,
     		type: "if",
     		source: "(118:0) {#if mounted}",
     		ctx
@@ -12768,7 +12768,7 @@ var app = (function () {
     function create_fragment$f(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*mounted*/ ctx[0] && create_if_block$6(ctx);
+    	let if_block = /*mounted*/ ctx[0] && create_if_block$7(ctx);
 
     	const block = {
     		c: function create() {
@@ -12792,7 +12792,7 @@ var app = (function () {
     						transition_in(if_block, 1);
     					}
     				} else {
-    					if_block = create_if_block$6(ctx);
+    					if_block = create_if_block$7(ctx);
     					if_block.c();
     					transition_in(if_block, 1);
     					if_block.m(if_block_anchor.parentNode, if_block_anchor);
@@ -12833,7 +12833,7 @@ var app = (function () {
     	return block;
     }
 
-    function handleFormOpen() {
+    function handleFormOpen$1() {
     	const form = document.getElementById("create-post");
     	form.classList.toggle("hidden");
     	form.classList.toggle("show");
@@ -12965,7 +12965,7 @@ var app = (function () {
     		getTeacherData,
     		getStudentData,
     		getPosts,
-    		handleFormOpen,
+    		handleFormOpen: handleFormOpen$1,
     		handleSendPost,
     		$currentClass,
     		$userData,
@@ -13003,24 +13003,114 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[2] = list[i];
+    	child_ctx[7] = list[i];
     	return child_ctx;
     }
 
-    // (19:2) {#each $students as student}
+    function get_each_context_1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[10] = list[i];
+    	return child_ctx;
+    }
+
+    // (112:2) {#if $isAdmin}
+    function create_if_block$6(ctx) {
+    	let button;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			button.textContent = "Opret ny elev";
+    			attr_dev(button, "id", "open-new-student-form-btn");
+    			attr_dev(button, "class", "svelte-zhjg6q");
+    			add_location(button, file$b, 112, 4, 3122);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", handleFormOpen, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$6.name,
+    		type: "if",
+    		source: "(112:2) {#if $isAdmin}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (130:6) {#each allClasses as className}
+    function create_each_block_1(ctx) {
+    	let option;
+    	let t_value = /*className*/ ctx[10].className + "";
+    	let t;
+    	let option_value_value;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.__value = option_value_value = /*className*/ ctx[10].classId;
+    			option.value = option.__value;
+    			add_location(option, file$b, 130, 8, 3867);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*allClasses*/ 1 && t_value !== (t_value = /*className*/ ctx[10].className + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*allClasses*/ 1 && option_value_value !== (option_value_value = /*className*/ ctx[10].classId)) {
+    				prop_dev(option, "__value", option_value_value);
+    				option.value = option.__value;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block_1.name,
+    		type: "each",
+    		source: "(130:6) {#each allClasses as className}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (138:2) {#each $students as student}
     function create_each_block$1(ctx) {
     	let studentcard;
     	let current;
 
     	studentcard = new StudentCard({
     			props: {
-    				firstName: /*student*/ ctx[2].firstName,
-    				lastName: /*student*/ ctx[2].lastName,
-    				studentNumber: /*student*/ ctx[2].studentNumber,
-    				className: /*student*/ ctx[2].className,
-    				email: /*student*/ ctx[2].email,
-    				phone: /*student*/ ctx[2].phone,
-    				address: /*student*/ ctx[2].address,
+    				firstName: /*student*/ ctx[7].firstName,
+    				lastName: /*student*/ ctx[7].lastName,
+    				studentNumber: /*student*/ ctx[7].studentNumber,
+    				className: /*student*/ ctx[7].className,
+    				email: /*student*/ ctx[7].email,
+    				phone: /*student*/ ctx[7].phone,
+    				address: /*student*/ ctx[7].address,
     				showGrades: false,
     				small: true
     			},
@@ -13037,13 +13127,13 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const studentcard_changes = {};
-    			if (dirty & /*$students*/ 1) studentcard_changes.firstName = /*student*/ ctx[2].firstName;
-    			if (dirty & /*$students*/ 1) studentcard_changes.lastName = /*student*/ ctx[2].lastName;
-    			if (dirty & /*$students*/ 1) studentcard_changes.studentNumber = /*student*/ ctx[2].studentNumber;
-    			if (dirty & /*$students*/ 1) studentcard_changes.className = /*student*/ ctx[2].className;
-    			if (dirty & /*$students*/ 1) studentcard_changes.email = /*student*/ ctx[2].email;
-    			if (dirty & /*$students*/ 1) studentcard_changes.phone = /*student*/ ctx[2].phone;
-    			if (dirty & /*$students*/ 1) studentcard_changes.address = /*student*/ ctx[2].address;
+    			if (dirty & /*$students*/ 4) studentcard_changes.firstName = /*student*/ ctx[7].firstName;
+    			if (dirty & /*$students*/ 4) studentcard_changes.lastName = /*student*/ ctx[7].lastName;
+    			if (dirty & /*$students*/ 4) studentcard_changes.studentNumber = /*student*/ ctx[7].studentNumber;
+    			if (dirty & /*$students*/ 4) studentcard_changes.className = /*student*/ ctx[7].className;
+    			if (dirty & /*$students*/ 4) studentcard_changes.email = /*student*/ ctx[7].email;
+    			if (dirty & /*$students*/ 4) studentcard_changes.phone = /*student*/ ctx[7].phone;
+    			if (dirty & /*$students*/ 4) studentcard_changes.address = /*student*/ ctx[7].address;
     			studentcard.$set(studentcard_changes);
     		},
     		i: function intro(local) {
@@ -13064,7 +13154,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(19:2) {#each $students as student}",
+    		source: "(138:2) {#each $students as student}",
     		ctx
     	});
 
@@ -13072,9 +13162,48 @@ var app = (function () {
     }
 
     function create_fragment$e(ctx) {
-    	let div;
+    	let div1;
+    	let t0;
+    	let div0;
+    	let p0;
+    	let t2;
+    	let input0;
+    	let t3;
+    	let p1;
+    	let t5;
+    	let input1;
+    	let t6;
+    	let p2;
+    	let t8;
+    	let input2;
+    	let t9;
+    	let p3;
+    	let t11;
+    	let input3;
+    	let t12;
+    	let p4;
+    	let t14;
+    	let input4;
+    	let t15;
+    	let p5;
+    	let t17;
+    	let select;
+    	let t18;
+    	let button;
+    	let t20;
     	let current;
-    	let each_value = /*$students*/ ctx[0];
+    	let mounted;
+    	let dispose;
+    	let if_block = /*$isAdmin*/ ctx[1] && create_if_block$6(ctx);
+    	let each_value_1 = /*allClasses*/ ctx[0];
+    	validate_each_argument(each_value_1);
+    	let each_blocks_1 = [];
+
+    	for (let i = 0; i < each_value_1.length; i += 1) {
+    		each_blocks_1[i] = create_each_block_1(get_each_context_1(ctx, each_value_1, i));
+    	}
+
+    	let each_value = /*$students*/ ctx[2];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -13088,30 +13217,189 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			div1 = element("div");
+    			if (if_block) if_block.c();
+    			t0 = space();
+    			div0 = element("div");
+    			p0 = element("p");
+    			p0.textContent = "Fornavn";
+    			t2 = space();
+    			input0 = element("input");
+    			t3 = space();
+    			p1 = element("p");
+    			p1.textContent = "Efternavn";
+    			t5 = space();
+    			input1 = element("input");
+    			t6 = space();
+    			p2 = element("p");
+    			p2.textContent = "Email";
+    			t8 = space();
+    			input2 = element("input");
+    			t9 = space();
+    			p3 = element("p");
+    			p3.textContent = "Telefon";
+    			t11 = space();
+    			input3 = element("input");
+    			t12 = space();
+    			p4 = element("p");
+    			p4.textContent = "Adresse";
+    			t14 = space();
+    			input4 = element("input");
+    			t15 = space();
+    			p5 = element("p");
+    			p5.textContent = "Klasse";
+    			t17 = space();
+    			select = element("select");
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].c();
+    			}
+
+    			t18 = space();
+    			button = element("button");
+    			button.textContent = "Opret";
+    			t20 = space();
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(div, "class", "container svelte-1bq914z");
-    			add_location(div, file$b, 17, 0, 395);
+    			add_location(p0, file$b, 117, 4, 3286);
+    			attr_dev(input0, "name", "firstname");
+    			attr_dev(input0, "id", "firstName-input");
+    			attr_dev(input0, "type", "text");
+    			attr_dev(input0, "placeholder", "Fornavn");
+    			attr_dev(input0, "class", "svelte-zhjg6q");
+    			add_location(input0, file$b, 118, 4, 3306);
+    			add_location(p1, file$b, 119, 4, 3393);
+    			attr_dev(input1, "id", "lastName-input");
+    			attr_dev(input1, "type", "text");
+    			attr_dev(input1, "placeholder", "Efternavn");
+    			attr_dev(input1, "class", "svelte-zhjg6q");
+    			add_location(input1, file$b, 120, 4, 3415);
+    			add_location(p2, file$b, 121, 4, 3486);
+    			attr_dev(input2, "id", "email-input");
+    			attr_dev(input2, "type", "text");
+    			attr_dev(input2, "placeholder", "Email");
+    			attr_dev(input2, "class", "svelte-zhjg6q");
+    			add_location(input2, file$b, 122, 4, 3504);
+    			add_location(p3, file$b, 123, 4, 3568);
+    			attr_dev(input3, "id", "phone-input");
+    			attr_dev(input3, "type", "tel");
+    			attr_dev(input3, "placeholder", "12 34 56 78");
+    			attr_dev(input3, "class", "svelte-zhjg6q");
+    			add_location(input3, file$b, 124, 4, 3588);
+    			add_location(p4, file$b, 125, 4, 3657);
+    			attr_dev(input4, "id", "address-input");
+    			attr_dev(input4, "type", "text");
+    			attr_dev(input4, "placeholder", "Adresse");
+    			attr_dev(input4, "class", "svelte-zhjg6q");
+    			add_location(input4, file$b, 126, 4, 3677);
+    			add_location(p5, file$b, 127, 4, 3745);
+    			attr_dev(select, "name", "className-select");
+    			attr_dev(select, "id", "className-select");
+    			attr_dev(select, "class", "svelte-zhjg6q");
+    			add_location(select, file$b, 128, 4, 3764);
+    			attr_dev(button, "id", "create-student-btn");
+    			attr_dev(button, "class", "svelte-zhjg6q");
+    			add_location(button, file$b, 134, 4, 3969);
+    			attr_dev(div0, "id", "create-new-student");
+    			attr_dev(div0, "class", "hidden svelte-zhjg6q");
+    			add_location(div0, file$b, 116, 2, 3236);
+    			attr_dev(div1, "class", "container svelte-zhjg6q");
+    			add_location(div1, file$b, 110, 0, 3075);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
+    			insert_dev(target, div1, anchor);
+    			if (if_block) if_block.m(div1, null);
+    			append_dev(div1, t0);
+    			append_dev(div1, div0);
+    			append_dev(div0, p0);
+    			append_dev(div0, t2);
+    			append_dev(div0, input0);
+    			append_dev(div0, t3);
+    			append_dev(div0, p1);
+    			append_dev(div0, t5);
+    			append_dev(div0, input1);
+    			append_dev(div0, t6);
+    			append_dev(div0, p2);
+    			append_dev(div0, t8);
+    			append_dev(div0, input2);
+    			append_dev(div0, t9);
+    			append_dev(div0, p3);
+    			append_dev(div0, t11);
+    			append_dev(div0, input3);
+    			append_dev(div0, t12);
+    			append_dev(div0, p4);
+    			append_dev(div0, t14);
+    			append_dev(div0, input4);
+    			append_dev(div0, t15);
+    			append_dev(div0, p5);
+    			append_dev(div0, t17);
+    			append_dev(div0, select);
+
+    			for (let i = 0; i < each_blocks_1.length; i += 1) {
+    				each_blocks_1[i].m(select, null);
+    			}
+
+    			append_dev(div0, t18);
+    			append_dev(div0, button);
+    			append_dev(div1, t20);
 
     			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].m(div, null);
+    				each_blocks[i].m(div1, null);
     			}
 
     			current = true;
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*handleCreateStudent*/ ctx[3], false, false, false);
+    				mounted = true;
+    			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*$students*/ 1) {
-    				each_value = /*$students*/ ctx[0];
+    			if (/*$isAdmin*/ ctx[1]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$6(ctx);
+    					if_block.c();
+    					if_block.m(div1, t0);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			if (dirty & /*allClasses*/ 1) {
+    				each_value_1 = /*allClasses*/ ctx[0];
+    				validate_each_argument(each_value_1);
+    				let i;
+
+    				for (i = 0; i < each_value_1.length; i += 1) {
+    					const child_ctx = get_each_context_1(ctx, each_value_1, i);
+
+    					if (each_blocks_1[i]) {
+    						each_blocks_1[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks_1[i] = create_each_block_1(child_ctx);
+    						each_blocks_1[i].c();
+    						each_blocks_1[i].m(select, null);
+    					}
+    				}
+
+    				for (; i < each_blocks_1.length; i += 1) {
+    					each_blocks_1[i].d(1);
+    				}
+
+    				each_blocks_1.length = each_value_1.length;
+    			}
+
+    			if (dirty & /*$students*/ 4) {
+    				each_value = /*$students*/ ctx[2];
     				validate_each_argument(each_value);
     				let i;
 
@@ -13125,7 +13413,7 @@ var app = (function () {
     						each_blocks[i] = create_each_block$1(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
-    						each_blocks[i].m(div, null);
+    						each_blocks[i].m(div1, null);
     					}
     				}
 
@@ -13157,8 +13445,12 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div1);
+    			if (if_block) if_block.d();
+    			destroy_each(each_blocks_1, detaching);
     			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -13173,12 +13465,22 @@ var app = (function () {
     	return block;
     }
 
+    function handleFormOpen() {
+    	const form = document.getElementById("create-new-student");
+    	form.classList.toggle("hidden");
+    	form.classList.toggle("show");
+    }
+
     function instance$e($$self, $$props, $$invalidate) {
+    	let $isAdmin;
     	let $students;
+    	validate_store(isAdmin, 'isAdmin');
+    	component_subscribe($$self, isAdmin, $$value => $$invalidate(1, $isAdmin = $$value));
     	validate_store(students, 'students');
-    	component_subscribe($$self, students, $$value => $$invalidate(0, $students = $$value));
+    	component_subscribe($$self, students, $$value => $$invalidate(2, $students = $$value));
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Students', slots, []);
+    	let allClasses = [];
 
     	async function getAllStudents() {
     		const response = await fetch("http://localhost:3000/api/students/", { credentials: "include" });
@@ -13186,7 +13488,76 @@ var app = (function () {
     		students.set(data.data);
     	}
 
+    	async function getAllClasses() {
+    		const resp = await fetch("http://localhost:3000/api/classes/", { credentials: "include" });
+    		const respData = await resp.json();
+    		$$invalidate(0, allClasses = respData.data);
+    	}
+
     	getAllStudents();
+    	getAllClasses();
+
+    	const validateEmail = email => {
+    		return email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    	};
+
+    	async function handleCreateStudent() {
+    		const firstName = document.getElementById("firstName-input");
+    		const lastName = document.getElementById("lastName-input");
+    		const email = document.getElementById("email-input");
+    		const phone = document.getElementById("phone-input");
+    		const address = document.getElementById("address-input");
+    		const classId = document.getElementById("className-select");
+
+    		if (firstName.value === "" || lastName.value === "" || address.value === "" || classId.value === "") {
+    			toasts.error("Udfyld venligst alle felter korrekt");
+    			return;
+    		}
+
+    		if (phone.value.replace(/\s/g, "").length !== 8) {
+    			toasts.error("Telefonnummer er ikke gyldig");
+    			return;
+    		}
+
+    		if (!validateEmail(email.value)) {
+    			toasts.error("Email er ikke gyldig");
+    			return;
+    		}
+
+    		const student = {
+    			firstName: firstName.value,
+    			lastName: lastName.value,
+    			email: email.value,
+    			phone: phone.value,
+    			address: address.value,
+    			classId: classId.value
+    		};
+
+    		try {
+    			await fetch("http://localhost:3000/api/students", {
+    				method: "POST",
+    				credentials: "include",
+    				headers: { "Content-Type": "application/json" },
+    				body: JSON.stringify(student)
+    			}).then(response => response.json()).then(responseText => {
+    				if (responseText.success) {
+    					toasts.success("Elev er oprettet");
+    					getAllStudents();
+    					firstName.value = "";
+    					lastName.value = "";
+    					email.value = "";
+    					phone.value = "";
+    					address.value = "";
+    					classId.value = "";
+    				} else {
+    					toasts.error("Der skete en fejl");
+    				}
+    			});
+    		} catch(e) {
+    			toasts.error("Der skete en fejl");
+    		}
+    	}
+
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -13195,12 +13566,28 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		students,
+    		isAdmin,
     		StudentCard,
+    		toasts,
+    		allClasses,
     		getAllStudents,
+    		getAllClasses,
+    		handleFormOpen,
+    		validateEmail,
+    		handleCreateStudent,
+    		$isAdmin,
     		$students
     	});
 
-    	return [$students];
+    	$$self.$inject_state = $$props => {
+    		if ('allClasses' in $$props) $$invalidate(0, allClasses = $$props.allClasses);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [allClasses, $isAdmin, $students, handleCreateStudent];
     }
 
     class Students extends SvelteComponentDev {
