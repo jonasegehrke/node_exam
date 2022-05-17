@@ -18,6 +18,7 @@
 
     const data = { username: username, password: password };
 
+    try {
     await fetch("MYURL/api/auth", {
       method: "POST",
       body: JSON.stringify(data),
@@ -40,7 +41,10 @@
     } else {
       toasts.error($responseData.message);
     }
+  } catch (e) {
+    toasts.error("For mange login forsøg, prøv igen senere")
   }
+}
 
   const onKeyPress = (e) => {
     if (e.charCode === 13) {

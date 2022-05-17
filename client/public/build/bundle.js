@@ -5292,34 +5292,34 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Log ind";
     			attr_dev(h1, "class", "logo svelte-gig8nb");
-    			add_location(h1, file$h, 54, 6, 1506);
+    			add_location(h1, file$h, 58, 6, 1599);
     			attr_dev(p, "class", "catchphrase svelte-gig8nb");
-    			add_location(p, file$h, 55, 6, 1547);
+    			add_location(p, file$h, 59, 6, 1640);
     			attr_dev(div0, "class", "heading-container svelte-gig8nb");
-    			add_location(div0, file$h, 53, 4, 1467);
+    			add_location(div0, file$h, 57, 4, 1560);
     			attr_dev(h2, "class", "form-heading svelte-gig8nb");
-    			add_location(h2, file$h, 59, 6, 1658);
+    			add_location(h2, file$h, 63, 6, 1751);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "class", "username svelte-gig8nb");
     			attr_dev(input0, "id", "username");
     			attr_dev(input0, "placeholder", "Brugernavn");
     			input0.value = "anders";
     			input0.required = true;
-    			add_location(input0, file$h, 60, 6, 1703);
+    			add_location(input0, file$h, 64, 6, 1796);
     			attr_dev(input1, "type", "password");
     			attr_dev(input1, "class", "password svelte-gig8nb");
     			attr_dev(input1, "id", "password");
     			attr_dev(input1, "placeholder", "Adgangskode");
     			input1.value = "1234";
-    			add_location(input1, file$h, 69, 6, 1907);
+    			add_location(input1, file$h, 73, 6, 2000);
     			attr_dev(button, "class", "login-btn svelte-gig8nb");
-    			add_location(button, file$h, 77, 6, 2096);
+    			add_location(button, file$h, 81, 6, 2189);
     			attr_dev(div1, "class", "login-container svelte-gig8nb");
-    			add_location(div1, file$h, 58, 4, 1621);
+    			add_location(div1, file$h, 62, 4, 1714);
     			attr_dev(div2, "class", "content svelte-gig8nb");
-    			add_location(div2, file$h, 52, 2, 1440);
+    			add_location(div2, file$h, 56, 2, 1533);
     			attr_dev(div3, "class", "welcome-container svelte-gig8nb");
-    			add_location(div3, file$h, 51, 0, 1405);
+    			add_location(div3, file$h, 55, 0, 1498);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5398,28 +5398,32 @@ var app = (function () {
 
     		const data = { username, password };
 
-    		await fetch("http://localhost:3000/api/auth", {
-    			method: "POST",
-    			body: JSON.stringify(data),
-    			headers: {
-    				"Content-type": "application/json; charset=UTF-8"
-    			},
-    			credentials: "include"
-    		}).then(response => response.json()).then(data => {
-    			isLoggedIn.set(data.isLoggedIn);
-    			isAdmin.set(data.isAdmin);
-    			responseData.set(data);
-    		});
-
-    		if ($isLoggedIn) {
-    			toasts.success("Du er nu logget ind");
-
-    			navigate("/", {
-    				state: { from: $location.pathname },
-    				replace: true
+    		try {
+    			await fetch("http://localhost:3000/api/auth", {
+    				method: "POST",
+    				body: JSON.stringify(data),
+    				headers: {
+    					"Content-type": "application/json; charset=UTF-8"
+    				},
+    				credentials: "include"
+    			}).then(response => response.json()).then(data => {
+    				isLoggedIn.set(data.isLoggedIn);
+    				isAdmin.set(data.isAdmin);
+    				responseData.set(data);
     			});
-    		} else {
-    			toasts.error($responseData.message);
+
+    			if ($isLoggedIn) {
+    				toasts.success("Du er nu logget ind");
+
+    				navigate("/", {
+    					state: { from: $location.pathname },
+    					replace: true
+    				});
+    			} else {
+    				toasts.error($responseData.message);
+    			}
+    		} catch(e) {
+    			toasts.error("For mange login forsøg, prøv igen senere");
     		}
     	}
 
