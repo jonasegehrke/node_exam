@@ -74,10 +74,11 @@ router.patch("/api/students/lessons/:id", checkLoginStatus, async (req, res) => 
 router.patch("/api/students/absence/:id", checkLoginStatus, async (req, res) => {
   const id = req.params.id;
 
-
   const updatedStudent = await db.run(
-    "UPDATE student SET absenceLessons = ? where studentId = ?;",
+    "UPDATE student SET absenceLessons = ?, lastAbsenceCheckDate = ?, lastAbsenceCheck = ? where studentId = ?;",
     req.body.absenceLessons,
+    req.body.lastAbsenceCheckDate,
+    req.body.lastAbsenceCheck,
     id
   );
 

@@ -9,7 +9,6 @@ import { createServer } from 'http';
 
 const app = express();
 
-// I chose to use SQLite for this project, as i want to deploy it. We have not yet learned how to connect to a mySQL database hosted on Heroku/AWS/azure.
 dotenv.config();
 
 app.use(helmet());
@@ -97,10 +96,6 @@ app.use(lessonRouter);
 
 import chatRouter from './routers/chatRouter.js';
 app.use(chatRouter);
-
-app.get("/test", (req, res) => {
-  res.send("Hello World");
-});
 
 const PORT = process.env.PORT || 3000;
 httpServer.listen(PORT, () => {

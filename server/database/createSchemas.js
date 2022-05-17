@@ -28,7 +28,7 @@ await db.exec(
 );
 
 await db.exec(
-  "CREATE TABLE student(studentId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, firstName TEXT, lastName TEXT, studentNumber TEXT, absenceLessons INT, totalLessons INT, phone TEXT, address TEXT, email TEXT, classId INT, gradeId INT, FOREIGN KEY (classId) REFERENCES class(classId), FOREIGN KEY (gradeId) REFERENCES student_grade(gradeId));"
+  "CREATE TABLE student(studentId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, firstName TEXT, lastName TEXT, studentNumber TEXT, absenceLessons INT, totalLessons INT, lastAbsenceCheckDate DATE, lastAbsenceCheck BOOLEAN,  phone TEXT, address TEXT, email TEXT, classId INT, gradeId INT, FOREIGN KEY (classId) REFERENCES class(classId), FOREIGN KEY (gradeId) REFERENCES student_grade(gradeId));"
 );
 
 await db.exec(

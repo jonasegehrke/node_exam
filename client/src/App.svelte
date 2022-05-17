@@ -45,11 +45,11 @@
       </PrivateRoute>
 
   
-      <Route path="/login">
+      <Route path="/login" primary={false}>
         <Login />
       </Route>
    
-      <Route path="/logout">
+      <Route path="/logout" primary={false}>
         <Logout />
       </Route>
 

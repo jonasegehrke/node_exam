@@ -8,6 +8,7 @@
   import { useNavigate, useLocation } from "svelte-navigator";
   import { toasts } from "svelte-toasts";
   import { onMount } from "svelte";
+  import moment from "moment";
 
   let currentStudents = [];
   const navigate = useNavigate();
@@ -34,7 +35,6 @@
     currentStudents = await getStudentsFromClass();
   });
 
-
   async function getStudentsFromClass() {
     const resp = await fetch(
       "MYURL/api/students/class/" + $currentClass.classId,
@@ -48,31 +48,48 @@
     return respData.data;
   }
 
-  async function addAbsence(){
-      const allCheckboxes = document.querySelectorAll(".checkbox");
-      const studentsWithAbsence = [];
+  async function addAbsence() {
+    const allCheckboxes = document.querySelectorAll(".checkbox");
 
-        allCheckboxes.forEach((checkbox) => {
-            if (!checkbox.checked) {
-                studentsWithAbsence.push(checkbox.value);
-            }
-        });
-        console.log(studentsWithAbsence);
+    allCheckboxes.forEach(async (checkbox) => {
+      const currentStudent = currentStudents.find(
+        (student) => student.studentId === Number(checkbox.value)
+      );
 
-        studentsWithAbsence.forEach( async (studentId) => {
-            const currentStudent = currentStudents.find(student => student.studentId === Number(studentId));
-            currentStudent.absenceLessons += 1;
-            console.log(studentId)
-            await fetch("MYURL/api/students/absence/" + studentId, {
-                method: "PATCH",
-                credentials: "include",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(currentStudent),
-            });
-        });
+      if (!checkbox.checked) {
+        if (
+          currentStudent.lastAbsenceCheckDate === moment().format("YYYY-MM-DD")
+        )
+          return;
 
+        currentStudent.absenceLessons += 1;
+        currentStudent.lastAbsenceCheck = false;
+        currentStudent.lastAbsenceCheckDate = moment().format("YYYY-MM-DD");
+      } else {
+        if (
+          currentStudent.lastAbsenceCheckDate === moment().format("YYYY-MM-DD")
+        ) {
+          if (currentStudent.lastAbsenceCheck === 0) {
+            console.log(currentStudent);
+            currentStudent.absenceLessons -= 1;
+          }
+        }
+        currentStudent.lastAbsenceCheck = true;
+        currentStudent.lastAbsenceCheckDate = moment().format("YYYY-MM-DD");
+      }
+
+      await fetch("MYURL/api/students/absence/" + checkbox.value, {
+        method: "PATCH",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(currentStudent),
+      });
+    });
+    console.log("done");
+    currentStudents = await getStudentsFromClass();
+    toasts.success("Fravær registreret");
   }
 </script>
 
@@ -88,7 +105,22 @@
       {#each currentStudents as student}
         <tr>
           <td>{student.firstName + " " + student.lastName}</td>
-          <td id="checkbox-td"><input type="checkbox" value={student.studentId} class="checkbox" /></td>
+          <td id="checkbox-td">
+            {#if student.lastAbsenceCheckDate === moment().format("YYYY-MM-DD")}
+              <input
+                type="checkbox"
+                class="checkbox"
+                value={student.studentId}
+                checked={student.lastAbsenceCheck}
+              />
+            {:else}
+              <input
+                type="checkbox"
+                class="checkbox"
+                value={student.studentId}
+              />
+            {/if}
+          </td>
         </tr>
       {/each}
     </tbody>

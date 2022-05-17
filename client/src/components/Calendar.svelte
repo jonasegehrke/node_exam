@@ -131,7 +131,7 @@
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          toasts.success("Opgaven er oprettet");
+          toasts.success("Lektionen er oprettet");
         }
       });
 
