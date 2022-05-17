@@ -15,7 +15,7 @@ app.use(helmet());
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://prettyintra.netlify.app",
+    origin: "http://prettyintra.netlify.app",
     credentials: true,
   })
 );
@@ -24,7 +24,7 @@ const sessionMiddleware = session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: true },
+  cookie: { secure: false },
 });
 app.use(sessionMiddleware);
 
