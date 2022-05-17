@@ -11,8 +11,9 @@ function checkLoginStatus(req, res, next) {
   next();
 }
 
-router.get("/api/teacher/user", checkLoginStatus, async (req, res) => {
+router.get("/api/teachers/user", checkLoginStatus, async (req, res) => {
   const id = req.session.userId;
+  
   const teacher = await db.get(
     "SELECT * FROM teacher_user INNER JOIN teacher ON teacher_user.teacherId = teacher.teacherId WHERE userId = ?;",
     id

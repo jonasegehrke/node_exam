@@ -1,5 +1,3 @@
-<canvas id="myChart" width="100" height="100" bind:this={ctx} />
-
 <script>
   import {
     Chart,
@@ -78,11 +76,13 @@
 };
 
   onMount(async () => {
-    const myChart = new Chart(ctx, {
+    new Chart(ctx, {
       type: "doughnut",
       data: data
   }
   )});
 </script>
+
+<canvas id="myChart" width="100" height="100" bind:this={ctx} />
 
 

@@ -13,9 +13,6 @@
 
   export let label;
 
-
-  
-
   async function getSearchResults() {
     const search = document.getElementById("search").value;
     const resp = await fetch("MYURL/api/students/" + search, {

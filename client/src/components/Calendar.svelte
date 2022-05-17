@@ -1,5 +1,5 @@
 <script>
-  import { userData, currentClass, isAdmin } from "../store/store";
+  import { currentClass, isAdmin } from "../store/store";
   import Lesson from "./Lesson.svelte";
   import moment from "moment";
   import { onMount } from "svelte";
@@ -40,9 +40,8 @@
       friday: moment(week.friday).subtract(7, "days").format("YYYY-MM-DD"),
     };
 
-    //get lessons for each day
     const lessons = await getLessons();
-    //update the calendar on the page
+
     updateCalendar(lessons);
   }
 
@@ -55,16 +54,14 @@
       friday: moment(week.friday).add(7, "days").format("YYYY-MM-DD"),
     };
 
-    //get lessons for each day
     const lessons = await getLessons();
-    //update the calendar on the page
+
     updateCalendar(lessons);
   }
 
   function updateCalendar(lessons) {
-    console.log(lessons);
     const cols = document.querySelectorAll(".col-item");
-    //clear the calendar
+
     cols.forEach((col) => {
       col.innerHTML = "";
     });

@@ -1,10 +1,5 @@
 <script>
-  import {
-    currentClass,
-    isLoggedIn,
-    isAdmin,
-    students,
-  } from "../../store/store";
+  import { currentClass, isLoggedIn, isAdmin } from "../../store/store";
   import { useNavigate, useLocation } from "svelte-navigator";
   import { toasts } from "svelte-toasts";
   import { onMount } from "svelte";
@@ -20,7 +15,9 @@
       method: "POST",
       credentials: "include",
     });
+
     const respData = await resp.json();
+
     isLoggedIn.set(respData.isLoggedIn);
     isAdmin.set(respData.isAdmin);
   }
@@ -70,7 +67,6 @@
           currentStudent.lastAbsenceCheckDate === moment().format("YYYY-MM-DD")
         ) {
           if (currentStudent.lastAbsenceCheck === 0) {
-            console.log(currentStudent);
             currentStudent.absenceLessons -= 1;
           }
         }
@@ -87,7 +83,6 @@
         body: JSON.stringify(currentStudent),
       });
     });
-    console.log("done");
     currentStudents = await getStudentsFromClass();
     toasts.success("Fravær registreret");
   }

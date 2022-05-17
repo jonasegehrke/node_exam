@@ -67,7 +67,6 @@
         required
         on:keypress={onKeyPress}
       />
-      <!--Check if i can delete classnames on input-->
       <input
         type="password"
         class="password"

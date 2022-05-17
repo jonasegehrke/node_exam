@@ -6,12 +6,12 @@
   let allClasses = [];
 
   async function getAllStudents() {
-    const response = await fetch("MYURL/api/students/", {
+    const resp = await fetch("MYURL/api/students/", {
       credentials: "include",
     });
 
-    const data = await response.json();
-    students.set(data.data);
+    const respData = await resp.json();
+    students.set(respData.data);
   }
 
   async function getAllClasses() {
@@ -77,34 +77,30 @@
       classId: classId.value,
     };
 
-    try {
-      await fetch("MYURL/api/students", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(student),
-      })
-        .then((response) => response.json())
-        .then((responseText) => {
-          if (responseText.success) {
-            toasts.success("Elev er oprettet");
-            getAllStudents();
+    await fetch("MYURL/api/students", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(student),
+    })
+      .then((response) => response.json())
+      .then((responseText) => {
+        if (responseText.success) {
+          toasts.success("Elev er oprettet");
+          getAllStudents();
 
-            firstName.value = "";
-            lastName.value = "";
-            email.value = "";
-            phone.value = "";
-            address.value = "";
-            classId.value = "";
-          } else {
-            toasts.error("Der skete en fejl");
-          }
-        });
-    } catch (e) {
-      toasts.error("Der skete en fejl");
-    }
+          firstName.value = "";
+          lastName.value = "";
+          email.value = "";
+          phone.value = "";
+          address.value = "";
+          classId.value = "";
+        } else {
+          toasts.error("Der skete en fejl");
+        }
+      });
   }
 </script>
 

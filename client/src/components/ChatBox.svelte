@@ -7,8 +7,6 @@
 
   const socket = io("MYURL");
 
-
-
   socket.on("connect", () => {
   });
 
@@ -21,12 +19,9 @@
     
   }, 1000);
   
-
-
   let currentRecieverId = null;
 
   async function updateChatRoom(event) {
-    //fetch pre messages
     currentRecieverId = event.detail.recieverId;
 
     const resp = await fetch(
@@ -38,10 +33,8 @@
 
     const respData = await resp.json();
 
-    //clear previous chat
     document.getElementById("chat").innerHTML = "";
 
-    //Set new messages
     respData.forEach((message) => {
       let isYou = false;
 
@@ -55,18 +48,12 @@
         },
       });
     });
-
-    //open chatroom
   }
 
   socket.on("receive-message", (message) => {
     if(message.senderId === currentRecieverId){
       receiveMessage(message);
-    }else{
-      //this should make a notification on the chaticon and let the user know who sent a message
-      //createNotification(message);
     }
-    
   });
 
   function receiveMessage(message) {
@@ -84,7 +71,6 @@
   }
 
   async function handleSendMessage() {
-    //post
     if (currentRecieverId === null) return;
 
     const message = document.getElementById("message").value;
@@ -92,7 +78,6 @@
 
     if (message.length === 0) return;
 
-    //Socket send
     const socketMessage = {
       message: message,
       senderId: $userData.studentId,
@@ -101,7 +86,6 @@
 
     socket.emit("send-message", socketMessage);
 
-    //database send
     const data = {
       sender: $userData.studentId,
       reciever: currentRecieverId,

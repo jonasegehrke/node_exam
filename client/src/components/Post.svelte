@@ -9,11 +9,13 @@
   export let postId;
 
   async function getPosts() {
-    const response = await fetch("MYURL/api/posts/" + $currentClass.classId, {
+    const resp = await fetch("MYURL/api/posts/" + $currentClass.classId, {
       credentials: "include",
     });
-    const data = await response.json();
-    posts.set(data.data);
+    
+    const respData = await resp.json();
+
+    posts.set(respData.data);
   }
 
   async function handleDeletePost() {

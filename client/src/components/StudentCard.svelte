@@ -1,5 +1,4 @@
 <script>
-
   export let firstName;
   export let lastName;
   export let studentNumber;
@@ -13,7 +12,6 @@
   export let historie;
   export let matematik;
   export let geografi;
-
   export let small;
 
   let overview = small;

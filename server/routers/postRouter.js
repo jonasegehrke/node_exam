@@ -15,7 +15,7 @@ router.get("/api/posts/:id", checkLoginStatus, async (req, res) => {
   const { id } = req.params;
   const posts = await db.all(
     "SELECT * FROM post WHERE classId = ? ORDER BY created DESC;",
-    id
+    [id]
   );
   posts
     ? res.send({ data: posts })
@@ -35,9 +35,8 @@ router.post("/api/posts", checkLoginStatus, async (req, res) => {
 
 router.delete("/api/posts/:id", checkLoginStatus, async (req, res) => {
   const { id } = req.params;
-  console.log(id)
 
-  const post = await db.run('DELETE FROM post WHERE postId = ?;', id);
+  const post = await db.run('DELETE FROM post WHERE postId = ?;', [id]);
 
   post.changes > 0 ? res.send({ success: true }) : res.send({ error: "Something went wrong" });
 });

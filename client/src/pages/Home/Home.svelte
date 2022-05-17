@@ -24,12 +24,13 @@
     mounted = true;
   });
 
-  //Get teacher data
   async function getTeacherData() {
-    const resp = await fetch("MYURL/api/teacher/user", {
+    const resp = await fetch("MYURL/api/teachers/user", {
       credentials: "include",
     });
+
     const respData = await resp.json();
+
     userData.set(respData.teacherData);
     classes.set(respData.classes);
 
@@ -37,30 +38,31 @@
       currentClass.set(respData.classes[0]);
     }
   }
-  //Get student data
+
   async function getStudentData() {
-    const response = await fetch("MYURL/api/students/user", {
+    const resp = await fetch("MYURL/api/students/user", {
       credentials: "include",
     });
-    const data = await response.json();
-    userData.set(data.data);
+
+    const respData = await resp.json();
+
+    userData.set(respData.data);
 
     const classRoom = {
-      className: data.data.className,
-      classId: data.data.classId,
+      className: respData.data.className,
+      classId: respData.data.classId,
     };
     currentClass.set(classRoom);
-
   }
 
-  //Get posts for the students class
   async function getPosts() {
-    const response = await fetch("MYURL/api/posts/" + $currentClass.classId, {
+    const resp = await fetch("MYURL/api/posts/" + $currentClass.classId, {
       credentials: "include",
     });
-    const data = await response.json();
-    posts.set(data.data);
 
+    const respData = await resp.json();
+
+    posts.set(respData.data);
   }
 
   function handleFormOpen() {
@@ -90,28 +92,24 @@
       classId: classId,
     };
 
-    try {
-      await fetch("MYURL/api/posts", {
-        method: "POST",
-        body: JSON.stringify(post),
-        headers: { "Content-type": "application/json; charset=UTF-8" },
-        credentials: "include",
-      })
-        .then((response) => response.json())
-        .then((responseText) => {
-          if (responseText.success) {
-            toasts.success("Dit opslag er nu oprettet");
-            getPosts();
+    await fetch("MYURL/api/posts", {
+      method: "POST",
+      body: JSON.stringify(post),
+      headers: { "Content-type": "application/json; charset=UTF-8" },
+      credentials: "include",
+    })
+      .then((response) => response.json())
+      .then((responseText) => {
+        if (responseText.success) {
+          toasts.success("Dit opslag er nu oprettet");
+          getPosts();
 
-            title.value = "";
-            content.value = "";
-          } else {
-            toasts.error("Der skete en fejl");
-          }
-        });
-    } catch (e) {
-      toasts.error("Der skete en fejl");
-    }
+          title.value = "";
+          content.value = "";
+        } else {
+          toasts.error("Der skete en fejl");
+        }
+      });
   }
 </script>
 
