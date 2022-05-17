@@ -15,7 +15,7 @@ app.use(helmet());
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://prettyintra.netlify.app",
+    origin: "http://localhost:8080",
     credentials: true,
   })
 );
